@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Adina - Business & Finance React Template</title>
+
+    <!-- Styles -->
+    <link href="assets/css/collection.css" rel="stylesheet" />
+    <link href="assets/css/custom.css" rel="stylesheet" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500%7CLato:300,400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Scripts -->
+    <script src="assets/js/other.js"></script>
+    <script src="assets/js/custom.js"></script>
+  </head>
+
+  <body data-spy="scroll" data-target=".sidebar" data-offset="200">
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-boxed sidebar-dark">
+      <ul class="nav sidenav dropable">
+        <li>
+          <a href="#getting_started" title="Setup Development Envrionment"
+            >Setup Development Environment</a
+          >
+        </li>
+        <li><a href="#introduction" title="Introduction">Introduction</a></li>
+        <li><a href="#documenter_cover">Pages and Components Info</a></li>
+        <li><a href="#dependencies" title="Dependencies">Dependencies</a></li>
+        <li><a href="#fonts_used" title="Fonts">Fonts</a></li>
+        <li><a href="#icons" title="Fonts">Icons</a></li>
+        <li><a href="#deploy" title="Credits">Deploy</a></li>
+        <li><a href="#credits" title="Credits">Credits</a></li>
+        <li><a href="#supports" title="Support">Support</a></li>
+      </ul>
+    </aside>
+    <!-- END Sidebar -->
+
+    <header class="site-header navbar-transparent">
+      <!-- Banner -->
+      <div class="banner auto-size" style="background-color: #fafafa">
+        <div class="container-fluid">
+          <h1><strong>Adina - Documentation</strong></h1>
+          <ul>
+            <li>Template Name: Adina</li>
+            <li>Created: Oct 27, 2024</li>
+            <li>Version: 1.0.0</li>
+            <li>
+              Author:
+              <a target="_blank" href="https://themeforest.net/user/themedox">
+                ThemeDox
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- END Banner -->
+    </header>
+
+    <main class="container-fluid">
+      <!-- Main content -->
+      <article class="main-content" role="main">
+        <section id="getting_started">
+          <div class="page-header">
+            <h3>Setup Development Environment</h3>
+          </div>
+          <p>
+            In order to kickstart the development of your web app with Adina,
+            the very first thing you need to do is to setup a react development
+            environment.
+          </p>
+          <p>Following tools are needed to setup a react dev environment:</p>
+          <ul>
+            <li><b>Node JS</b></li>
+            <p>
+              NodeJS works as a node package manager behind the scene. It is
+              recommended to download and install the latest version of Node JS
+              from its official site
+              <a href="http://nodejs.org/" target="_blank"
+                >http://nodejs.org/</a
+              >
+            </p>
+          </ul>
+        </section>
+
+        <section id="introduction">
+          <div class="page-header">
+            <h3>Introduction</h3>
+          </div>
+          <p>
+            To install Adina on your local matchine, download the files from
+            Themeforest and unzip them to the local disk on your computer.
+            <br />Inside the extracted folder you will see two folders named
+            'adina_react_documentation' and 'adina_react'. <br />
+            Open 'adina_react' with a code editor like
+            <a href="https://code.visualstudio.com/">vscode</a>. And follow the
+            steps below-
+          </p>
+          <strong>For npm:</strong> <br />
+          <p>
+            Open vscode terminal <br />
+            Then run : <code class="language-markup">npm install</code> <br />
+            Then run : <code class="language-markup">npm run dev</code> <br />
+            Now in the browser go <a href="localhost:5173">localhost:5173</a>
+          </p>
+          <strong>If you want to use yarn:</strong>
+          <p>
+            Open vscode terminal <br />
+            Then run : <code class="language-markup">yarn install</code> <br />
+            Then run : <code class="language-markup">yarn dev</code> <br />
+            Now in the browser go <a href="localhost:5173">localhost:5173</a>
+          </p>
+        </section>
+
+        <section id="folderstructures">
+          <div class="page-header">
+            <h3>Introduction</h3>
+          </div>
+          <ul>
+            <!-- <li><strong>node_modules</strong> - </li> -->
+            <li>
+              <strong>public</strong> - All static files
+              <ul>
+                <li><strong>favicon.png</strong> - Favicon for the website.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>src</strong> - Content of all the react file
+              <ul>
+                <li>
+                  <strong>assets</strong> - All static assets like CSS, js,
+                  fonts and images
+                </li>
+                <li>
+                  <strong>components</strong> - All components with relevant CSS
+                </li>
+                <li><strong>hooks</strong> - All the re-usable hooks</li>
+                <li>
+                  <strong>layouts</strong> - All layout components for various
+                  pages views
+                </li>
+                <li><strong>lib</strong> - All helper functions</li>
+                <li><strong>pages</strong> - All page view components</li>
+                <li>
+                  <strong>App.jsx</strong> - Starting poing of react components
+                </li>
+                <li><strong>main.jsx</strong> - Entry poing of react app</li>
+              </ul>
+            </li>
+            <li><strong>eslint.config.js</strong> - Eslint configuration</li>
+            <li><strong>index.html</strong> - Static index page</li>
+            <li>
+              <strong>package.json</strong> - All packages have information
+            </li>
+            <li><strong>package-lock.json</strong> - All packages lock file</li>
+            <li><strong>vite.config.js</strong> - Vite configuration</li>
+            <li>
+              <strong>node_modules</strong> - After installing Adina, you can
+              see this folder, this folder content all installed packages.
+            </li>
+          </ul>
+        </section>
+
+        <section id="documenter_cover">
+          <div class="page-header">
+            <h3>Pages and Components Info</h3>
+          </div>
+
+          <div id="documenter_buttons"></div>
+          <ul>
+            <li>Home (<b>/pages/home/HomeOne.jsx</b>)</li>
+            <li>Home 02 (<b>/pages/home/HomeTwo.jsx</b>)</li>
+            <li>Home 03 (<b>/pages/home/HomeThree.jsx</b>)</li>
+            <li>Home 04 (<b>/pages/home/HomeFour.jsx</b>)</li>
+            <li>Home 05 (<b>/pages/home/HomeFive.jsx</b>)</li>
+            <li>About (<b>/pages/about/About.jsx</b>)</li>
+            <li>Blog (<b>/pages/blog/Blog.jsx</b>)</li>
+            <li>Blog Details (<b>/pages/blog/BlogDetails.jsx</b>)</li>
+            <li>Contact (<b>/pages/contact/Contact.jsx</b>)</li>
+            <li>Error (<b>/pages/error/ErrorPage.jsx</b>)</li>
+            <li>FAQ (<b>/pages/faq/Faq.jsx</b>)</li>
+            <li>Portfolio (<b>/pages/portfolio/Portfolio.jsx</b>)</li>
+            <li>
+              Portfolio Details (<b>/pages/portfolio/PortfolioDetails.jsx</b>)
+            </li>
+            <li>Service (<b>/pages/service/Service.jsx</b>)</li>
+            <li>Service Details (<b>/pages/service/ServiceDetails.jsx</b>)</li>
+            <li>Team (<b>/pages/team/Team.jsx</b>)</li>
+            <li>Team Details (<b>/pages/team/TeamDetails.jsx</b>)</li>
+          </ul>
+
+          <h6 style="margin-top: 20px"><strong>Template Features:</strong></h6>
+          <ul>
+            <li>ES6+</li>
+            <li>React JS 18.3.1+</li>
+            <li>React Router Dom 6.27.0+</li>
+            <li>Bootstrap 5.2.3+</li>
+          </ul>
+
+          <p></p>
+        </section>
+
+        <section id="dependencies">
+          <div class="page-header">
+            <h3>Dependencies</h3>
+          </div>
+          <p>
+            Here are the <strong>dependencies</strong> list which being used in
+            the Adina React Template:
+          </p>
+          <pre class="line-numbers">
+<code class="language-markup"> 
+  "dependencies": {
+    "@srexi/purecounterjs": "^1.5.0",
+    "bootstrap": "^5.2.3",
+    "classnames": "^2.5.1",
+    "imagesloaded": "^5.0.0",
+    "jquery": "^3.6.0",
+    "parallax-js": "^3.1.0",
+    "react": "^18.3.1",
+    "react-countup": "^6.5.3",
+    "react-dom": "^18.3.1",
+    "react-iframe": "^1.8.5",
+    "react-router-dom": "^6.27.0",
+    "react-slick": "^0.30.2",
+    "reactjs-popup": "^2.0.6",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^6.8.4",
+    "waypoints": "^4.0.0",
+    "wow.js": "^1.2.2",
+    "yet-another-react-lightbox": "^3.21.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "eslint": "^9.11.1",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "globals": "^15.9.0",
+    "vite": "^5.4.8"
+  }
+</code>
+                    </pre>
+        </section>
+
+        <section id="fonts_used">
+          <div class="page-header">
+            <h3>Fonts</h3>
+          </div>
+          <p>
+            By default, the template loads
+            <a href="https://fonts.google.com/specimen/Inter">Inter</a>,
+            <a href="https://fonts.google.com/specimen/Manrope">Manrope</a>
+            and
+            <a href="https://fonts.google.com/specimen/Poppins">Poppins</a>
+            font from Google Web Font Services, you can change the font with the
+            one that suits you best.
+          </p>
+          <p>
+            You will find the font code in the &quot;<strong
+              >src/assets/css/main.css</strong
+            >
+          </p>
+          <pre class="line-numbers">
+<code class="language-css">
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+</code>
+                    </pre>
+        </section>
+
+        <section id="icons">
+          <div class="page-header">
+            <h3>Icons</h3>
+          </div>
+          <p>
+            We use
+            <a href="https://fontawesome.com/">Font Awesome</a> package for
+            icon. <br />
+            To use <a href="https://fontawesome.com">Font Awesome</a>, go to
+            <a href="https://fontawesome.com/icons">Font Awesome</a> site,
+            search your icon, select react and use that icon class.
+          </p>
+        </section>
+
+        <section id="deploy">
+          <div class="page-header">
+            <h3>Deploy</h3>
+          </div>
+          <p>
+            For deploy first run the command
+            <code class="language-markup">npm run build</code> or
+            <code class="language-markup">yarn build</code> <br />
+            Now you will get a dist folder. <br />
+            Using an FTP Client (such as Filezilla or Total Commander), you will
+            need to upload all of the contents of the 'dist' folder to your
+            server.
+          </p>
+        </section>
+
+        <section id="credits">
+          <div class="page-header">
+            <h3>Credits</h3>
+          </div>
+
+          <strong>Packages</strong><br />
+
+          <a href="https://www.npmjs.com/package/react" target="_blank">react</a
+          ><br />
+          <a href="https://www.npmjs.com/package/react-dom" target="_blank"
+            >react-dom</a
+          ><br />
+          <a
+            href="https://www.npmjs.com/package/react-router-dom"
+            target="_blank"
+            >react-router-dom</a
+          ><br />
+          <a href="https://www.npmjs.com/package/bootstrap" target="_blank"
+            >Bootstrap</a
+          ><br />
+          <a href="https://www.npmjs.com/package/react-slick" target="_blank"
+            >react-slick</a
+          ><br />
+          <a href="https://www.npmjs.com/package/slick-carousel" target="_blank"
+            >slick-carousel</a
+          ><br />
+          <a href="https://www.npmjs.com/package/classnames" target="_blank"
+            >classnames</a
+          ><br />
+          <a href="https://www.npmjs.com/package/jquery" target="_blank"
+            >jquery</a
+          ><br />
+          <a
+            href="https://www.npmjs.com/package/react-countdown"
+            target="_blank"
+            >react-countdown</a
+          ><br />
+          <a href="https://www.npmjs.com/package/wow.js" target="_blank"
+            >wow.js</a
+          ><br />
+          <a
+            href="https://www.npmjs.com/package/@srexi/purecounterjs"
+            target="_blank"
+            >@srexi/purecounterjs</a
+          ><br />
+          <a href="https://www.npmjs.com/package/imagesloaded" target="_blank"
+            >imagesloaded</a
+          ><br />
+          <a href="https://www.npmjs.com/package/parallax-js" target="_blank"
+            >parallax-js</a
+          ><br />
+          <a href="https://www.npmjs.com/package/swiper" target="_blank"
+            >swiper</a
+          ><br />
+          <a
+            href="https://www.npmjs.com/package/yet-another-react-lightbox"
+            target="_blank"
+            >yet-another-react-lightbox</a
+          ><br />
+        </section>
+
+        <section id="supports">
+          <div class="page-header">
+            <h3>Support</h3>
+          </div>
+          <p>
+            If you have any questions, please use our profile contact form on
+            Envato (
+            <a target="_blank" href="https://themeforest.net/user/themedox"
+              >https://themeforest.net/user/themedox</a
+            >
+            ) Or direct email us on
+            <a href="mailto:habiburrahmankhan1211@gmail.com"
+              >habiburrahmankhan1211@gmail.com</a
+            >. <br />
+            We aim to answer all questions within <strong>2 days</strong> . In
+            some cases the waiting time can be extended to
+            <strong>4 days.</strong>
+          </p>
+        </section>
+      </article>
+      <!-- END Main content -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container-fluid">
+        <a id="scroll-up" href="#"><i class="fa fa-angle-up"></i></a>
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <p>
+              Copyright &copy; All right reserved by
+              <a href="https://themeforest.net/user/themedox" target="_new"
+                >ThemeDox</a
+              >
+            </p>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <ul class="footer-menu">
+              <li>
+                <a href="mailto:habiburrahmankhan1211@gmail.com">Contact us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- END Footer -->
+  </body>
+</html>
