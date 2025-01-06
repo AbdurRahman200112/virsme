@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 // import Swal from "sweetalert2";
 import "./Subscription.css"; // Create and copy your CSS here
 import { services } from "./services"; // Import services data from a separate file
+import Swal from "sweetalert2";
+
 
 export const Subscriptions = () => {
   const [step, setStep] = useState(1);
@@ -13,6 +15,22 @@ export const Subscriptions = () => {
     window.scrollTo(0, 0);
   }, [step]);
 
+  const businessSizes = [
+    { label: "Startup", hours: 5 },
+    { label: "Small Business", hours: 10 },
+    { label: "Medium Business", hours: 15 },
+    { label: "Enterprise", hours: 20 },
+  ];
+  
+  const [selectedBusinessSize, setSelectedBusinessSize] = useState(null);
+  
+  const handleBusinessSizeClick = (size) => {
+    setSelectedBusinessSize(size);
+    setSelectedServices((prev) =>
+      prev.map((s) => ({ ...s, hours: size.hours }))
+    );
+  };
+  
   const goToStep = (nextStep, previousStep) => {
     if (nextStep === 2 && selectedServices.length === 0) {
       Swal.fire("Required!", "Select at least one service to move forward", "error");
@@ -100,7 +118,7 @@ export const Subscriptions = () => {
       <div className="progress">
         <div
           className="progress-bar"
-          style={{ width: `${step * 25}%` }}
+          style={{ width: `${(step / 4) * 100}%` }}
         ></div>
       </div>
       <form onSubmit={submitForm}>
@@ -126,18 +144,40 @@ export const Subscriptions = () => {
         {step === 2 && (
           <div id="step-2">
             <h1>Select Business Size</h1>
+            <div>
+              {businessSizes.map((size) => (
+                <button
+                type="button"
+                  key={size.label}
+                  className={`business-card ${
+                    selectedBusinessSize?.label === size.label ? "active" : ""
+                  }`}
+                  onClick={() => handleBusinessSizeClick(size)}
+                >
+                  <h4>{size.label}</h4>
+                  <p>{size.hours} Hours</p>
+                </button>
+              ))}
+            </div>
             <button type="button" onClick={() => goToStep(1, 2)}>
               Back
             </button>
-            <button type="button" onClick={() => goToStep(3, 2)}>
+            <button
+              type="button"
+              onClick={() => {
+                if (selectedBusinessSize) goToStep(3, 2);
+                else Swal.fire("Required!", "Select a business size", "error");
+              }}
+            >
               Next
             </button>
           </div>
         )}
+
         {step === 3 && (
           <div id="step-3">
             <h1>Summary</h1>
-            <table>
+            <table className="styled-table">
               <thead>
                 <tr>
                   <th>Service</th>
@@ -157,6 +197,7 @@ export const Subscriptions = () => {
             </button>
           </div>
         )}
+
         {step === 4 && (
           <div id="step-4">
             <h1>Confirmation & Additional Info</h1>

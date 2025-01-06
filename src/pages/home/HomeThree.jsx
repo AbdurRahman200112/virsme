@@ -1,46 +1,59 @@
 import React from "react";
 import { Layout } from "../../layouts/Layout";
 import { HeroThree } from "../../components/hero_sections/HeroThree";
-import { ServiceAreaThree } from "../../components/service/ServiceAreaThree";
-import { AboutThree } from "../../components/about/AboutThree";
-import { VideoAreaTwo } from "../../components/video_areas/VideoAreaTwo";
+import { ServiceAreaOne } from "../../components/service/ServiceAreaOne";
+import { AboutTwo } from "../../components/about/AboutTwo";
+import { AwardsOne } from "../../components/awards/AwardsOne";
+import { VideoAreaFour } from "../../components/video_areas/VideoAreaFour";
 import { ExperienceOne } from "../../components/experience/ExperienceOne";
+import { PortfolioOne } from "../../components/portfolio/PortfolioOne";
 import { FaqOne } from "../../components/faq/FaqOne";
-import { TestimonialThree } from "../../components/testimonials/TestimonialThree";
+import { TestimonialTwo } from "../../components/testimonials/TestimonialTwo";
 import { PricingOne } from "../../components/pricing/PricingOne";
-import { BusinessOne } from "../../components/business/BusinessOne";
+import { ImpressionOne } from "../../components/impressions/ImpressionOne";
 import { ContactTwo } from "../../components/contact/ContactTwo";
+import { TeamOne } from "../../components/teams/TeamOne";
 
 export const HomeThree = () => {
   return (
-    <Layout header={3} footer={3}>
+    <Layout header={3} footer={2}>
       {/* hero */}
       <HeroThree />
 
-      {/* service area */}
-      <ServiceAreaThree />
+       {/* about section */}
+        <AboutTwo />
 
-      {/* about */}
-      <AboutThree />
+      {/* service area */}
+      <ServiceAreaOne />
+
+      {/* awards section */}
+      <AwardsOne />
 
       {/* video */}
-      <VideoAreaTwo />
+      <VideoAreaFour />
+
+      {/* portfolio section */}
+      <PortfolioOne />
+
 
       {/* experience */}
       <ExperienceOne />
+      
+      {/* impression */}
+      <ImpressionOne />
 
       {/* faq */}
       <FaqOne />
 
       {/* testimonial */}
-      <TestimonialThree />
+      <TestimonialTwo />
 
       {/* pricing */}
       <PricingOne />
 
-      {/* business */}
-      <BusinessOne />
-
+      {/* team section */}
+      <TeamOne />
+      
       {/* contact */}
       <ContactTwo />
     </Layout>
