@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import Swal from "sweetalert2";
-// import "./Subscription.css"; // Create and copy your CSS here
-// import { services } from "./services"; // Import services data from a separate file
+import "./Subscription.css"; // Create and copy your CSS here
+import { services } from "./services"; // Import services data from a separate file
 
 export const Subscriptions = () => {
   const [step, setStep] = useState(1);
