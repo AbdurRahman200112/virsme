@@ -85,11 +85,6 @@ export const HeaderTwo = () => {
                         <Link className="mr-30" to="/">
                           <img src={LOGO} alt="logo" />
                         </Link>
-                        <div className="td-header-btn d-none d-xl-block">
-                          <a className="td-btn-4" href="#">
-                            We're hearing!
-                          </a>
-                        </div>
                       </div>
                     </div>
 

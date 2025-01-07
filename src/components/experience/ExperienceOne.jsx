@@ -8,7 +8,7 @@ import thumbImage4 from "../../assets/img/expreance/04.jpg";
 export const ExperienceOne = () => {
   return (
     <div className="td-expreance-area">
-      <div className="td-expreance-top">
+      <div className="td-expreance-top pb-200">
         <div className="container">
           <div className="row">
             <div className="col-12">

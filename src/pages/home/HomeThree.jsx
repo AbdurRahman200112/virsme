@@ -16,7 +16,7 @@ import { TeamOne } from "../../components/teams/TeamOne";
 
 export const HomeThree = () => {
   return (
-    <Layout header={3} footer={2}>
+    <Layout header={2} footer={2}>
       {/* hero */}
       <HeroThree />
 
@@ -29,15 +29,12 @@ export const HomeThree = () => {
       {/* awards section */}
       <AwardsOne />
 
-      {/* video */}
-      <VideoAreaFour />
-
       {/* portfolio section */}
       <PortfolioOne />
 
 
       {/* experience */}
-      <ExperienceOne />
+      {/* <ExperienceOne /> */}
       
       {/* impression */}
       <ImpressionOne />
@@ -55,7 +52,7 @@ export const HomeThree = () => {
       <TeamOne />
       
       {/* contact */}
-      <ContactTwo />
+      {/* <ContactTwo /> */}
     </Layout>
   );
 };

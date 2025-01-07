@@ -610,3 +610,7 @@ body {
 .detailsForm input{
     color: unset !important;
 }
+
+.stepsForm h1{
+    font-size: 55px;
+}
