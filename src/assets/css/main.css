@@ -5790,7 +5790,7 @@ input[type="color"] {
   -webkit-text-fill-color: transparent;
 }
 .td-services-bg-text h2{
-  font-size: 200px !important;
+  font-size: 100px !important;
 }
 @media only screen and (min-width: 1600px) and (max-width: 1700px),
   only screen and (min-width: 1400px) and (max-width: 1599px) {
@@ -5823,6 +5823,11 @@ input[type="color"] {
   (max-width: 575px) {
   .td-testimonial-bg-text h2 {
     font-size: 100px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .td-services-bg-text h2{
+    font-size: 75px !important;
   }
 }
 .td-testimonial-content p {
@@ -10336,7 +10341,7 @@ input[type="color"] {
 }
 .td-portfolio-navigation {
   border-top: 1px solid var(--td-common-line);
-  padding-top: 40px;
+  padding-top: 10px;
 }
 .td-portfolio-more-icon {
   border: 1px solid var(--td-common-line);
@@ -11586,6 +11591,7 @@ input[type="color"] {
   transition: all 0.3s 0s ease-out;
   opacity: 0;
   visibility: hidden;
+  background-size: cover;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px),
   (max-width: 575px) {
@@ -11659,6 +11665,17 @@ input[type="color"] {
   opacity: 0;
   visibility: hidden;
 }
+@media screen and (max-width: 991.98px) {
+  .td-expreance-btn-wrap p{
+    display: none;
+  }
+  .td-expreance-btn-wrap{
+    flex-direction: column;
+  }
+  .td-expreance-item{
+    padding: unset;
+  }
+}
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .td-expreance-btn-wrap p {
     margin-left: 20px;
@@ -11679,10 +11696,12 @@ input[type="color"] {
 .td-expreance-content-wrap:hover .td-expreance-thumb {
   opacity: 1;
   visibility: visible;
+  
 }
 .td-expreance-content-wrap:hover .td-expreance-title-pre {
   opacity: 1;
   visibility: visible;
+  
 }
 .td-expreance-content-wrap:hover .td-expreance-btn button {
   opacity: 1;

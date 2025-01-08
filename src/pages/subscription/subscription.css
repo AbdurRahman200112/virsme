@@ -4,7 +4,7 @@ body {
 
 .step-container h1 {
     font-weight: 900;
-    font-size: 45px;
+    font-size: 65px;
     letter-spacing: 6px;
     font-family: cursive;
 }
@@ -12,13 +12,12 @@ body {
 .step-container h1::after {
     content: "";
     display: block;
-    width: 25%;
+    width: 35%;
     height: 50px;
-    background: url('../../img/headingline.png') center center no-repeat;
+    background: url('../../assets/img/service/service2/headingline.png') center center no-repeat;
     background-size: cover;
     position: relative;
-    left: 35%;
-    top: -15px;
+    left: 30%;
 }
 
 .description {
@@ -28,29 +27,29 @@ body {
     text-align: justify;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 540px) {
     .step-container h1 {
-        font-size: 38px;
+        font-size: 45px;
     }
 
-    .step-container h1::after {
+    /* .step-container h1::after {
         width: 40%;
         left: 25%;
         top: -10px;
 
-    }
+    } */
 }
 
 @media screen and (max-width: 450px) {
-    .step-container h1 {
-        font-size: 30px;
-    }
+    /* .step-container h1 {
+        font-size: 45px;
+    } */
 
-    .step-container h1::after {
+    /* .step-container h1::after {
         width: 60%;
         left: 20%;
         top: -10px;
-    }
+    } */
 }
 
 .stepsForm .bg-cover {
@@ -77,10 +76,16 @@ body {
     height: 5px !important;
 }
 
-.step-container {
-    display: none;
-}
+@media screen and (min-width: 576px) {
+    .step-container {
 
+        margin-top: -20px !important;
+    }    
+}
+.step-container {
+    /* display: none; */
+    margin-top: 40px;
+}  
 .step-container.active {
     display: block;
 }
@@ -609,8 +614,4 @@ body {
 
 .detailsForm input{
     color: unset !important;
-}
-
-.stepsForm h1{
-    font-size: 55px;
 }

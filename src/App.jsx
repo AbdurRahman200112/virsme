@@ -23,6 +23,7 @@ import { Service } from "./pages/service/Service";
 import { ServiceDetails } from "./pages/service/ServiceDetails";
 import { Contact } from "./pages/contact/Contact";
 import { Subscriptions } from "./pages/subscription/subscription";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   useWow();
