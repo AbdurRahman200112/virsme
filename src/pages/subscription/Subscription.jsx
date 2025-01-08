@@ -122,7 +122,7 @@ export const Subscriptions = () => {
     setSelectedServices((prev) => prev.filter((s) => s.name !== serviceName));
   };
 
-  const submitForm = () => {
+  const submitForm = (e) => {
     e.preventDefault();
     if (!businessName || !email) {
       Swal.fire("Required!", "Please fill out the required fields", "error");
@@ -700,23 +700,26 @@ export const Subscriptions = () => {
         {step === 4 && (
           <div id="step-4" className="step-container container">
             <h1>Confirmation & Additional Info</h1>
-            <div>
+            <div className="form-group">
               <label>Business Name</label>
               <input
                 type="text"
+                className="form-control"
                 value={businessName}
                 onChange={(e) => setBusinessName(e.target.value)}
               />
             </div>
-            <div>
+            <div className="form-group">
               <label>Contact Email</label>
               <input
                 type="email"
+                className="form-control"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            {/* navigation */}
+
+            {/* Navigation */}
             <div className="td-portfolio-navigation pb-110">
               <div className="row align-items-center">
                 <div className="col-sm-5 mb-30">
@@ -731,11 +734,10 @@ export const Subscriptions = () => {
                     </Link>
                   </div>
                 </div>
-                <div className="col-sm-2 mb-30">
-                </div>
+                <div className="col-sm-2 mb-30"></div>
                 <div className="col-sm-5 mb-30">
                   <div className="td-portfolio-more-left text-right">
-                    <Link to="#" onClick={submitForm()}>
+                    <Link to="#" onClick={(e) => { e.preventDefault(); submitForm(e); }}>
                       <span className="td-portfolio-more-content mr-20">
                         Next
                       </span>
@@ -749,6 +751,7 @@ export const Subscriptions = () => {
             </div>
           </div>
         )}
+
       </form>
     </div>
   );
