@@ -1,20 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import Swal from "sweetalert2";
 import "./Subscription.css"; // Create and copy your CSS here
 import Swal from "sweetalert2";
-import bgImage from "../../assets/img/expreance/bg2.jpg";
 import thumbImage1 from "../../assets/img/expreance/01.jpg";
 import thumbImage2 from "../../assets/img/expreance/02.jpg";
 import thumbImage3 from "../../assets/img/expreance/03.jpg";
 import thumbImage4 from "../../assets/img/expreance/04.jpg";
+import startup from "../../assets/img/service/service2/startup.png";
+import smallBusiness from "../../assets/img/service/service2/sbusiness.png";
+import mediumBusiness from "../../assets/img/service/service2/mbusiness.png";
+import largeBusiness from "../../assets/img/service/service2/lbusiness.png";
+import startupW from "../../assets/img/service/service2/startup-w.png";
+import smallBusinessW from "../../assets/img/service/service2/sbusiness-w.png";
+import mediumBusinessW from "../../assets/img/service/service2/mbusiness-w.png";
+import largeBusinessW from "../../assets/img/service/service2/lbusiness-w.png";
 
-export const services = [
+ const services = [
   {no:'01', name: "Accounting & Finance", price: 500, img: thumbImage1 },
   {no:'02', name: "Software Development & Maintenance", price: 700, img: thumbImage2 },
   {no:'03', name: "Human Resource", price: 300, img: thumbImage3 },
   {no:'04', name: "Content Creation & Branding", price: 600, img: thumbImage4 },
   {no:'05', name: "IT Support", price: 400, img: thumbImage3 },
+];
+const businessSizes = [
+  { label: "Startup", hours: 5, icon_w: startupW, icon: startup  },
+  { label: "Small Business", hours: 10, icon_w: smallBusinessW, icon: smallBusiness },
+  { label: "Medium Business", hours: 15, icon_w: mediumBusinessW, icon: mediumBusiness },
+  { label: "Enterprise", hours: 20, icon_w: largeBusinessW, icon: largeBusiness },
 ];
 
 export const Subscriptions = () => {
@@ -22,17 +34,12 @@ export const Subscriptions = () => {
   const [selectedServices, setSelectedServices] = useState([]);
   const [businessName, setBusinessName] = useState("");
   const [email, setEmail] = useState("");
-
+  
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [step]);
 
-  const businessSizes = [
-    { label: "Startup", hours: 5 },
-    { label: "Small Business", hours: 10 },
-    { label: "Medium Business", hours: 15 },
-    { label: "Enterprise", hours: 20 },
-  ];
 
   const [selectedBusinessSize, setSelectedBusinessSize] = useState(null);
 
@@ -545,9 +552,8 @@ export const Subscriptions = () => {
         {step === 2 && (
           <div id="step-2" className="container">
             <h1 className="text-center">Select Business Size</h1>
-            <div className="pt-70 pb-60">
-              {/* {businessSizes.map((size) => (
-                <button
+            <div className="row pt-70 pb-60">
+                 {/* <button
                   type="button"
                   key={size.label}
                   className={`business-card ${selectedBusinessSize?.label === size.label ? "active" : ""
@@ -556,8 +562,49 @@ export const Subscriptions = () => {
                 >
                   <h4>{size.label}</h4>
                   <p>{size.hours} Hours</p>
-                </button>
-              ))} */}
+                </button> */}
+                <div className="col-lg-12">
+                  <div className="price-tab-content">
+                    <div
+                        className="tab-pane fade show"
+                        // id="nav-profile"
+                        role="tabpanel"
+                        aria-labelledby="nav-profile-tab"
+                        tabIndex="0"
+                        >
+                        <div className="row">
+                        {businessSizes.map((size) => (
+                          <div className="col-xl-3 col-lg-6 col-md-6 mb-30">
+                            <div className={`td-pricing-wrap business-card ${selectedBusinessSize?.label === size.label ? "active td-pricing-wrap-2" : ""}`}
+                                key={size.label}>
+                              <div className="td-pricing-content text-center">
+                                <div className="td-pricing-icon mb-40">
+                                  <span>
+                                    <img src={selectedBusinessSize?.label === size.label ? size.icon_w : size.icon} alt="" width="100px"/>
+                                  </span>
+                                </div>
+                                <div className="td-pricing-tag mb-30">
+                                  <h5 className="mb-10">{size.label}</h5>
+                                  <span>{size.hours} Hours</span>
+                                </div>
+                                <div className="td-pricing-price mb-50">
+                                  <h2 className="mb-30">$99<span>/Hour</span></h2>
+                                  <p>
+                                    Plus Anual Financial Audit Free for <br />
+                                    One-Time
+                                  </p>
+                                </div>
+                                <div className="td-pricing-btn td-pricing-btn-2">
+                                  <button type="button" onClick={() => handleBusinessSizeClick(size)}>{selectedBusinessSize?.label === size.label ? "Selected" : "Select"}</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                        </div>
+                    </div>
+                  </div>
+                </div>
             </div>
             {/* navigation */}
             <div className="td-portfolio-navigation pb-110">
