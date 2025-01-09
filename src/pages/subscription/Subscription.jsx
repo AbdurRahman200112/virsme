@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef  } from "react";
+import { styled } from "@mui/material/styles";
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton,} from "@mui/material";
+import { tableCellClasses } from "@mui/material/TableCell";
+import TextField from '@mui/material/TextField';
 import { Link } from "react-router-dom";
-import "./Subscription.css"; // Create and copy your CSS here
-import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
 import Swal from "sweetalert2";
+import gsap from "gsap";
+import "./Subscription.css"; 
+import CancelIcon from "@mui/icons-material/Cancel";
 import thumbImage1 from "../../assets/img/expreance/01.jpg";
 import thumbImage2 from "../../assets/img/expreance/02.jpg";
 import thumbImage3 from "../../assets/img/expreance/03.jpg";
@@ -16,7 +20,6 @@ import startupW from "../../assets/img/service/service2/startup-w.png";
 import smallBusinessW from "../../assets/img/service/service2/sbusiness-w.png";
 import mediumBusinessW from "../../assets/img/service/service2/mbusiness-w.png";
 import largeBusinessW from "../../assets/img/service/service2/lbusiness-w.png";
-
  const services = [
   {no:'01', name: "Accounting & Finance", price: 500, img: thumbImage1 },
   {no:'02', name: "Software Development & Maintenance", price: 700, img: thumbImage2 },
@@ -24,6 +27,7 @@ import largeBusinessW from "../../assets/img/service/service2/lbusiness-w.png";
   {no:'04', name: "Content Creation & Branding", price: 600, img: thumbImage4 },
   {no:'05', name: "IT Support", price: 400, img: thumbImage3 },
 ];
+
 const businessSizes = [
   { label: "Startup", hours: 5, icon_w: startupW, icon: startup  },
   { label: "Small Business", hours: 10, icon_w: smallBusinessW, icon: smallBusiness },
@@ -38,11 +42,10 @@ export const Subscriptions = () => {
   const [businessName, setBusinessName] = useState("");
   const [email, setEmail] = useState("");
   
-  
+  const selectedServicesBox = useRef(null);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [step]);
-
 
   const handleBusinessSizeClick = (size) => {
     setSelectedBusinessSize(size);
@@ -52,74 +55,190 @@ export const Subscriptions = () => {
   };
 
   const goToStep = (nextStep, previousStep) => {
-    if (nextStep === 2 && previousStep === 1 && selectedServices.length === 0) {
-      Swal.fire("Required!", "Select at least one service to move forward", "error");
-      return;
+    if (nextStep === 2 && previousStep === 1) {
+      if(selectedServices.length === 0){
+        Swal.fire("Required!", "Select at least one service to move forward", "error");
+        return;
+      }
     }
 
-    if (nextStep === 4 && selectedServices.length === 0) {
-      Swal.fire("Required!", "Select at least one service to move forward", "error");
-      return;
+    if (nextStep === 3 && previousStep === 2) {
+      if (!selectedBusinessSize) {
+        Swal.fire("Required!", "Please select a business size to continue", "error");
+        return;
+      }
+    }
+    
+    if (nextStep === 4 && previousStep===3) {
+      if(selectedServices.length === 0){
+
+        Swal.fire("Required!", "Select at least one service to move forward", "error");
+        return;
+      }
     }
     if (nextStep === 2 && previousStep === 3 && selectedServices.length === 0) {
-      Swal.fire("Required!", "Select at least one service to move forward", "error");
+      goToStep(1);
       return;
     }
 
     setStep(nextStep);
   };
 
-  const handleServiceClick = (service) => {
-    setSelectedServices((prev) => {
-      const isSelected = prev.some((s) => s.name === service.name);
-      if (isSelected) {
-        return prev.filter((s) => s.name !== service.name);
-      } else {
-        return [...prev, { ...service, hours: 1 }];
-      }
+  const handleServiceClick = (service, index) => {
+    const serviceElement = document.getElementById(`service-${index}`);
+    const targetBox = selectedServicesBox.current;
+
+    if (selectedServices.some((s) => s.name === service.name)) {
+      Swal.fire("Service already selected!", "", "warning");
+      return;
+    }
+
+    // Clone service element
+    const clone = serviceElement.cloneNode(true);
+    document.body.appendChild(clone);
+
+    // Get positions for animation
+    const rect = serviceElement.getBoundingClientRect();
+    const targetRect = targetBox.getBoundingClientRect();
+
+    // Set initial clone styles
+    gsap.set(clone, {
+      position: "absolute",
+      left: rect.left,
+      top: rect.top,
+      width: rect.width,
+      height: rect.height,
+      zIndex: 1000,
+    });
+
+    // Animate clone to the selected services box
+    gsap.to(clone, {
+      x: targetRect.left - rect.left + 20,
+      y: targetRect.top - rect.top + 20,
+      scale: 0.6,
+      opacity: 0.8,
+      duration: 0.8,
+      ease: "power3.out",
+      onComplete: () => {
+        clone.remove();
+        setSelectedServices((prev) => [...prev, { ...service }]);
+      },
+    });
+
+    // Hide original service element
+    gsap.to(serviceElement, {
+      opacity: 0,
+      duration: 0.5,
+      onComplete: () => {
+        serviceElement.style.visibility = "hidden";
+      },
     });
   };
 
-  // Render summary
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: "#0854A7",
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 16,
+    },
+  }));
+  
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  }));
+
   const renderSummary = () => {
     return selectedServices.map((service) => (
-      <tr key={service.name}>
-        <td>{service.name}</td>
-        <td>${service.price.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
-        <td>
-          <input
+      <StyledTableRow key={service.name}>
+        <StyledTableCell>{service.name}</StyledTableCell>
+        <StyledTableCell>${service.price}</StyledTableCell>
+        <StyledTableCell>
+          {/* <input
             type="number"
-            className="form-control"
             value={service.hours}
             min="1"
-            onChange={(e) => updateServiceHours(service.name, e.target.value)}
+            onChange={(e) => handleHoursChange(service.name, e.target.value)}
+          /> */}
+          <TextField
+            id="standard-number"
+            type="number"
+            variant="standard"
+            value={service.hours}
+            min="1"
+            onChange={(e) => handleHoursChange(service.name, e.target.value)}
           />
-        </td>
-        <td>${(service.price * service.hours).toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
-        <td>
-          <Button
-            variant="danger"
-            size="sm"
-            onClick={() => removeService(service.name)}
-          >
-            Remove
-          </Button>
-        </td>
-      </tr>
+        </StyledTableCell>
+        <StyledTableCell>${(service.price * service.hours).toFixed(2)}</StyledTableCell>
+        <StyledTableCell>
+          <IconButton onClick={() => deleteServiceRow(service.name)}>
+            <CancelIcon  />
+          </IconButton>
+        </StyledTableCell>
+      </StyledTableRow>
+    ));
+  };
+
+  const renderUnselectedServices = () => {
+    const unselectedServices = services.filter(
+      (service) => !selectedServices.some((selected) => selected.name === service.name)
+    );
+  
+    return unselectedServices.map((service) => (
+      <li key={service.name} className="list-inline-item">
+        <button
+          className="btn btn-secondary"
+          onClick={() => handleServiceClick(service)}
+        >
+          <i className="fa fa-plus"></i> {service.name}
+        </button>
+      </li>
     ));
   };
   
-
-  const updateServiceHours = (serviceName, hours) => {
-    setSelectedServices((prev) =>
-      prev.map((s) =>
-        s.name === serviceName ? { ...s, hours: parseInt(hours || 0, 10) } : s
-      )
-    );
+  const deleteServiceRow = (serviceName) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You can add this service again!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedServices = selectedServices.filter((s) => s.name !== serviceName);
+        setSelectedServices(updatedServices); 
+  
+        Swal.fire({
+          title: "Deleted!",
+          text: "The service has been removed.",
+          icon: "success",
+          confirmButtonColor: "#3085d6",
+        });
+      }
+    });
+  };
+  
+  const updateTotal = () => {
+    const totalHours = selectedServices.reduce((sum, service) => sum + service.hours, 0);
+    const totalCost = selectedServices.reduce((sum, service) => sum + service.price * service.hours, 0);
+    return { totalHours, totalCost };
   };
 
-  const removeService = (serviceName) => {
-    setSelectedServices((prev) => prev.filter((s) => s.name !== serviceName));
+  const handleHoursChange = (serviceName, newHours) => {
+    const updatedServices = selectedServices.map((service) =>
+      service.name === serviceName
+        ? { ...service, hours: Math.max(1, parseInt(newHours) || 1) }
+        : service
+    );
+    setSelectedServices(updatedServices);
   };
 
   const submitForm = (e) => {
@@ -166,17 +285,18 @@ export const Subscriptions = () => {
             </div>
             <h1 className="text-center">Select Services</h1>
             <div className="pt-50 pb-60">
+              
               <div className="row">
-              {services.map((service) => (
+              {services.map((service, index) => (
                 <div
                 className="col-lg-12  wow fadeInUp"
                 data-wow-delay=".3s"
                 data-wow-duration="1s"
                 key={service.name}
+                id={`service-${index}`}
               >
                 <div className="td-expreance-content-wrap p-relative">
                   <div className="td-expreance-thumb" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(${service.img})`}}>
-                    {/* <img className="w-100" src={service.img} alt={service.name} /> */}
                   </div>
                   <div className="td-expreance-item" >
                     <div className="row">
@@ -189,7 +309,7 @@ export const Subscriptions = () => {
                             <span>{service.no}</span>
                             <button
                             type="button"
-                            onClick={() => handleServiceClick(service)}
+                            onClick={() => handleServiceClick(service, index)}
                             className="text-start"
                           >
                             {service.name}
@@ -206,7 +326,7 @@ export const Subscriptions = () => {
                             when an unknow.
                           </p>
                           <div className="td-expreance-btn">
-                            <button type="button" onClick={() => handleServiceClick(service)}>
+                            <button type="button" onClick={() => handleServiceClick(service, index)}>
                               <svg
                                 width="50"
                                 height="50"
@@ -237,6 +357,26 @@ export const Subscriptions = () => {
                 </div>
               ))}
               </div>
+              {/* Selected Services Box */}
+              <div className="col-lg-4">
+                <h3>Selected Services</h3>
+                <div
+                  ref={selectedServicesBox}
+                  className="selected-services-container"
+                  style={{
+                    minHeight: "200px",
+                    border: "1px dashed #ccc",
+                    padding: "10px",
+                    backgroundColor: "#e9ecef",
+                  }}
+                >
+            {selectedServices.map((service, index) => (
+              <div key={index} className="selected-service">
+                {service.name}
+              </div>
+            ))}
+                </div>
+              </div>
             </div>
 
             {/* navigation */}
@@ -261,307 +401,6 @@ export const Subscriptions = () => {
                 </div>
               </div>
             </div>
-
-
-            {/* <div className="container">
-              <div className="row">
-                <div
-                  className="col-lg-12 wow fadeInUp"
-                  data-wow-delay=".3s"
-                  data-wow-duration="1s"
-                >
-                  <div className="td-expreance-content-wrap p-relative">
-                    <div className="td-expreance-thumb">
-                      <img className="w-100" src={thumbImage2} alt="thumb" />
-                    </div>
-                    <div className="td-expreance-item">
-                      <div className="row">
-                        <div className="col-lg-6 mb-30">
-                          <div className="td-expreance-content">
-                            <p className="td-expreance-title-pre">
-                              Business, Finance <span>/</span> June 21, 2024
-                            </p>
-                            <h3 className="td-expreance-title">
-                              <span>01</span>Startup investment
-                            </h3>
-                          </div>
-                        </div>
-                        <div className="col-lg-6 mb-30">
-                          <div className="td-expreance-btn-wrap">
-                            <p>
-                              Lorem Ipsum is simply dummy text of the printing and
-                              typesetting industry. Lorem Ipsum has been the
-                              industry's standard dummy text ever since the 1500s,
-                              when an unknow.
-                            </p>
-                            <div className="td-expreance-btn">
-                              <a href="#">
-                                <svg
-                                  width="50"
-                                  height="50"
-                                  viewBox="0 0 50 50"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M25 50C38.8235 50 50 38.8235 50 25C50 11.1765 38.8235 0 25 0C11.1765 0 0 11.1765 0 25C0 38.8235 11.1765 50 25 50ZM25 2.94118C37.2059 2.94118 47.0588 12.7941 47.0588 25C47.0588 37.2059 37.2059 47.0588 25 47.0588C12.7941 47.0588 2.94118 37.2059 2.94118 25C2.94118 12.7941 12.7941 2.94118 25 2.94118Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    d="M24.5585 39.2638L38.8232 24.9991L24.5585 10.7344L22.4997 12.7932L34.7056 24.9991L22.4997 37.205L24.5585 39.2638Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    d="M36.7646 23.5293H11.7646V26.4705H36.7646V23.5293Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-lg-12 wow fadeInUp"
-                  data-wow-delay=".4s"
-                  data-wow-duration="1s"
-                >
-                  <div className="td-expreance-content-wrap p-relative">
-                    <div className="td-expreance-thumb">
-                      <img className="w-100" src={thumbImage1} alt="thumb" />
-                    </div>
-                    <div className="td-expreance-item">
-                      <div className="row">
-                        <div className="col-lg-6 mb-30">
-                          <div className="td-expreance-content">
-                            <p className="td-expreance-title-pre">
-                              Business, Finance <span>/</span> June 21, 2024
-                            </p>
-                            <h3 className="td-expreance-title">
-                              <span>02</span>Cryptocurrency investment
-                            </h3>
-                          </div>
-                        </div>
-                        <div className="col-lg-6 mb-30">
-                          <div className="td-expreance-btn-wrap">
-                            <p>
-                              Lorem Ipsum is simply dummy text of the printing and
-                              typesetting industry. Lorem Ipsum has been the
-                              industry's standard dummy text ever since the 1500s,
-                              when an unknow.
-                            </p>
-                            <div className="td-expreance-btn">
-                              <a href="#">
-                                <svg
-                                  width="50"
-                                  height="50"
-                                  viewBox="0 0 50 50"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M25 50C38.8235 50 50 38.8235 50 25C50 11.1765 38.8235 0 25 0C11.1765 0 0 11.1765 0 25C0 38.8235 11.1765 50 25 50ZM25 2.94118C37.2059 2.94118 47.0588 12.7941 47.0588 25C47.0588 37.2059 37.2059 47.0588 25 47.0588C12.7941 47.0588 2.94118 37.2059 2.94118 25C2.94118 12.7941 12.7941 2.94118 25 2.94118Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    d="M24.5585 39.2638L38.8232 24.9991L24.5585 10.7344L22.4997 12.7932L34.7056 24.9991L22.4997 37.205L24.5585 39.2638Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    d="M36.7646 23.5293H11.7646V26.4705H36.7646V23.5293Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-lg-12 wow fadeInUp"
-                  data-wow-delay=".5s"
-                  data-wow-duration="1s"
-                >
-                  <div className="td-expreance-content-wrap p-relative">
-                    <div className="td-expreance-thumb">
-                      <img className="w-100" src={thumbImage3} alt="thumb" />
-                    </div>
-                    <div className="td-expreance-item">
-                      <div className="row">
-                        <div className="col-lg-6 mb-30">
-                          <div className="td-expreance-content">
-                            <p className="td-expreance-title-pre">
-                              Business, Finance <span>/</span> June 21, 2024
-                            </p>
-                            <h3 className="td-expreance-title">
-                              <span>03</span>Business development
-                            </h3>
-                          </div>
-                        </div>
-                        <div className="col-lg-6 mb-30">
-                          <div className="td-expreance-btn-wrap">
-                            <p>
-                              Lorem Ipsum is simply dummy text of the printing and
-                              typesetting industry. Lorem Ipsum has been the
-                              industry's standard dummy text ever since the 1500s,
-                              when an unknow.
-                            </p>
-                            <div className="td-expreance-btn">
-                              <a href="#">
-                                <svg
-                                  width="50"
-                                  height="50"
-                                  viewBox="0 0 50 50"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M25 50C38.8235 50 50 38.8235 50 25C50 11.1765 38.8235 0 25 0C11.1765 0 0 11.1765 0 25C0 38.8235 11.1765 50 25 50ZM25 2.94118C37.2059 2.94118 47.0588 12.7941 47.0588 25C47.0588 37.2059 37.2059 47.0588 25 47.0588C12.7941 47.0588 2.94118 37.2059 2.94118 25C2.94118 12.7941 12.7941 2.94118 25 2.94118Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    d="M24.5585 39.2638L38.8232 24.9991L24.5585 10.7344L22.4997 12.7932L34.7056 24.9991L22.4997 37.205L24.5585 39.2638Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    d="M36.7646 23.5293H11.7646V26.4705H36.7646V23.5293Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-lg-12 wow fadeInUp"
-                  data-wow-delay=".6s"
-                  data-wow-duration="1s"
-                >
-                  <div className="td-expreance-content-wrap p-relative">
-                    <div className="td-expreance-thumb">
-                      <img className="w-100" src={thumbImage2} alt="thumb" />
-                    </div>
-                    <div className="td-expreance-item">
-                      <div className="row">
-                        <div className="col-lg-6 mb-30">
-                          <div className="td-expreance-content">
-                            <p className="td-expreance-title-pre">
-                              Business, Finance <span>/</span> June 21, 2024
-                            </p>
-                            <h3 className="td-expreance-title">
-                              <span>04</span>Market compliance
-                            </h3>
-                          </div>
-                        </div>
-                        <div className="col-lg-6 mb-30">
-                          <div className="td-expreance-btn-wrap">
-                            <p>
-                              Lorem Ipsum is simply dummy text of the printing and
-                              typesetting industry. Lorem Ipsum has been the
-                              industry's standard dummy text ever since the 1500s,
-                              when an unknow.
-                            </p>
-                            <div className="td-expreance-btn">
-                              <a href="#">
-                                <svg
-                                  width="50"
-                                  height="50"
-                                  viewBox="0 0 50 50"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M25 50C38.8235 50 50 38.8235 50 25C50 11.1765 38.8235 0 25 0C11.1765 0 0 11.1765 0 25C0 38.8235 11.1765 50 25 50ZM25 2.94118C37.2059 2.94118 47.0588 12.7941 47.0588 25C47.0588 37.2059 37.2059 47.0588 25 47.0588C12.7941 47.0588 2.94118 37.2059 2.94118 25C2.94118 12.7941 12.7941 2.94118 25 2.94118Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    d="M24.5585 39.2638L38.8232 24.9991L24.5585 10.7344L22.4997 12.7932L34.7056 24.9991L22.4997 37.205L24.5585 39.2638Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    d="M36.7646 23.5293H11.7646V26.4705H36.7646V23.5293Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-lg-12 wow fadeInUp"
-                  data-wow-delay=".7s"
-                  data-wow-duration="1s"
-                >
-                  <div className="td-expreance-content-wrap p-relative">
-                    <div className="td-expreance-thumb">
-                      <img className="w-100" src={thumbImage4} alt="thumb" />
-                    </div>
-                    <div className="td-expreance-item">
-                      <div className="row">
-                        <div className="col-lg-6 mb-30">
-                          <div className="td-expreance-content">
-                            <p className="td-expreance-title-pre">
-                              Business, Finance <span>/</span> June 21, 2024
-                            </p>
-                            <h3 className="td-expreance-title">
-                              <span>05</span>Business transformation
-                            </h3>
-                          </div>
-                        </div>
-                        <div className="col-lg-6 mb-30">
-                          <div className="td-expreance-btn-wrap">
-                            <p>
-                              Lorem Ipsum is simply dummy text of the printing and
-                              typesetting industry. Lorem Ipsum has been the
-                              industry's standard dummy text ever since the 1500s,
-                              when an unknow.
-                            </p>
-                            <div className="td-expreance-btn">
-                              <a href="#">
-                                <svg
-                                  width="50"
-                                  height="50"
-                                  viewBox="0 0 50 50"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M25 50C38.8235 50 50 38.8235 50 25C50 11.1765 38.8235 0 25 0C11.1765 0 0 11.1765 0 25C0 38.8235 11.1765 50 25 50ZM25 2.94118C37.2059 2.94118 47.0588 12.7941 47.0588 25C47.0588 37.2059 37.2059 47.0588 25 47.0588C12.7941 47.0588 2.94118 37.2059 2.94118 25C2.94118 12.7941 12.7941 2.94118 25 2.94118Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    d="M24.5585 39.2638L38.8232 24.9991L24.5585 10.7344L22.4997 12.7932L34.7056 24.9991L22.4997 37.205L24.5585 39.2638Z"
-                                    fill="currentColor"
-                                  />
-                                  <path
-                                    d="M36.7646 23.5293H11.7646V26.4705H36.7646V23.5293Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
           </div>
         )}
         {step === 2 && (
@@ -652,7 +491,7 @@ export const Subscriptions = () => {
         )}
 
         {step === 3 && (
-          <div id="step-3" className="step-container container" style={{height:'100vh'}}>
+          <div id="step-3" className="step-container container" style={{ height: '100vh' }}>
             <div className="container-fluid d-none d-md-block d-lg-block d-xl-block d-sm-block">
               <div className="col-12">
                 <div className="td-testimonial-bg-text text-center td-services-bg-text">
@@ -660,24 +499,37 @@ export const Subscriptions = () => {
                 </div>
               </div>
             </div>
+            
             <h1 className="text-center">Summary</h1>
             <div className="row pt-70 pb-60">
               <div className="col-lg-12">
-                <Table striped bordered hover responsive className="styled-table">
-                  <thead className="thead-dark">
-                    <tr>
-                      <th>Service</th>
-                      <th>Price per Hour</th>
-                      <th>Hours</th>
-                      <th>Total</th>
-                      <th>Remove</th>
-                    </tr>
-                  </thead>
-                  <tbody>{renderSummary()}</tbody>
+              <TableContainer component={Paper}>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <StyledTableCell>Service</StyledTableCell>
+                      <StyledTableCell>Price per Hour</StyledTableCell>
+                      <StyledTableCell>Hours</StyledTableCell>
+                      <StyledTableCell>Total</StyledTableCell>
+                      <StyledTableCell>Remove</StyledTableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>{renderSummary()}</TableBody>
                 </Table>
+              </TableContainer>
               </div>
             </div>
-            {/* navigation */}
+            <div className="totals">
+              <p>Total Hours: {updateTotal().totalHours}</p>
+              <p>Total Cost: ${updateTotal().totalCost.toLocaleString(undefined, { minimumFractionDigits: 2 })}</p>
+            </div>
+            <div className="row">
+            <div className="col-12">
+                <h5>More Services</h5>
+                <ul>{renderUnselectedServices()}</ul>
+            </div>
+            </div>
+            {/* Navigation */}
             <div className="td-portfolio-navigation">
               <div className="row align-items-center">
                 <div className="col-sm-5 mb-30">
@@ -686,20 +538,15 @@ export const Subscriptions = () => {
                       <div className="td-portfolio-more-icon">
                         <i className="fa-solid fa-arrow-left-long"></i>
                       </div>
-                      <span className="td-portfolio-more-content ml-20">
-                        Prev
-                      </span>
+                      <span className="td-portfolio-more-content ml-20">Prev</span>
                     </Link>
                   </div>
                 </div>
-                <div className="col-sm-2 mb-30">
-                </div>
+                <div className="col-sm-2 mb-30"></div>
                 <div className="col-sm-5 mb-30">
                   <div className="td-portfolio-more-left text-right">
                     <Link to="#" onClick={() => goToStep(4, 3)}>
-                      <span className="td-portfolio-more-content mr-20">
-                        Next
-                      </span>
+                      <span className="td-portfolio-more-content mr-20">Next</span>
                       <div className="td-portfolio-more-icon">
                         <i className="fa-regular fa-arrow-right-long"></i>
                       </div>
@@ -710,6 +557,8 @@ export const Subscriptions = () => {
             </div>
           </div>
         )}
+
+
 
         {step === 4 && (
           <div id="step-4" className="step-container container" style={{height: '100vh'}}>

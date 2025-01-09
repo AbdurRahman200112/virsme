@@ -10344,7 +10344,7 @@ input[type="color"] {
   margin-bottom: 37px;
 }
 .td-portfolio-navigation {
-  border-top: 1px solid var(--td-common-line);
+  border-top: 1px solid #c9c9c9;
   padding-top: 10px;
 }
 .td-portfolio-more-icon {
@@ -12126,4 +12126,23 @@ input[type="color"] {
 }
 .tdoffcanvas__logo img{
   width: 200px;
+}
+
+.MuiTableCell-root input{
+  width: 100% !important;
+  height: 100% !important;
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+  background-color: unset !important;
+  border: unset !important;
+  font-size: 16px;
+}
+.css-1j3gxal-MuiTableCell-root{
+  padding: 10px !important;
+}
+.css-1umw9bq-MuiSvgIcon-root{
+  fill: #0854A7 !important
+}
+.css-1xp5r68-MuiFormControl-root-MuiTextField-root{
+  width: 100%;
 }
