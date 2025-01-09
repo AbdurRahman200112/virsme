@@ -22,9 +22,9 @@ export const HeaderTwo = () => {
                       <div className="td-header-top-social">
                         <ul>
                           <li>
-                            <a href="mailto:info@adina.com">
+                            <a href="mailto:info@virsme.com">
                               <i className="fa-regular fa-envelope-open"></i>
-                              info@adina.com
+                              info@VirSME.com
                             </a>
                           </li>
                           <li>
@@ -40,7 +40,7 @@ export const HeaderTwo = () => {
                   <div className="col-xl-4 d-none d-xl-block">
                     <div className="td-header-endeavos text-center">
                       <p>
-                        Adina - for All <a href="#"> your business</a> endeavors
+                        VirSME - for All <a href="#"> your business</a> endeavors
                       </p>
                     </div>
                   </div>

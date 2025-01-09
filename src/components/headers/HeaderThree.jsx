@@ -18,7 +18,7 @@ export const HeaderThree = () => {
               <div className="col-12">
                 <div className="td-header-3-content">
                   <p>
-                    Welcome To Our <a href="#">Adina Business</a> Consulting
+                    Welcome To Our <a href="#">VirSME Business</a> Consulting
                     Firm
                   </p>
                 </div>
