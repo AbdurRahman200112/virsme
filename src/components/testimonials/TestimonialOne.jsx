@@ -172,7 +172,7 @@ export const TestimonialOne = () => {
       <div className="container-fluid d-none d-md-block">
         <div className="col-12">
           <div className="td-testimonial-bg-text text-center">
-            <h2>Feedback</h2>
+            <h2 className="text-center">Feedback</h2>
           </div>
         </div>
       </div>
