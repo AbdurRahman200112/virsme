@@ -9958,8 +9958,8 @@ input[type="color"] {
   }
 }
 .td-portfolio-tab-btn:hover {
-  background-image: linear-gradient(#20282d, #20282d),
-    linear-gradient(#20282d, #20282d);
+  background-image: linear-gradient(#0b7ffe, #0b7ffe),
+    linear-gradient(#0b7ffe, #0b7ffe);
   background-size: 0 1px, 100% 1px;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
@@ -9969,11 +9969,11 @@ input[type="color"] {
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  color: var(--td-theme-primary);
+  color:#0b7ffe;
 }
 .td-portfolio-tab-btn.active {
-  background-image: linear-gradient(#20282d, #20282d),
-    linear-gradient(#20282d, #20282d);
+  background-image: linear-gradient(#0072ec, #0078f8),
+    linear-gradient(#0077f7, #0b7ffe);
   background-size: 0 1px, 100% 1px;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
@@ -9984,6 +9984,9 @@ input[type="color"] {
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   color: #0b7ffe;
+}
+.td-portfolio-slider-active .swiper-slide{
+  margin-right: 0 !important;
 }
 .td-portfolio-slider-active {
   margin-right: -390px;
