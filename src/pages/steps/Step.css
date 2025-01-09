@@ -1,0 +1,67 @@
+/* Increased container width */
+.custom-container {
+    max-width: 82%; /* Wider container */
+    margin: auto; /* Center the container */
+  }
+  
+  /* Heading and text alignment with no gap */
+  .text-wrapper {
+    margin-bottom: 20px; /* Reduce spacing between heading and cards */
+  }
+  
+  h2 {
+    font-weight: 700;
+    text-align: left; /* Align heading to the left */
+    font-size: 2rem;
+    margin-bottom: 0; /* Remove margin below the heading */
+  }
+  
+  .text-muted {
+    text-align: left; /* Align text to the left */
+    font-size: 1rem;
+    margin-top: 0; /* Remove margin between heading and text */
+  }
+  
+  /* Card styles */
+  .card {
+    border-radius: 22px !important;
+    height: 450px; /* Card height */
+    padding: 20px; /* Card padding */
+    display: flex;
+    border: 1px solid #dfdfdf  !important; 
+    box-shadow: none !important;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out; /* Smooth transition for all properties */
+
+  }
+  
+  .card:hover {
+    transform: translateY(-5px) !important; /* Hover effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important; /* Increase shadow on hover */
+  }
+  
+  .card-img-top {
+    object-fit: contain;
+    margin-bottom: 20px;
+
+  }
+  
+  .custom-card {
+    padding: 20px;
+    border: 1px solid #FFFFFF;
+
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+  
+  .card-text {
+    font-size: 15px;
+    line-height: 2;
+    text-align: center;
+    color: #6c757d;
+    margin-bottom: 20px;
+  }
+  

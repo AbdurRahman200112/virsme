@@ -13,21 +13,24 @@ import { PricingOne } from "../../components/pricing/PricingOne";
 import { ImpressionOne } from "../../components/impressions/ImpressionOne";
 import { ContactTwo } from "../../components/contact/ContactTwo";
 import { TeamOne } from "../../components/teams/TeamOne";
-
+import { Step } from "../steps/step";
+import Talent from "../talents/talent";
 export const HomeThree = () => {
   return (
     <Layout header={2} footer={2}>
       {/* hero */}
       <HeroThree />
 
-       {/* about section */}
-        <AboutTwo />
+      {/* about section */}
+      <Step />
 
+
+      <Talent />
       {/* service area */}
       <ServiceAreaOne />
 
       {/* awards section */}
-      <AwardsOne />
+      {/* <AwardsOne /> */}
 
       {/* portfolio section */}
       <PortfolioOne />
@@ -35,22 +38,22 @@ export const HomeThree = () => {
 
       {/* experience */}
       {/* <ExperienceOne /> */}
-      
+
       {/* impression */}
       <ImpressionOne />
 
       {/* faq */}
-      <FaqOne />
+      {/* <FaqOne /> */}
 
       {/* testimonial */}
       <TestimonialTwo />
 
       {/* pricing */}
-      <PricingOne />
+      {/* <PricingOne /> */}
 
       {/* team section */}
       <TeamOne />
-      
+
       {/* contact */}
       {/* <ContactTwo /> */}
     </Layout>

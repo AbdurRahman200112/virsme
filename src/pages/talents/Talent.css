@@ -1,0 +1,44 @@
+/* Overall container styling */
+.talent-container {
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fdf9f3; /* Matches the background color of the design */
+}
+
+/* Left column styling */
+.talent-image-container {
+  height: 100%;
+}
+
+.talent-image-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Right column styling */
+.talent-content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
