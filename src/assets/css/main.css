@@ -132,7 +132,7 @@ li,
   */
   --td-common-white: #fff;
   --td-common-bg: #223035;
-  --td-common-line: #e6e6e6;
+  --td-common-line: #a2ceffc7;
   --td-grey-1: #f5f9ff;
   --td-grey-2: #666;
   --td-grey-3: #8b9aa4;
@@ -1144,10 +1144,11 @@ input[type="color"] {
 .td-btn-3 {
   background: none;
   border: 1px solid var(--td-common-line);
-  color: var(--td-theme-primary);
+  color: #0b7ffe;
 }
 .td-btn-3:hover {
-  color: var(--td-theme-primary);
+  /* color: var(--td-theme-primary); */
+  color: #0b7ffe;
 }
 .td-btn-4 {
   font-size: 12px;
@@ -1180,7 +1181,7 @@ input[type="color"] {
 }
 
 .td-arrow-svg-top-right {
-  fill: currentColor;
+  fill: #0b7ffe;
   stroke: none;
 }
 
@@ -2791,7 +2792,7 @@ input[type="color"] {
   content: "";
   height: 2px;
   width: 0;
-  background: var(--td-theme-primary);
+  background: #0b7ffe;
   bottom: 30px;
   left: 0;
   -webkit-transition: all 0.4s ease;

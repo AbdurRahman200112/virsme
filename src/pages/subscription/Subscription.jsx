@@ -154,16 +154,16 @@ export const Subscriptions = () => {
           style={{ width: `${(step / 4) * 100}%` }}
         ></div>
       </div>
-      <div className="container-fluid d-none d-md-block d-lg-block d-xl-block d-sm-block">
-        <div className="col-12">
-          <div className="td-testimonial-bg-text text-center td-services-bg-text">
-            <h2>Services</h2>
-          </div>
-        </div>
-      </div>
       <form onSubmit={submitForm}>
         {step === 1 && (
           <div id="step-1" className="step-container container">
+            <div className="container-fluid d-none d-md-block d-lg-block d-xl-block d-sm-block">
+              <div className="col-12">
+                <div className="td-testimonial-bg-text text-center td-services-bg-text">
+                  <h2 className="text-center">Services</h2>
+                </div>
+              </div>
+            </div>
             <h1 className="text-center">Select Services</h1>
             <div className="pt-50 pb-60">
               <div className="row">
@@ -566,6 +566,13 @@ export const Subscriptions = () => {
         )}
         {step === 2 && (
           <div id="step-2" className="step-container container">
+            <div className="container-fluid d-none d-md-block d-lg-block d-xl-block d-sm-block">
+              <div className="col-12">
+                <div className="td-testimonial-bg-text text-center td-services-bg-text">
+                  <h2 className="text-center">Business</h2>
+                </div>
+              </div>
+            </div>
             <h1 className="text-center">Select Business Size</h1>
             <div className="row pt-70 pb-60">
                 <div className="col-lg-12">
@@ -592,7 +599,7 @@ export const Subscriptions = () => {
                                   <span>{size.hours} Hours</span>
                                 </div>
                                 <div className="td-pricing-price mb-50">
-                                  <h2 className="mb-30">$99<span>/Hour</span></h2>
+                                  <h2 className="mb-30 text-center">$99<span>/Hour</span></h2>
                                   <p>
                                     Plus Anual Financial Audit Free for <br />
                                     One-Time
@@ -645,7 +652,14 @@ export const Subscriptions = () => {
         )}
 
         {step === 3 && (
-          <div id="step-3" className="step-container container">
+          <div id="step-3" className="step-container container" style={{height:'100vh'}}>
+            <div className="container-fluid d-none d-md-block d-lg-block d-xl-block d-sm-block">
+              <div className="col-12">
+                <div className="td-testimonial-bg-text text-center td-services-bg-text">
+                  <h2 className="text-center">Summary</h2>
+                </div>
+              </div>
+            </div>
             <h1 className="text-center">Summary</h1>
             <div className="row pt-70 pb-60">
               <div className="col-lg-12">
@@ -673,7 +687,7 @@ export const Subscriptions = () => {
                         <i className="fa-solid fa-arrow-left-long"></i>
                       </div>
                       <span className="td-portfolio-more-content ml-20">
-                        Prev Post
+                        Prev
                       </span>
                     </Link>
                   </div>
@@ -698,8 +712,15 @@ export const Subscriptions = () => {
         )}
 
         {step === 4 && (
-          <div id="step-4" className="step-container container">
-            <h1>Confirmation & Additional Info</h1>
+          <div id="step-4" className="step-container container" style={{height: '100vh'}}>
+            <div className="container-fluid d-none d-md-block d-lg-block d-xl-block d-sm-block">
+              <div className="col-12">
+                <div className="td-testimonial-bg-text text-center td-services-bg-text">
+                  <h2 className="text-center">Confirmation</h2>
+                </div>
+              </div>
+            </div>
+            <h1 className="text-center">Confirmation & Additional Info</h1>
             <div className="form-group">
               <label>Business Name</label>
               <input
