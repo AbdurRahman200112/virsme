@@ -45,7 +45,7 @@ export const TeamOne = () => {
               data-wow-duration="1s"
             >
               <span className="td-section-title-pre mb-10">Our Team</span>
-              <h2 className="td-section-title">Meet our legends</h2>
+              <h2 className="td-section-title text-center">Meet our legends</h2>
             </div>
           </div>
 

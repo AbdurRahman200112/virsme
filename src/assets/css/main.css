@@ -12150,3 +12150,6 @@ input[type="color"] {
 .min-height{
   min-height: 65vh;
 }
+.slick-prev:before, .slick-next:before{
+  color: #89c0ffa3;
+}

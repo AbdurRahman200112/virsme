@@ -125,7 +125,10 @@ export const Subscriptions = () => {
         ease: "power2.out",
         onComplete: () => {
           clone.remove();
-          setSelectedServices((prev) => [...prev, { ...service }]);
+          setSelectedServices((prev) => [
+            ...prev,
+            { ...service, hours: selectedBusinessSize?.hours || 0 },
+          ]);
         },
       });
   
@@ -138,7 +141,6 @@ export const Subscriptions = () => {
       },
     });
   };
-  
   
   const handleServiceRemove = (service) => {
     setSelectedServices((prev) => prev.filter((s) => s.name !== service.name));
@@ -183,12 +185,6 @@ export const Subscriptions = () => {
         <StyledTableCell>{service.name}</StyledTableCell>
         <StyledTableCell>${service.price}</StyledTableCell>
         <StyledTableCell>
-          {/* <input
-            type="number"
-            value={service.hours}
-            min="1"
-            onChange={(e) => handleHoursChange(service.name, e.target.value)}
-          /> */}
           <TextField
             id="standard-number"
             type="number"
@@ -256,13 +252,15 @@ export const Subscriptions = () => {
   };
 
   const handleHoursChange = (serviceName, newHours) => {
-    const updatedServices = selectedServices.map((service) =>
-      service.name === serviceName
-        ? { ...service, hours: Math.max(1, parseInt(newHours) || 1) }
-        : service
+    setSelectedServices((prev) =>
+      prev.map((service) =>
+        service.name === serviceName
+          ? { ...service, hours: Math.max(1, parseInt(newHours) || 1) }
+          : service
+      )
     );
-    setSelectedServices(updatedServices);
   };
+  
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -289,6 +287,9 @@ export const Subscriptions = () => {
   };
 
   return (
+    <>
+
+
     <div className="stepsForm td-testimonial-area td-grey-bg pb-20 p-relative">
       <div className="progress">
         <div
@@ -528,7 +529,6 @@ export const Subscriptions = () => {
             </div>
           </div>
         )}
-
         {step === 3 && (
           <div id="step-3" className="step-container container" style={{ height: '100vh' }}>
             <div className="container-fluid d-none d-md-block d-lg-block d-xl-block d-sm-block">
@@ -663,6 +663,7 @@ export const Subscriptions = () => {
 
       </form>
     </div>
+    </>
   );
 };
 
