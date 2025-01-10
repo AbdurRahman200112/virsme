@@ -102,7 +102,7 @@ export const TestimonialOne = () => {
     dots: false,
     centerMode: false,
     focusOnSelect: true,
-    autoplay: false,
+    autoplay: true,
     speed: 100,
     autoplaySpeed: 8000,
     cssEase: "linear",
