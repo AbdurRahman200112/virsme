@@ -8,9 +8,8 @@ export const Business = () => {
     return (
         <div className="row"
             style={{
-                height: "100vh", // Ensure the container takes the full viewport height
-                overflow: "hidden", // Prevent scrolling on the Y-axis
-                margin: 0, // Remove any default margin if the parent has one
+                marginTop: "150px",
+                marginBottom: "150px"
             }}>
             {/* Left Column */}
             <div className="col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center align-items-start">

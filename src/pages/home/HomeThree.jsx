@@ -22,11 +22,11 @@ export const HomeThree = () => {
 
       <Talent />
 
-      <ServiceAreaOne />
+      {/* <ServiceAreaOne /> */}
 
       <Business />
 
-      <PortfolioOne />
+      {/* <PortfolioOne /> */}
 
       <TestimonialOne />
 

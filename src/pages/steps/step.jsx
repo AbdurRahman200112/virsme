@@ -9,7 +9,8 @@ export const Step = () => {
   return (
     <div className="container-fluid custom-container my-5"
       style={{
-        overflowX: "hidden", // Prevent scrolling on the Y-axis
+        overflowX: "hidden",
+        marginTop: "150px" // Prevent scrolling on the Y-axis
       }}>
       <div className="text-wrapper">
         <h2 className="fw-bold">Need something done?</h2>

@@ -5,7 +5,7 @@ import BG2 from "../../assets/img/breadcrumb/h13-bg.jpg";
 
 export const HeroThree = () => {
   return (
-    <div className="row">
+    <div className="row" style={{marginBottom: '150px'}}>
       {/* Left Column */}
       <div className="col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center align-items-center">
         <div className="col-md-8">

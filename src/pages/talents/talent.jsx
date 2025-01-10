@@ -8,7 +8,7 @@ const Talent = () => {
   return (
     <div className="row g-5"
      style={{
-      marginTop: "100px", marginBottom: "100px", overflow: "hidden", // Prevent scrolling on the Y-axis
+      marginTop: "150px", marginBottom: "250px"
     }}>
       {/* Left Column */}
       <div
