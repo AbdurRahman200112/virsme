@@ -11654,6 +11654,7 @@ input[type="color"] {
 .td-expreance-btn-wrap {
   display: flex;
   align-items: center;
+  column-gap: 15px;
 }
 .td-expreance-btn-wrap p {
   line-height: 1.2;
@@ -12145,4 +12146,7 @@ input[type="color"] {
 }
 .css-1xp5r68-MuiFormControl-root-MuiTextField-root{
   width: 100%;
+}
+.min-height{
+  min-height: 65vh;
 }

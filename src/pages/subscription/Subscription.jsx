@@ -20,6 +20,7 @@ import startupW from "../../assets/img/service/service2/startup-w.png";
 import smallBusinessW from "../../assets/img/service/service2/sbusiness-w.png";
 import mediumBusinessW from "../../assets/img/service/service2/mbusiness-w.png";
 import largeBusinessW from "../../assets/img/service/service2/lbusiness-w.png";
+
  const services = [
   {no:'01', name: "Accounting & Finance", price: 500, img: thumbImage1 },
   {no:'02', name: "Software Development & Maintenance", price: 700, img: thumbImage2 },
@@ -87,21 +88,18 @@ export const Subscriptions = () => {
   const handleServiceClick = (service, index) => {
     const serviceElement = document.getElementById(`service-${index}`);
     const targetBox = selectedServicesBox.current;
-
+  
     if (selectedServices.some((s) => s.name === service.name)) {
-      Swal.fire("Service already selected!", "", "warning");
+      Swal.fire("Warning!", "This service is already selected!", "warning");
       return;
     }
-
-    // Clone service element
+  
     const clone = serviceElement.cloneNode(true);
     document.body.appendChild(clone);
-
-    // Get positions for animation
+  
     const rect = serviceElement.getBoundingClientRect();
     const targetRect = targetBox.getBoundingClientRect();
-
-    // Set initial clone styles
+  
     gsap.set(clone, {
       position: "absolute",
       left: rect.left,
@@ -110,22 +108,28 @@ export const Subscriptions = () => {
       height: rect.height,
       zIndex: 1000,
     });
-
-    // Animate clone to the selected services box
-    gsap.to(clone, {
-      x: targetRect.left - rect.left + 20,
-      y: targetRect.top - rect.top + 20,
-      scale: 0.6,
-      opacity: 0.8,
-      duration: 0.8,
-      ease: "power3.out",
-      onComplete: () => {
-        clone.remove();
-        setSelectedServices((prev) => [...prev, { ...service }]);
-      },
-    });
-
-    // Hide original service element
+  
+    // Animation: Move right first, then down to the target box
+    gsap
+      .timeline()
+      .to(clone, {
+        x: 500, // Move right by 150px (adjust as needed)
+        duration: 0.5,
+        ease: "power2.out",
+      })
+      .to(clone, {
+        y: targetRect.top - 300, // Final Y position
+        scale: 0.5,
+        opacity: 0.8,
+        duration: 1,
+        ease: "power2.out",
+        onComplete: () => {
+          clone.remove();
+          setSelectedServices((prev) => [...prev, { ...service }]);
+        },
+      });
+  
+    // Hide the original service element
     gsap.to(serviceElement, {
       opacity: 0,
       duration: 0.5,
@@ -134,6 +138,25 @@ export const Subscriptions = () => {
       },
     });
   };
+  
+  
+  const handleServiceRemove = (service) => {
+    setSelectedServices((prev) => prev.filter((s) => s.name !== service.name));
+  
+    // Make the original service element visible again
+    const serviceIndex = services.findIndex((s) => s.name === service.name);
+    const serviceElement = document.getElementById(`service-${serviceIndex}`);
+    if (serviceElement) {
+      gsap.to(serviceElement, {
+        opacity: 1,
+        duration: 0.5,
+        onComplete: () => {
+          serviceElement.style.visibility = "visible";
+        },
+      });
+    }
+  };
+  
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -284,82 +307,91 @@ export const Subscriptions = () => {
               </div>
             </div>
             <h1 className="text-center">Select Services</h1>
-            <div className="pt-50 pb-60">
-              
+            <div className="pt-50 pb-60 min-height">
               <div className="row">
-              {services.map((service, index) => (
-                <div
-                className="col-lg-12  wow fadeInUp"
-                data-wow-delay=".3s"
-                data-wow-duration="1s"
-                key={service.name}
-                id={`service-${index}`}
-              >
-                <div className="td-expreance-content-wrap p-relative">
-                  <div className="td-expreance-thumb" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(${service.img})`}}>
-                  </div>
-                  <div className="td-expreance-item" >
-                    <div className="row">
-                      <div className="col-lg-6 mb-30">
-                        <div className="td-expreance-content">
-                          <p className="td-expreance-title-pre">
-                            Business, Finance <span>/</span> June 21, 2024
-                          </p>
-                          <h3 className="td-expreance-title">
-                            <span>{service.no}</span>
-                            <button
-                            type="button"
-                            onClick={() => handleServiceClick(service, index)}
-                            className="text-start"
-                          >
-                            {service.name}
-                          </button>
-                          </h3>
-                        </div>
-                      </div>
-                      <div className="col-lg-6 mb-30">
-                        <div className="td-expreance-btn-wrap">
-                          <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknow.
-                          </p>
-                          <div className="td-expreance-btn">
-                            <button type="button" onClick={() => handleServiceClick(service, index)}>
-                              <svg
-                                width="50"
-                                height="50"
-                                viewBox="0 0 50 50"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M25 50C38.8235 50 50 38.8235 50 25C50 11.1765 38.8235 0 25 0C11.1765 0 0 11.1765 0 25C0 38.8235 11.1765 50 25 50ZM25 2.94118C37.2059 2.94118 47.0588 12.7941 47.0588 25C47.0588 37.2059 37.2059 47.0588 25 47.0588C12.7941 47.0588 2.94118 37.2059 2.94118 25C2.94118 12.7941 12.7941 2.94118 25 2.94118Z"
-                                  fill="currentColor"
-                                />
-                                <path
-                                  d="M24.5585 39.2638L38.8232 24.9991L24.5585 10.7344L22.4997 12.7932L34.7056 24.9991L22.4997 37.205L24.5585 39.2638Z"
-                                  fill="currentColor"
-                                />
-                                <path
-                                  d="M36.7646 23.5293H11.7646V26.4705H36.7646V23.5293Z"
-                                  fill="currentColor"
-                                />
-                              </svg>
-                            </button>
+                {services
+                  .filter((service) => !selectedServices.some((s) => s.name === service.name)) // Exclude selected services
+                  .map((service, index) => (
+                    <div
+                      key={service.name}
+                      id={`service-${index}`}
+                      className="col-lg-12 mb-4"
+                    >
+                      <div className="td-expreance-content-wrap p-relative">
+                        <div
+                          className="td-expreance-thumb"
+                          style={{
+                            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(${service.img})`,
+                          }}
+                        ></div>
+                        <div className="td-expreance-item">
+                          <div className="row">
+                            <div className="col-lg-6 mb-30">
+                              <div className="td-expreance-content">
+                                <p className="td-expreance-title-pre">
+                                  Business, Finance <span>/</span> June 21, 2024
+                                </p>
+                                <h3 className="td-expreance-title">
+                                  <span>{service.no}</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleServiceClick(service, index)}
+                                    className="text-start"
+                                  >
+                                    {service.name}
+                                  </button>
+                                </h3>
+                              </div>
+                            </div>
+                            <div className="col-lg-6 mb-30">
+                              <div className="td-expreance-btn-wrap">
+                                <p>
+                                  Lorem Ipsum is simply dummy text of the printing and
+                                  typesetting industry. Lorem Ipsum has been the
+                                  industry's standard dummy text ever since the 1500s,
+                                  when an unknown.
+                                </p>
+                                <div className="td-expreance-btn">
+                                  <button
+                                    type="button"
+                                    onClick={() => handleServiceClick(service, index)}
+                                  >
+                                    <svg
+                                      width="50"
+                                      height="50"
+                                      viewBox="0 0 50 50"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M25 50C38.8235 50 50 38.8235 50 25C50 11.1765 38.8235 0 25 0C11.1765 0 0 11.1765 0 25C0 38.8235 11.1765 50 25 50ZM25 2.94118C37.2059 2.94118 47.0588 12.7941 47.0588 25C47.0588 37.2059 37.2059 47.0588 25 47.0588C12.7941 47.0588 2.94118 37.2059 2.94118 25C2.94118 12.7941 12.7941 2.94118 25 2.94118Z"
+                                        fill="currentColor"
+                                      />
+                                      <path
+                                        d="M24.5585 39.2638L38.8232 24.9991L24.5585 10.7344L22.4997 12.7932L34.7056 24.9991L22.4997 37.205L24.5585 39.2638Z"
+                                        fill="currentColor"
+                                      />
+                                      <path
+                                        d="M36.7646 23.5293H11.7646V26.4705H36.7646V23.5293Z"
+                                        fill="currentColor"
+                                      />
+                                    </svg>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                </div>
-              ))}
+                  ))}
               </div>
-              {/* Selected Services Box */}
-              <div className="col-lg-4">
-                <h3>Selected Services</h3>
+
+            </div>
+            {/* Selected Services Box */}
+            <div className="row">
+              <div className="col-lg-4 ms-auto">
+                {/* <h3>Selected Services</h3> */}
                 <div
                   ref={selectedServicesBox}
                   className="selected-services-container"
@@ -370,11 +402,18 @@ export const Subscriptions = () => {
                     backgroundColor: "#e9ecef",
                   }}
                 >
-            {selectedServices.map((service, index) => (
-              <div key={index} className="selected-service">
-                {service.name}
-              </div>
-            ))}
+                  {selectedServices.map((service, index) => (
+                    <div key={index} className="selected-service">
+                      {service.name}
+                      <button
+                        type="button"
+                        onClick={() => handleServiceRemove(service)}
+                        className="btn btn-danger btn-sm ml-2"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
