@@ -1,13 +1,19 @@
 import React from "react";
 import BG from "../../assets/img/hero/hero3/h19-7.jpg";
 import { GoArrowUpRight } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 
 export const Business = () => {
     return (
-        <div className="row" style={{ marginTop: '100px', marginBottom: '100px' }}>
+        <div className="row"
+            style={{
+                height: "100vh", // Ensure the container takes the full viewport height
+                overflow: "hidden", // Prevent scrolling on the Y-axis
+                margin: 0, // Remove any default margin if the parent has one
+            }}>
             {/* Left Column */}
-            <div className="col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center align-items-center">
+            <div className="col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center align-items-start">
                 <div className="col-md-8">
                     <h1 style={{ color: '#000', fontFamily: "Poppins", fontSize: "32px", lineHeight: "1.5", fontWeight: 'bold' }}>
                         Find the talent needed to get your business growing.
@@ -113,22 +119,24 @@ export const Business = () => {
                             </span>
                         </div>
                     </div>
-                    <button
-                        style={{
-                            marginTop: "30px",
-                            padding: "20px 25px",
-                            color: "#fff",
-                            backgroundColor: "#222222",
-                            fontSize: "1rem",
-                            borderRadius: "15px",
-                            cursor: "pointer",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "10px",
-                        }}
-                    >
-                        <b>Find Talent Your Way</b> <GoArrowUpRight /> {/* Add the icon */}
-                    </button>
+                    <Link to="/subscription">
+                        <button
+                            style={{
+                                marginTop: "30px",
+                                padding: "20px 25px",
+                                color: "#fff",
+                                backgroundColor: "#222222",
+                                fontSize: "1rem",
+                                borderRadius: "15px",
+                                cursor: "pointer",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "10px",
+                            }}
+                        >
+                            <b>Find Talent Your Way</b> <GoArrowUpRight /> {/* Add the icon */}
+                        </button>
+                    </Link>
                 </div>
             </div>
             {/* Right Column */}

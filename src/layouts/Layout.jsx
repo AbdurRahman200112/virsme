@@ -26,11 +26,11 @@ export const Layout = ({
       <ScrollToTopButton />
 
       {/* headers */}
-      {header === 1 && <HeaderOne />}
+      {header === 1 && <HeaderTwo />}
       {header === 2 && <HeaderTwo />}
-      {header === 3 && <HeaderThree />}
-      {header === 4 && <HeaderFour />}
-      {header === 5 && <HeaderFive />}
+      {header === 3 && <HeaderTwo />}
+      {header === 4 && <HeaderTwo />}
+      {header === 5 && <HeaderTwo />}
 
       {/* mobile navbar */}
       {[1, 2, 3, 4].includes(header) && <MobileNavbar />}
@@ -44,11 +44,11 @@ export const Layout = ({
       <main>{children}</main>
 
       {/* footers */}
-      {footer === 1 && <FooterOne />}
+      {footer === 1 && <FooterTwo />}
       {footer === 2 && <FooterTwo />}
-      {footer === 3 && <FooterThree />}
-      {footer === 4 && <FooterFour />}
-      {footer === 5 && <FooterFive />}
+      {footer === 3 && <FooterTwo />}
+      {footer === 4 && <FooterTwo />}
+      {footer === 5 && <FooterTwo />}
     </>
   );
 };

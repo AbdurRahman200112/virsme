@@ -8,7 +8,7 @@ export const ContactMap = () => {
           <div className="col-lg-12">
             <div className="td-contact-map-box p-relative">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193597.01730400368!2d-74.28928005879446!3d40.69702404616354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1723196253403!5m2!1sen!2sbd"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d94352.7356592725!2d-83.18151508271028!3d42.352692364228794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8824ca0110cb1d75%3A0x5776864e35b9c4d2!2sDetroit%2C%20MI%2C%20USA!5e0!3m2!1sen!2s!4v1736507223101!5m2!1sen!2s"
                 width={600}
                 height={450}
                 style={{ border: 0 }}
@@ -18,7 +18,7 @@ export const ContactMap = () => {
               />
 
               <div className="td-contact-map-logo">
-                <h3>Adina</h3>
+                <h3>VirSME</h3>
               </div>
             </div>
           </div>

@@ -97,10 +97,10 @@ export const FooterTwo = () => {
                         </div>
                       </form>
                       <div className="td-footer-2-info">
-                        <a className="mr-30" href="tel:+(11)2253536677">
-                          +(11) 225 353 6677
+                        <a className="mr-30" href="tel:+447441441789">
+                          +44 7441 441789
                         </a>
-                        <a href="mailto:adina@example.com">adina@example.com</a>
+                        <a href="mailto:info@virsme.com">info@virSME.com</a>
                       </div>
                     </div>
                   </div>
@@ -111,16 +111,10 @@ export const FooterTwo = () => {
                     <div className="td-footer-2-location">
                       <a
                         className="mb-20"
-                        href="https://www.google.com/maps/@41.6758525,-86.2531698,18.17z"
+                        href="https://maps.app.goo.gl/Gm2TNqRa2JjtFTej8"
                         target="_blank"
                       >
-                        27 west 24th St new york, NY 10010, US
-                      </a>
-                      <a
-                        href="https://www.google.com/maps/@41.6758525,-86.2531698,18.17z"
-                        target="_blank"
-                      >
-                        12/A, New high tower, london United Kingdom
+                        East Grand Boulevard, Detroit, Michigan, United States
                       </a>
                     </div>
                   </div>

@@ -9,10 +9,13 @@ import { TeamOne } from "../../components/teams/TeamOne";
 import { Step } from "../steps/step";
 import Talent from "../talents/talent";
 import Business from "../business/Business";
+// import BG2 from "../../assets/img/breadcrumb/h13-bg.jpg";
+import BG2 from "../../assets/img/breadcrumb/h13-bg.jpg";
+
 
 export const HomeThree = () => {
   return (
-    <Layout header={2} footer={2}>
+    <Layout header={2} footer={2} style={{backgroundImage: `url(${BG2})`}} >
       <HeroThree />
 
       <Step />

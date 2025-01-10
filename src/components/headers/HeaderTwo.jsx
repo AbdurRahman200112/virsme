@@ -3,7 +3,7 @@ import LOGO from "../../assets/img/logo/logo-2.png";
 import { useHeaderLang, useHeaderSticky } from "./useHeader";
 import { Navbar } from "./Navbar";
 import { Link } from "react-router-dom";
-
+// import from "../"
 export const HeaderTwo = () => {
   useHeaderLang();
   useHeaderSticky();
@@ -28,9 +28,9 @@ export const HeaderTwo = () => {
                             </a>
                           </li>
                           <li>
-                            <a href="tel:+(123)45678900">
+                            <a href="tel:+447441441789">
                               <i className="fa-regular fa-phone-flip"></i>{" "}
-                              +(123) 456 789 00
+                              +44 7441 441789
                             </a>
                           </li>
                         </ul>
@@ -95,9 +95,9 @@ export const HeaderTwo = () => {
                         </div>
 
                         <div className="td-header-right-2-btn ml-50 d-none d-lg-block">
-                          <a
+                          <Link
                             className="td-btn td-btn-3 td-btn-5 td-left-right"
-                            href="#"
+                            to="/contact"
                           >
                             Let’s Talk
                             <span className="td-arrow-angle ml-10">
@@ -112,7 +112,7 @@ export const HeaderTwo = () => {
                                 <path d="M1.018 10.009 0 8.991l7.569-7.582H1.723L1.737 0h8.26v8.274H8.574l.013-5.847Z" />
                               </svg>
                             </span>
-                          </a>
+                          </Link>
                         </div>
                       </div>
 

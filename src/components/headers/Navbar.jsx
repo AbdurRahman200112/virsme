@@ -7,7 +7,7 @@ export const Navbar = ({ hidePortfolio = false }) => {
       <ul>
         <li className="has-dropdown">
           <Link to="/"> Home</Link>
-          <ul className="td-submenu submenu">
+          {/* <ul className="td-submenu submenu">
             <li>
               <Link to="/">Main Home</Link>
             </li>
@@ -23,10 +23,15 @@ export const Navbar = ({ hidePortfolio = false }) => {
             <li>
               <Link to="/home5">Insurance Home</Link>
             </li>
-          </ul>
+          </ul> */}
         </li>
-
-        <li className="has-dropdown">
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/team">Team</Link>
+        </li>
+        {/* <li className="has-dropdown">
           <a href="#">Pages</a>
           <ul className="td-submenu submenu">
             <li>
@@ -51,7 +56,7 @@ export const Navbar = ({ hidePortfolio = false }) => {
               <Link to="/error">Error</Link>
             </li>
           </ul>
-        </li>
+        </li> */}
 
         <li className="has-dropdown">
           <Link to="/blog">Blog</Link>
@@ -65,7 +70,7 @@ export const Navbar = ({ hidePortfolio = false }) => {
           </ul>
         </li>
 
-        <li className="has-dropdown">
+        {/* <li className="has-dropdown">
           <Link to="/service">Featured</Link>
           <ul className="td-submenu submenu">
             <li>
@@ -75,9 +80,9 @@ export const Navbar = ({ hidePortfolio = false }) => {
               <Link to="/service-details">Service Details</Link>
             </li>
           </ul>
-        </li>
+        </li> */}
 
-        {hidePortfolio ? null : (
+        {/* {hidePortfolio ? null : (
           <li className="has-dropdown">
             <Link to="/portfolio">Portfolio</Link>
             <ul className="td-submenu submenu">
@@ -89,7 +94,7 @@ export const Navbar = ({ hidePortfolio = false }) => {
               </li>
             </ul>
           </li>
-        )}
+        )} */}
 
         <li>
           <Link to="/contact">Contact</Link>

@@ -18,7 +18,7 @@ export const Breadcrumb = ({ title, subtitle, bottomText }) => {
           <div className="col-lg-6">
             <div className="td-breadcrumb-list float-right mb-20">
               <span>
-                <Link to="/">Pages</Link>
+                <Link to="/">Home</Link>
               </span>
               <span className="dvdr">/</span>
               <span className="page">{subtitle}</span>

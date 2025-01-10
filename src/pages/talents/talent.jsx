@@ -2,10 +2,14 @@ import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import BG from "../../assets/img/hero/hero3/h19-6.jpg"; // Replace with your image path
 import "./Talent.css"; // Include any additional custom styles
+import { Link } from "react-router-dom";
 
 const Talent = () => {
   return (
-    <div className="row g-5" style={{ marginTop: "100px", marginBottom: "100px" }}>
+    <div className="row g-5"
+     style={{
+      marginTop: "100px", marginBottom: "100px", overflow: "hidden", // Prevent scrolling on the Y-axis
+    }}>
       {/* Left Column */}
       <div
         className="col-md-6"
@@ -45,6 +49,7 @@ const Talent = () => {
             Work with the largest network of independent professionals and get
             things done—from quick turnarounds.
           </p>
+          <Link to="/contact">
           <button
             style={{
               marginTop: "30px",
@@ -58,9 +63,10 @@ const Talent = () => {
               alignItems: "center",
               gap: "10px",
             }}
-          >
+            >
             <b>Contact Us</b> <GoArrowUpRight /> {/* Add the icon */}
           </button>
+          </Link>
         </div>
       </div>
     </div>

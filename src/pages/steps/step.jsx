@@ -7,7 +7,10 @@ import "./Step.css"; // Import the CSS file
 
 export const Step = () => {
   return (
-    <div className="container-fluid custom-container my-5 ">
+    <div className="container-fluid custom-container my-5"
+      style={{
+        overflowX: "hidden", // Prevent scrolling on the Y-axis
+      }}>
       <div className="text-wrapper">
         <h2 className="fw-bold">Need something done?</h2>
         <p className="text-muted mt-4 mb-3">Most viewed and all-time top-selling services</p>
