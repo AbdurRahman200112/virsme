@@ -7,6 +7,9 @@ import TextField from '@mui/material/TextField';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import AddIcon from '@mui/icons-material/Add';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import gsap from "gsap";
@@ -16,14 +19,13 @@ import thumbImage1 from "../../assets/img/expreance/01.jpg";
 import thumbImage2 from "../../assets/img/expreance/02.jpg";
 import thumbImage3 from "../../assets/img/expreance/03.jpg";
 import thumbImage4 from "../../assets/img/expreance/04.jpg";
-import startup from "../../assets/img/service/service2/startup.png";
-import smallBusiness from "../../assets/img/service/service2/sbusiness.png";
-import mediumBusiness from "../../assets/img/service/service2/mbusiness.png";
-import largeBusiness from "../../assets/img/service/service2/lbusiness.png";
-import startupW from "../../assets/img/service/service2/startup-w.png";
-import smallBusinessW from "../../assets/img/service/service2/sbusiness-w.png";
-import mediumBusinessW from "../../assets/img/service/service2/mbusiness-w.png";
-import largeBusinessW from "../../assets/img/service/service2/lbusiness-w.png";
+import $ from "jquery";
+import bg1 from "../../assets/img/service/bg.jpg";
+import bg2 from "../../assets/img/service/bg2.jpg";
+import bg3 from "../../assets/img/service/bg3.jpg";
+import bg4 from "../../assets/img/service/bg4.jpg";
+import bg5 from "../../assets/img/service/bg5.jpg";
+
 
  const services = [
   {no:'01', name: "Accounting & Finance", price: 500, img: thumbImage1 },
@@ -33,11 +35,52 @@ import largeBusinessW from "../../assets/img/service/service2/lbusiness-w.png";
   {no:'05', name: "IT Support", price: 400, img: thumbImage3 },
 ];
 
+const bgImages = [bg1, bg2, bg3, bg4, bg5];
+
+// const businessSizes = [
+//   { label: "Startup", hours: 5, icon_w: startupW, icon: startup  },
+//   { label: "Small Business", hours: 10, icon_w: smallBusinessW, icon: smallBusiness },
+//   { label: "Medium Business", hours: 15, icon_w: mediumBusinessW, icon: mediumBusiness },
+//   { label: "Enterprise", hours: 20, icon_w: largeBusinessW, icon: largeBusiness },
+// ];
+
 const businessSizes = [
-  { label: "Startup", hours: 5, icon_w: startupW, icon: startup  },
-  { label: "Small Business", hours: 10, icon_w: smallBusinessW, icon: smallBusiness },
-  { label: "Medium Business", hours: 15, icon_w: mediumBusinessW, icon: mediumBusiness },
-  { label: "Enterprise", hours: 20, icon_w: largeBusinessW, icon: largeBusiness },
+  {
+    // category: "Finance",
+    hours: "05",
+    title: "Startup",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    link: "/service-details",
+    bgClass: "service-img-2",
+  },
+  {
+    // category: "Investment",
+    hours: "10",
+    title: "Small Business",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    link: "/service-details",
+    bgClass: "service-img-3",
+  },
+  {
+    // category: "Digital Marketing",
+    hours: "15",
+    title: "Medium Business",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    link: "/service-details",
+    bgClass: "service-img-4",
+  },
+  {
+    // category: "Tax Advising",
+    hours: "20",
+    title: "Enterprise",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    link: "/service-details",
+    bgClass: "service-img-5",
+  },
 ];
 
 export const Subscriptions = () => {
@@ -46,17 +89,37 @@ export const Subscriptions = () => {
   const [selectedBusinessSize, setSelectedBusinessSize] = useState(null);
   const [businessName, setBusinessName] = useState("");
   const [email, setEmail] = useState("");
-  
+  const [disabledSize, setDisabledSize] = useState(null);
+  const [age, setAge] = React.useState('');
+
+  const handleRevenueChange = (event) => {
+    setAge(event.target.value);
+  };
+
+  useEffect(() => {
+    $(".service__item-8").on("mouseenter", function () {
+      $(this).addClass("active").siblings().removeClass("active");
+      $("#service-bg-img").removeClass().addClass($(this).attr("rel"));
+    });
+  }, []);
+
   const selectedServicesBox = useRef(null);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [step]);
 
+  
   const handleBusinessSizeClick = (size) => {
-    setSelectedBusinessSize(size);
-    setSelectedServices((prev) =>
-      prev.map((s) => ({ ...s, hours: size.hours }))
-    );
+    if (selectedBusinessSize?.title === size.title) return;
+  
+    setDisabledSize(size.title);
+    setTimeout(() => {
+      setSelectedBusinessSize(size);
+      setSelectedServices((prev) =>
+        prev.map((s) => ({ ...s, hours: size.hours }))
+      );
+      setDisabledSize(null); // Re-enable the button after 1 second
+    }, 1000);
   };
 
   const goToStep = (nextStep, previousStep) => {
@@ -326,7 +389,7 @@ export const Subscriptions = () => {
             <h1 className="text-center">Select Services</h1>
             <div className="pt-50 pb-60 min-height">
               <div className="row align-items-end">
-                <div className="col-lg-8 col-md-12 col-sm-12">
+                <div className="col-lg-9 col-md-12 col-sm-12">
                 {services
                   .filter((service) => !selectedServices.some((s) => s.name === service.name)) // Exclude selected services
                   .map((service, index) => (
@@ -404,11 +467,11 @@ export const Subscriptions = () => {
                     </div>
                   ))}
                 </div>
-                <div className="col-lg-4 ms-auto">
-                {/* <h3>Selected Services</h3> */}
+                <div className="col-lg-3 ms-auto">
+                <h3>Selected Services</h3>
                 <div
                   ref={selectedServicesBox}
-                  className="selected-services-container"
+                  className="selected-services-container d-flex flex-column"
                   style={{
                     minHeight: "200px",
                     border: "1px dashed #ccc",
@@ -424,13 +487,7 @@ export const Subscriptions = () => {
                     onClick={() => handleServiceRemove(service)}
                     >
                       {service.name}
-                      {/* <button
-                        type="button"
-                        onClick={() => handleServiceRemove(service)}
-                        className="btn btn-danger btn-sm ml-2"
-                      >
-                        Remove
-                      </button> */}
+
                     </button>
                   ))}
                 </div>
@@ -440,7 +497,7 @@ export const Subscriptions = () => {
             </div>
 
             {/* navigation */}
-            <div className="td-portfolio-navigation">
+            <div className="td-portfolio-navigation container">
               <div className="row align-items-center">
                 <div className="col-sm-5 mb-30">
 
@@ -464,7 +521,7 @@ export const Subscriptions = () => {
           </div>
         )}
         {step === 2 && (
-          <div id="step-2" className="step-container container">
+          <div id="step-2" className="step-container ">
             <div className="container-fluid d-none d-md-block d-lg-block d-xl-block d-sm-block">
               <div className="col-12">
                 <div className="td-testimonial-bg-text text-center td-services-bg-text">
@@ -472,52 +529,98 @@ export const Subscriptions = () => {
                 </div>
               </div>
             </div>
-            <h1 className="text-center">Select Business Size</h1>
-            <div className="row pt-70 pb-60">
-                <div className="col-lg-12">
-                  <div className="price-tab-content">
-                    <div
-                        className="tab-pane fade show"
-                        role="tabpanel"
-                        aria-labelledby="nav-profile-tab"
-                        tabIndex="0"
-                        >
-                        <div className="row">
+            <h1 className="text-center">Select Business Size</h1>   
+            <div className="pt-70 pb-60">
+              <div className="td-service-area fix bg-position p-relative">
+                    <div className="container-fluid g-0">
+                      {/* bg images */}
+                      <div className="service__slider-8">
+                        <div id="service-bg-img" className="service-img-2">
+                          {bgImages.map((bg, index) => (
+                            <div
+                              key={index}
+                              className={`service-bg service-img-${index + 1}`}
+                              style={{ backgroundImage: `url(${bg})` }}
+                            ></div>
+                          ))}
+                        </div>
+                      </div>
+              
+                      {/* service items */}
+                      <div className="row gx-0 row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-sm-2 row-cols-1">
                         {businessSizes.map((size) => (
-                          <div className="col-xl-3 col-lg-6 col-md-6 mb-30">
-                            <div className={`td-pricing-wrap business-card ${selectedBusinessSize?.label === size.label ? "active td-pricing-wrap-2" : ""}`}
-                                key={size.label}>
-                              <div className="td-pricing-content text-center">
-                                <div className="td-pricing-icon mb-40">
-                                  <span>
-                                    <img src={selectedBusinessSize?.label === size.label ? size.icon_w : size.icon} alt="" width="100px"/>
-                                  </span>
-                                </div>
-                                <div className="td-pricing-tag mb-30">
-                                  <h5 className="mb-10">{size.label}</h5>
-                                  <span>{size.hours} Hours</span>
-                                </div>
-                                <div className="td-pricing-price mb-50">
-                                  <h2 className="mb-30 text-center">$99<span>/Hour</span></h2>
-                                  <p>
-                                    Plus Anual Financial Audit Free for <br />
-                                    One-Time
+                          <div
+                            className="col td-service-border service__item-8"
+                            rel={size.bgClass}
+                          >
+                            <div className={`td-service-wrap p-relative ${selectedBusinessSize?.title === size.title ? "active " : ""}`}
+                            key={size.title}
+                            >
+                              <span
+                                className={`td-service-cetagory td-service-cetagory-${
+                                  size + 1
+                                }`}
+                              >
+                                {size.category}
+                              </span>
+                              <h2 className="td-service-number">{size.hours}<br />Hours</h2>
+                              <div className="td-service-content">
+                                <h4 className="td-service-title">
+                                  <Link to={size.link}>{size.title}</Link>
+                                </h4>
+                                <div className="td-service-content-inner">
+                                  <p className="td-service-content-para mb-45">
+                                    {size.description}
                                   </p>
-                                </div>
-                                <div className="td-pricing-btn td-pricing-btn-2">
-                                  <button type="button" onClick={() => handleBusinessSizeClick(size)}>{selectedBusinessSize?.label === size.label ? "Selected" : "Select"}</button>
+                                  <div className="td-service-btn">
+                                    <button type="button"
+                                      className={`td-btn td-btn-2 td-left-right ${disabledSize === size.title ? "disabled" : ""}`}
+                                      onClick={() => handleBusinessSizeClick(size)}
+                                      disabled={disabledSize === size.title}
+                                    >
+                                      {selectedBusinessSize?.title === size.title ? "Selected" : "Select"}
+              
+                                      <span className="td-arrow-angle ml-10">
+                                        <svg
+                                          className="td-arrow-svg-top-right"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          width="10"
+                                          height="10"
+                                          viewBox="0 0 10.00 10.00"
+                                        >
+                                          <path d="M1.018 10.009 0 8.991l7.569-7.582H1.723L1.737 0h8.26v8.274H8.574l.013-5.847Z" />
+                                          <path d="M1.018 10.009 0 8.991l7.569-7.582H1.723L1.737 0h8.26v8.274H8.574l.013-5.847Z" />
+                                        </svg>
+                                      </span>
+                                    </button>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         ))}
-                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+              </div>
             </div>
+            {/* <h3 className="text-center">Annual Revenue</h3>
+            <InputLabel id="demo-simple-select-standard-label">Annual Revenue</InputLabel>
+              <Select
+                labelId="demo-simple-select-standard-label"
+                id="demo-simple-select-standard"
+                value={age}
+                onChange={handleRevenueChange}
+                label="Annual Revenue"
+              >
+                <MenuItem value="">
+                  <em>Select</em>
+                </MenuItem>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select> */}
             {/* navigation */}
-            <div className="td-portfolio-navigation pb-110">
+            <div className="td-portfolio-navigation pb-110 container">
               <div className="row align-items-center">
                 <div className="col-sm-5 mb-30">
                   <div className="td-portfolio-more-left">
