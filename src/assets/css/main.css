@@ -1144,6 +1144,9 @@ input[type="color"] {
 .td-btn-2:hover {
   color: var(--td-theme-primary);
 }
+.td-btn-2.disabled{
+  color: #20282d63;
+}
 .td-btn-3 {
   background: none;
   border: 1px solid var(--td-common-line);
@@ -7136,12 +7139,12 @@ input[type="color"] {
 /*----------------------------------------*/
 .td-service-number {
   font-weight: 700;
-  font-size: 150px;
+  font-size: 95px;
   line-height: 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-color: rgba(249, 246, 246, 0.1);
+  -webkit-text-stroke-color: #f9f6f661;
   -webkit-text-stroke-width: 1px;
   opacity: 0.4;
   padding-bottom: 410px;
@@ -7197,7 +7200,19 @@ input[type="color"] {
   opacity: 1;
   visibility: visible;
 }
+.td-service-wrap.active .td-service-content-inner{
+  opacity: 1;
+  visibility: visible;
+}
+.td-service-wrap.active .td-service-content{
+  transform: translateY(0);
+}
 .td-service-wrap:hover .td-service-number {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+.td-service-wrap.active .td-service-number{
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
