@@ -11,7 +11,7 @@ import Talent from "../talents/talent";
 import Business from "../business/Business";
 // import BG2 from "../../assets/img/breadcrumb/h13-bg.jpg";
 import BG2 from "../../assets/img/breadcrumb/h13-bg.jpg";
-
+import Slider from "../slider/Slider";
 
 export const HomeThree = () => {
   return (
@@ -26,6 +26,7 @@ export const HomeThree = () => {
 
       <Business />
 
+      <Slider/>
       {/* <PortfolioOne /> */}
 
       <TestimonialOne />

@@ -1,0 +1,10 @@
+.swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after {
+    content: 'prev';
+    font-size: 14px;
+    color: black;
+}
+.swiper-button-next:after, .swiper-container-rtl .swiper-button-prev:after {
+    content: 'next';
+    font-size: 14px;
+    color: black;
+}
