@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef  } from "react";
 import { styled } from "@mui/material/styles";
+import { Layout } from "../../layouts/Layout";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton,} from "@mui/material";
 import { tableCellClasses } from "@mui/material/TableCell";
 import TextField from '@mui/material/TextField';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
+import AddIcon from '@mui/icons-material/Add';
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import gsap from "gsap";
@@ -85,62 +89,75 @@ export const Subscriptions = () => {
     setStep(nextStep);
   };
 
-  const handleServiceClick = (service, index) => {
-    const serviceElement = document.getElementById(`service-${index}`);
-    const targetBox = selectedServicesBox.current;
-  
+  const handleServiceClick = (service, index = null) => {
+    // If the service is already selected, show a warning and return
     if (selectedServices.some((s) => s.name === service.name)) {
       Swal.fire("Warning!", "This service is already selected!", "warning");
       return;
     }
   
-    const clone = serviceElement.cloneNode(true);
-    document.body.appendChild(clone);
+    // If `index` is provided, handle animation from step 1
+    if (index !== null) {
+      const serviceElement = document.getElementById(`service-${index}`);
+      const targetBox = selectedServicesBox.current;
   
-    const rect = serviceElement.getBoundingClientRect();
-    const targetRect = targetBox.getBoundingClientRect();
+      const clone = serviceElement.cloneNode(true);
+      document.body.appendChild(clone);
   
-    gsap.set(clone, {
-      position: "absolute",
-      left: rect.left,
-      top: rect.top,
-      width: rect.width,
-      height: rect.height,
-      zIndex: 1000,
-    });
+      const rect = serviceElement.getBoundingClientRect();
+      const targetRect = targetBox.getBoundingClientRect();
+      const scrollX = window.scrollX || document.documentElement.scrollLeft;
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
   
-    // Animation: Move right first, then down to the target box
-    gsap
-      .timeline()
-      .to(clone, {
-        x: 500, // Move right by 150px (adjust as needed)
-        duration: 0.5,
-        ease: "power2.out",
-      })
-      .to(clone, {
-        y: targetRect.top - 300, // Final Y position
-        scale: 0.5,
-        opacity: 0.8,
-        duration: 1,
-        ease: "power2.out",
-        onComplete: () => {
-          clone.remove();
-          setSelectedServices((prev) => [
-            ...prev,
-            { ...service, hours: selectedBusinessSize?.hours || 0 },
-          ]);
-        },
+      gsap.set(clone, {
+        position: "absolute",
+        left: rect.left + scrollX,
+        top: rect.top + scrollY,
+        width: rect.width,
+        height: rect.height,
+        zIndex: 1000,
       });
   
-    // Hide the original service element
-    gsap.to(serviceElement, {
-      opacity: 0,
-      duration: 0.5,
-      onComplete: () => {
-        serviceElement.style.visibility = "hidden";
-      },
-    });
+      // Animation: x-axis first, then y-axis
+      gsap
+        .timeline()
+        .to(clone, {
+          x: 50,
+          duration: 0.5,
+          ease: "power2.out",
+        })
+        .to(clone, {
+          y: targetRect.top - rect.top + scrollY,
+          scale: 0.5,
+          opacity: 0.8,
+          duration: 1,
+          ease: "power2.out",
+          onComplete: () => {
+            clone.remove();
+            setSelectedServices((prev) => [
+              ...prev,
+              { ...service, hours: selectedBusinessSize?.hours || 0 },
+            ]);
+          },
+        });
+  
+      gsap.to(serviceElement, {
+        opacity: 0,
+        duration: 0.5,
+        onComplete: () => {
+          serviceElement.style.visibility = "hidden";
+        },
+      });
+    } else {
+      // If `index` is not provided, handle selection directly (from step 3 Chip)
+      setSelectedServices((prev) => [
+        ...prev,
+        { ...service, hours: selectedBusinessSize?.hours || 0 },
+      ]);
+    }
   };
+  
+  
   
   const handleServiceRemove = (service) => {
     setSelectedServices((prev) => prev.filter((s) => s.name !== service.name));
@@ -210,16 +227,17 @@ export const Subscriptions = () => {
     );
   
     return unselectedServices.map((service) => (
-      <li key={service.name} className="list-inline-item">
-        <button
-          className="btn btn-secondary"
-          onClick={() => handleServiceClick(service)}
-        >
-          <i className="fa fa-plus"></i> {service.name}
-        </button>
-      </li>
+      <Chip
+        icon={<AddIcon />}
+        label={service.name}
+        variant="outlined"
+        color="primary"
+        key={service.name}
+        onClick={() => handleServiceClick(service)} // Pass only the service, no index
+      />
     ));
   };
+  
   
   const deleteServiceRow = (serviceName) => {
     Swal.fire({
@@ -287,9 +305,7 @@ export const Subscriptions = () => {
   };
 
   return (
-    <>
-
-
+    <Layout header={2} footer={2}>
     <div className="stepsForm td-testimonial-area td-grey-bg pb-20 p-relative">
       <div className="progress">
         <div
@@ -309,14 +325,15 @@ export const Subscriptions = () => {
             </div>
             <h1 className="text-center">Select Services</h1>
             <div className="pt-50 pb-60 min-height">
-              <div className="row">
+              <div className="row align-items-end">
+                <div className="col-lg-8 col-md-12 col-sm-12">
                 {services
                   .filter((service) => !selectedServices.some((s) => s.name === service.name)) // Exclude selected services
                   .map((service, index) => (
                     <div
                       key={service.name}
                       id={`service-${index}`}
-                      className="col-lg-12 mb-4"
+                      className="w-100"
                     >
                       <div className="td-expreance-content-wrap p-relative">
                         <div
@@ -386,12 +403,8 @@ export const Subscriptions = () => {
                       </div>
                     </div>
                   ))}
-              </div>
-
-            </div>
-            {/* Selected Services Box */}
-            <div className="row">
-              <div className="col-lg-4 ms-auto">
+                </div>
+                <div className="col-lg-4 ms-auto">
                 {/* <h3>Selected Services</h3> */}
                 <div
                   ref={selectedServicesBox}
@@ -416,7 +429,13 @@ export const Subscriptions = () => {
                     </div>
                   ))}
                 </div>
+                </div>
               </div>
+
+            </div>
+            {/* Selected Services Box */}
+            <div className="row">
+
             </div>
 
             {/* navigation */}
@@ -564,8 +583,10 @@ export const Subscriptions = () => {
             </div>
             <div className="row">
             <div className="col-12">
-                <h5>More Services</h5>
-                <ul>{renderUnselectedServices()}</ul>
+                <h5 className="mt-3">More Services</h5>
+                <Stack direction="row" spacing={1} className="py-3 overflow-auto">
+                {renderUnselectedServices()}
+                </Stack>
             </div>
             </div>
             {/* Navigation */}
@@ -596,8 +617,6 @@ export const Subscriptions = () => {
             </div>
           </div>
         )}
-
-
 
         {step === 4 && (
           <div id="step-4" className="step-container container" style={{height: '100vh'}}>
@@ -663,7 +682,7 @@ export const Subscriptions = () => {
 
       </form>
     </div>
-    </>
+    </Layout>
   );
 };
 

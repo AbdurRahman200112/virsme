@@ -45,7 +45,7 @@ export const FooterTwo = () => {
               <div className="col-lg-12">
                 <div className="td-footer-2-big-text text-center">
                   <h2
-                    className="td-footer-2-big-title"
+                    className="td-footer-2-big-title text-center"
                     data-parallax='{"x": -100, "smoothness": 10}'
                   >
                     Let’s talk
