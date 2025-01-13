@@ -417,24 +417,25 @@ export const Subscriptions = () => {
                   }}
                 >
                   {selectedServices.map((service, index) => (
-                    <div key={index} className="selected-service">
+                    <button 
+                    type="button"
+                    key={index}
+                    className="selected-service"
+                    onClick={() => handleServiceRemove(service)}
+                    >
                       {service.name}
-                      <button
+                      {/* <button
                         type="button"
                         onClick={() => handleServiceRemove(service)}
                         className="btn btn-danger btn-sm ml-2"
                       >
                         Remove
-                      </button>
-                    </div>
+                      </button> */}
+                    </button>
                   ))}
                 </div>
                 </div>
               </div>
-
-            </div>
-            {/* Selected Services Box */}
-            <div className="row">
 
             </div>
 
