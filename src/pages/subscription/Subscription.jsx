@@ -7,9 +7,6 @@ import TextField from '@mui/material/TextField';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import AddIcon from '@mui/icons-material/Add';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import gsap from "gsap";
@@ -90,12 +87,7 @@ export const Subscriptions = () => {
   const [businessName, setBusinessName] = useState("");
   const [email, setEmail] = useState("");
   const [disabledSize, setDisabledSize] = useState(null);
-  const [age, setAge] = React.useState('');
-
-  const handleRevenueChange = (event) => {
-    setAge(event.target.value);
-  };
-
+  
   useEffect(() => {
     $(".service__item-8").on("mouseenter", function () {
       $(this).addClass("active").siblings().removeClass("active");
@@ -110,7 +102,7 @@ export const Subscriptions = () => {
 
   
   const handleBusinessSizeClick = (size) => {
-    if (selectedBusinessSize?.title === size.title) return;
+
   
     setDisabledSize(size.title);
     setTimeout(() => {
@@ -603,22 +595,6 @@ export const Subscriptions = () => {
                     </div>
               </div>
             </div>
-            {/* <h3 className="text-center">Annual Revenue</h3>
-            <InputLabel id="demo-simple-select-standard-label">Annual Revenue</InputLabel>
-              <Select
-                labelId="demo-simple-select-standard-label"
-                id="demo-simple-select-standard"
-                value={age}
-                onChange={handleRevenueChange}
-                label="Annual Revenue"
-              >
-                <MenuItem value="">
-                  <em>Select</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select> */}
             {/* navigation */}
             <div className="td-portfolio-navigation pb-110 container">
               <div className="row align-items-center">

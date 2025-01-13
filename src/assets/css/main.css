@@ -1144,10 +1144,9 @@ input[type="color"] {
 .td-btn-2:hover {
   color: var(--td-theme-primary);
 }
-.td-btn-2.active{
+.td-btn-2.disabled{
   color: #20282d63;
 }
-
 .td-btn-3 {
   background: none;
   border: 1px solid var(--td-common-line);
