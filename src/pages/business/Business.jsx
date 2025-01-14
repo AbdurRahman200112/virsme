@@ -18,8 +18,8 @@ export const Business = () => {
                             Find the talent needed to get your business growing.
                         </h2>
                         <p className="mt-3" style={{ color: '#000', fontFamily: 'Poppins', lineHeight: "1.5" }}>Work with the largest network of independent professionals and get things done—from quick turnarounds.</p>
-                        <div class="row">
-                            <div class="col-6">
+                        <div className="row">
+                            <div className="col-6">
                                 <div className="td-brand-counter">
                                     <h4 className="td-brand-counter-title"
                                     >
@@ -37,7 +37,7 @@ export const Business = () => {
                                     </span>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div className="col-6">
                                 <div className="td-brand-counter">
                                     <h4 className="td-brand-counter-title"
                                     >
@@ -56,8 +56,8 @@ export const Business = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="row mt-5">
-                            <div class="col-6">
+                        <div className="row mt-5">
+                            <div className="col-6">
                                 <div className="td-brand-counter">
                                     <h4 className="td-brand-counter-title"
                                     >
@@ -75,7 +75,7 @@ export const Business = () => {
                                     </span>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div className="col-6">
                                 <div className="td-brand-counter">
                                     <h4 className="td-brand-counter-title"
                                     >

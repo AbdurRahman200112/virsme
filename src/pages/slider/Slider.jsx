@@ -40,42 +40,33 @@ const Slider = () => {
                 slidesPerView={4}
                 breakpoints={{
                     240: { slidesPerView: 1 },
-                    768: { slidesPerView: 2 },
+                    520: { slidesPerView: 2 },
                     1024: { slidesPerView: 3 },
                     1280: { slidesPerView: 4 },  // Ensure 5 columns for wider screens
                 }}
             >
                 {categories.map((category, index) => (
+                    
                     <SwiperSlide key={index}>
-                        <div
-                            style={{
-                                backgroundImage: `url(${category.img})`,
-                                backgroundRepeat: "no-repeat",
-                                width: "100%",
-                                height: "300px",
-                                backgroundPosition: "center center",
-                                backgroundSize: 'cover',
-                                borderRadius: "15px",
-                            }}
-                        >
-                            {/* Overlay for dim effect */}
-                            <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-
-                            {/* Text Content */}
-                            <div className="absolute bottom-4 left-4 text-white p-4">
-                                <p className="text-sm font-medium mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: '13px' }}>
-                                    {category.services}
-                                </p>
-                                <h3
-                                    className="font-bold text-white"
-                                    style={{ fontFamily: "Poppins, sans-serif", fontSize: '20px', lineHeight: '1.4' }}
-                                >
-                                    {category.title}
-                                </h3>
+                        <a href="#" className="category-banner-inner">
+                            <div className="banner-image">
+                                <div className="image-wrapper">
+                                    <img src={category.img} alt="" />
+                                </div>
+                                <div className="inner">
+                                    <div className="number">
+                                        <p>{category.services}</p>
+                                    </div>
+                                    <h4 className="title">
+                                        {category.title}
+                                    </h4>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </SwiperSlide>
                 ))}
+
+
                 <div className="swiper-button-prev h-2" ></div>
                 <div className="swiper-button-next" ></div>
             </Swiper>
@@ -83,16 +74,5 @@ const Slider = () => {
     );
 };
 
-
-// const prevArrowStyles = {
-//     ...arrowBaseStyles,
-//     left: "0px", // Position outside the slider
-//     fontSize: '12px !important'
-// };
-
-// const nextArrowStyles = {
-//     ...arrowBaseStyles,
-//     right: "0px", // Position outside the slider
-// };
 
 export default Slider;

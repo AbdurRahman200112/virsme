@@ -36,3 +36,71 @@
   color: #fff;
   font-weight: 600;
 }
+
+.category-banner-inner{
+    background: rgba(34, 34, 34, 0.5);
+    color: #fff !important;
+    position: relative;
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.category-banner-inner .banner-image{
+    position: relative;
+    overflow: hidden; /* Ensure the image stays within the container */
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.category-banner-inner .banner-image:before{
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), transparent);
+}
+
+.category-banner-inner .banner-image img {
+    -webkit-transition: all 0.3s ease-in-out; /* Smooth zoom effect */
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.category-banner-inner:hover .banner-image img {
+    transform: scale(1.1); /* Zoom in effect */
+}
+
+.category-banner-inner .inner {
+    padding: 0.9375rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+.category-banner-inner .number {
+    margin-bottom: 6px;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    -o-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+}
+.category-banner-inner .title {
+    font-size: 17px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    line-height: 1.6;
+}
+.category-banner-inner .inner p{
+    font-size: 14px;
+}
+@media (min-width: 1200px) {
+    .category-banner-inner .inner {
+        padding: 1.875rem;
+    }
+}
