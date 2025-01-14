@@ -153,7 +153,7 @@ const Talent = () => {
               </div>
               <div className="benefit">
                 <div className="icon">
-                <SlBadge style={{fontSize: '30px', color: '#fff'}}/>
+                <SlBadge style={{fontSize: '30px', color: '#50a5fe'}}/>
                 </div>
                 <div className="box-content">
                   <h3>Proof of qualityy</h3>
@@ -163,7 +163,7 @@ const Talent = () => {
               </div>
               <div className="benefit">
                 <div className="icon">
-                <AiOutlineDollar style={{fontSize: '30px', color: '#fff'}}/>
+                <AiOutlineDollar style={{fontSize: '30px', color: '#50a5fe'}}/>
                 </div>
                 <div className="box-content">
                   <h3>No cost until you hire</h3>
@@ -173,7 +173,7 @@ const Talent = () => {
               </div>
               <div className="benefit">
                 <div className="icon">
-                <SlBadge style={{fontSize: '30px', color: '#fff'}}/>
+                <SlBadge style={{fontSize: '30px', color: '#50a5fe'}}/>
                 </div>
                 <div className="box-content">
                   <h3>Safe and secure</h3>
