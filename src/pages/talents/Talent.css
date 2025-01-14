@@ -46,7 +46,7 @@
 .bgTalent{
   /* background-image: url(../../assets/img/contact/h17-bg.jpg); */
   background-image: url(https://demoapus1.com/freeio/wp-content/uploads/2023/07/h17-bg.jpg);
-  /* background-position: center center; */
+  background-position: center center;
   background-repeat: no-repeat;
   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
   padding: 147px 0px 147px 0px;
@@ -54,16 +54,30 @@
 }
 @media screen and (min-width: 1500px) {
   .bgTalent{
-    width: 90%;
+    width: 98%;
     margin:auto;
   }
 }
 .content-container{
-  width: 95%;
+  max-width: 95%;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   display: flex;
+}
+@media screen and (max-width: 1024px) {
+  .content-container{
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .content-right .float{
+    position: relative !important;
+    left: 15px !important;
+  }
+  .content-container{
+    display: unset !important;
+  }
 }
 @media screen and (min-width: 768px) {
   .content-container .content-left, .content-container .content-right {
