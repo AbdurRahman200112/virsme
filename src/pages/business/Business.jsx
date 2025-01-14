@@ -36,12 +36,12 @@ export const Business = () => {
                                     Total Employees
                                 </span>
                             </div>
-                            <span className="td-brand-shape td-brand-shape-position-2">
+                            {/* <span className="td-brand-shape td-brand-shape-position-2">
                                 <i className="fa-sharp fa-regular fa-plus fa-fw"></i>
                             </span>
                             <span className="td-brand-shape td-brand-shape-position-3">
                                 <i className="fa-sharp fa-regular fa-plus fa-fw"></i>
-                            </span>
+                            </span> */}
                         </div>
                         <div class="col-md-6">
                             <div className="td-brand-counter">
@@ -60,12 +60,12 @@ export const Business = () => {
                                     Positive Reviews
                                 </span>
                             </div>
-                            <span className="td-brand-shape td-brand-shape-position-2">
+                            {/* <span className="td-brand-shape td-brand-shape-position-2">
                                 <i className="fa-sharp fa-regular fa-plus fa-fw"></i>
                             </span>
                             <span className="td-brand-shape td-brand-shape-position-3">
                                 <i className="fa-sharp fa-regular fa-plus fa-fw"></i>
-                            </span>
+                            </span> */}
                         </div>
                     </div>
                     <div class="row mt-5">
@@ -86,12 +86,12 @@ export const Business = () => {
                                     Projects recieved
                                 </span>
                             </div>
-                            <span className="td-brand-shape td-brand-shape-position-2">
+                            {/* <span className="td-brand-shape td-brand-shape-position-2">
                                 <i className="fa-sharp fa-regular fa-plus fa-fw"></i>
                             </span>
                             <span className="td-brand-shape td-brand-shape-position-3">
                                 <i className="fa-sharp fa-regular fa-plus fa-fw"></i>
-                            </span>
+                            </span> */}
                         </div>
                         <div class="col-md-6">
                             <div className="td-brand-counter">
@@ -110,12 +110,12 @@ export const Business = () => {
                                     Projects Completed
                                 </span>
                             </div>
-                            <span className="td-brand-shape td-brand-shape-position-2">
+                            {/* <span className="td-brand-shape td-brand-shape-position-2">
                                 <i className="fa-sharp fa-regular fa-plus fa-fw"></i>
                             </span>
                             <span className="td-brand-shape td-brand-shape-position-3">
                                 <i className="fa-sharp fa-regular fa-plus fa-fw"></i>
-                            </span>
+                            </span> */}
                         </div>
                     </div>
                     <Link to="/subscription">
