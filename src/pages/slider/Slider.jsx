@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import SwiperCore, { Navigation } from "swiper";
 import bg1 from "./c1.jpg";
-import Finance from "./finance.jpg";
+import Finance from "./Finance.jpg";
 import HumanResource from "./Human-Resource.jpg";
 import ContentCreation from "./content-creation.jpg";
 import ItSupport from "./it-support.jpg";
