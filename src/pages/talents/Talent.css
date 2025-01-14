@@ -42,3 +42,121 @@
   margin-bottom: 30px;
   line-height: 1.5;
 }
+
+.bgTalent{
+  /* background-image: url(../../assets/img/contact/h17-bg.jpg); */
+  background-image: url(https://demoapus1.com/freeio/wp-content/uploads/2023/07/h17-bg.jpg);
+  /* background-position: center center; */
+  background-repeat: no-repeat;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  padding: 147px 0px 147px 0px;
+  width: 100%;
+}
+@media screen and (min-width: 1500px) {
+  .bgTalent{
+    width: 90%;
+    margin:auto;
+  }
+}
+.content-container{
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  display: flex;
+}
+@media screen and (min-width: 768px) {
+  .content-container .content-left, .content-container .content-right {
+    width: 50%;
+  }
+}
+.section-populated .title-section .td-section-title{
+  font-size: 32px !important;
+  font-weight: 700;
+  line-height: 1.4em;
+}
+.section-populated{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 15px;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.content-left .section-populated .title-section {
+  width: var(--container-widget-width, 420px);
+  max-width: 420px;
+  --container-widget-width: 420px;
+  --container-widget-flex-grow: 0;
+  margin: 0px 0px 60px 0px;
+}
+.content-left .section-populated .benefit {
+  width: var(--container-widget-width, 490px);
+  max-width: 490px;
+  --container-widget-width: 490px;
+  --container-widget-flex-grow: 0;
+  display: flex;
+}
+.content-left .section-populated .benefit .icon{
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.content-left .section-populated .benefit .box-content{
+  flex-grow: 1;
+  padding-left: 20px;
+}
+.content-left .section-populated .benefit .box-content p{
+  margin-top: 7px;
+  font-size: 15px;
+}
+.content-left .section-populated .benefit .box-content h3{
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+.content-right .float{
+  width: auto;
+  color: #fff;
+  left: 110px;
+  position: absolute;
+  max-width: 100%;
+}
+.content-right .float .float-inner{
+  padding: 30px 30px 30px 30px;
+  background-color: #222222;
+  border-radius: 16px 16px 16px 16px;
+  transition: background .3s, border .3s, border-radius .3s, box-shadow .3s, transform var(--e-transform-transition-duration, .4s);
+}
+.content-right{
+  display: flex;
+  position: relative;
+}
+.content-right .float .float-inner .tick-2{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.content-right .float .float-inner .tick-2 li{
+  margin: 0 0 15px;
+  font-size: 14px;
+}
+@media screen and (min-width: 1200px) {
+  .tick-2 li {
+    margin-bottom: 25px;
+}
+}
+.float-inner .tick-2 li svg {
+  display: inline-block;
+  text-align: center;
+  margin-right: 15px;
+  vertical-align: middle;
+  color: #1F4B3F;
+  font-size: 10px;
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  border-radius: 50%;
+  line-height: 27px;
+}
