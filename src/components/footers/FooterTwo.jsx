@@ -171,14 +171,14 @@ export const FooterTwo = () => {
         <div className="td-footer-2-bottom">
           <div className="container">
             <div className="row">
-              <div className="col-lg-4 col-md-5">
+              <div className="col-lg-5 col-md-5">
                 <div className="td-footer-bottom-copyright mb-20">
                   <p>
-                    © 2024 <a href="#">Example</a>, All rights reserved.
+                    © 2024 <a href="#">VirSME</a>, All rights reserved. Powered by <a href="https://brannovate.com/">Brannovate</a>
                   </p>
                 </div>
               </div>
-              <div className="col-lg-8 col-md-7">
+              <div className="col-lg-7 col-md-7">
                 <div className="td-footer-2-bottom-menu mb-20">
                   <ul>
                     <li>

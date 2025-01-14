@@ -24,7 +24,6 @@ import { ServiceDetails } from "./pages/service/ServiceDetails";
 import { Contact } from "./pages/contact/Contact";
 import { Subscriptions } from "./pages/subscription/subscription";
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css';
 
 function App() {
   useWow();
