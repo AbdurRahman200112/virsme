@@ -13,7 +13,7 @@ export const Step = () => {
         marginTop: "150px" // Prevent scrolling on the Y-axis
       }}>
       <div className="text-wrapper">
-        <h2 className="fw-bold">Need something done?</h2>
+        <h2 className="td-section-title" style={{fontSize:'45px'}}>Need something done?</h2>
         <p className="text-muted mt-4 mb-3">Most viewed and all-time top-selling services</p>
       </div>
       <div className="row text-center">

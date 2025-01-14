@@ -9,7 +9,7 @@ export const HeroThree = () => {
       {/* Left Column */}
       <div className="col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center align-items-center">
         <div className="col-md-8">
-          <h1 style={{ color: '#000', fontFamily: "Poppins", fontSize: "4rem", lineHeight: "1.5", fontWeight: '400' }}>
+          <h1 className="td-section-title">
             Find the Perfect Team for you
           </h1>
           <p className="mt-3" style={{color: '#000', fontFamily: 'Poppins', lineHeight: "1.5"}}>Work with talented people at the most affordable price to get the most out of your time and cost</p> <br />
@@ -18,7 +18,7 @@ export const HeroThree = () => {
       </div>
       {/* Right Column */}
       <div
-        className="col-md-6 col-lg-6 col-xl-6"
+        className="col-md-6 col-lg-6 col-xl-6 mt-30"
         style={{
           backgroundImage: `url(${BG})`,
           backgroundSize: "cover",

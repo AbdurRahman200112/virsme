@@ -46,7 +46,7 @@
 .bgTalent{
   /* background-image: url(../../assets/img/contact/h17-bg.jpg); */
   background-image: url(https://demoapus1.com/freeio/wp-content/uploads/2023/07/h17-bg.jpg);
-  background-position: center center;
+  background-position: left center;
   background-repeat: no-repeat;
   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
   padding: 147px 0px 147px 0px;
@@ -77,6 +77,10 @@
   }
   .content-container{
     display: unset !important;
+  }
+ .content-container .content-left .section-populated .title-section .td-section-title{
+    font-size: 26px !important;
+    line-height: 1.2em;
   }
 }
 @media screen and (min-width: 768px) {

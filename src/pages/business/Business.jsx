@@ -14,9 +14,9 @@ export const Business = () => {
             {/* Left Column */}
             <div className="col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center align-items-start">
                 <div className="col-md-8">
-                    <h1 style={{ color: '#000', fontFamily: "Poppins", fontSize: "32px", lineHeight: "1.5", fontWeight: 'bold' }}>
+                    <h2 className="td-section-title" style={{fontSize:'38px'}}>
                         Find the talent needed to get your business growing.
-                    </h1>
+                    </h2>
                     <p className="mt-3" style={{ color: '#000', fontFamily: 'Poppins', lineHeight: "1.5" }}>Work with the largest network of independent professionals and get things done—from quick turnarounds.</p>
                     <div class="row">
                         <div class="col-md-6">

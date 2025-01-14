@@ -25,7 +25,7 @@ const Slider = () => {
             className="container"
             style={{ marginTop: "200px", marginBottom: "200px", position: "relative" }}
         >
-            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <h2 className="td-section-title font-bold mb-4" style={{fontSize: '45px'}}>
                 Browse talent by category
             </h2>
             <p className="text-gray-500 mb-8" style={{ fontFamily: "Poppins, sans-serif" }}>
