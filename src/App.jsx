@@ -22,7 +22,7 @@ import { BlogDetails } from "./pages/blog/BlogDetails";
 import { Service } from "./pages/service/Service";
 import { ServiceDetails } from "./pages/service/ServiceDetails";
 import { Contact } from "./pages/contact/Contact";
-import { Subscriptions } from "./pages/subscription/subscription";
+import { Subscriptions } from "./pages/subscription/Subscription";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
