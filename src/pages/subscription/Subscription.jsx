@@ -10,7 +10,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import gsap from "gsap";
-import "./Subscription.css"; 
+import "./subscription.css"; 
 import CancelIcon from "@mui/icons-material/Cancel";
 import thumbImage1 from "../../assets/img/expreance/01.jpg";
 import thumbImage2 from "../../assets/img/expreance/02.jpg";
