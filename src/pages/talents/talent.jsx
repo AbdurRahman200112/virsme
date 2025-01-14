@@ -1,6 +1,9 @@
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
-import BG from "../../assets/img/contact/h17-bg.jpg"; // Replace with your image path
+import I1 from "../../assets/img/contact/h13-2.png";
+import I2 from "../../assets/img/contact/h13-3.png";
+import I3 from "../../assets/img/contact/h13-4.png";
+import I4 from "../../assets/img/contact/h13-5.png";
 import "./Talent.css"; // Include any additional custom styles
 import { Link } from "react-router-dom";
 import { SlBadge } from "react-icons/sl";
@@ -72,74 +75,137 @@ const Talent = () => {
     //     </div>
     //   </div>
     // </div>
+  <>
+      <section className="bgTalent">
+        <div className="content-container">
+          <div className="content-left">
+            <div className="section-populated">
+              <div className="title-section">
+                  <h2 className="td-section-title">A whole world of freelance talent at your fingertips</h2>
+              </div>
+              <div className="benefit">
+                <div className="icon">
+                <SlBadge style={{fontSize: '30px', color: '#086bd6'}}/>
+                </div>
+                <div className="box-content">
+                  <h3>Proof of qualityy</h3>
+                  <p className="description">Check any pro’s work samples, client reviews, and identity verification.</p>
 
-    <section className="bgTalent">
-      <div className="content-container">
-        <div className="content-left">
-          <div className="section-populated">
-            <div className="title-section">
-                <h2 className="td-section-title">A whole world of freelance talent at your fingertips</h2>
+                </div>
+              </div>
+              <div className="benefit">
+                <div className="icon">
+                <AiOutlineDollar style={{fontSize: '30px', color: '#086bd6'}}/>
+                </div>
+                <div className="box-content">
+                  <h3>No cost until you hire</h3>
+                  <p className="description">Check any pro’s work samples, client reviews, and identity verification.</p>
+
+                </div>
+              </div>
+              <div className="benefit">
+                <div className="icon">
+                <SlBadge style={{fontSize: '30px', color: '#086bd6'}}/>
+                </div>
+                <div className="box-content">
+                  <h3>Safe and secure</h3>
+                  <p className="description">Check any pro’s work samples, client reviews, and identity verification.</p>
+
+                </div>
+              </div>
             </div>
-            <div className="benefit">
-              <div className="icon">
-              <SlBadge style={{fontSize: '30px', color: '#1F4B3F'}}/>
-              </div>
-              <div className="box-content">
-                <h3>Proof of qualityy</h3>
-                <p className="description">Check any pro’s work samples, client reviews, and identity verification.</p>
-
-              </div>
-            </div>
-            <div className="benefit">
-              <div className="icon">
-              <AiOutlineDollar style={{fontSize: '30px', color: '#1F4B3F'}}/>
-              </div>
-              <div className="box-content">
-                <h3>No cost until you hire</h3>
-                <p className="description">Check any pro’s work samples, client reviews, and identity verification.</p>
-
-              </div>
-            </div>
-            <div className="benefit">
-              <div className="icon">
-              <SlBadge style={{fontSize: '30px', color: '#1F4B3F'}}/>
-              </div>
-              <div className="box-content">
-                <h3>Safe and secure</h3>
-                <p className="description">Check any pro’s work samples, client reviews, and identity verification.</p>
-
+          </div>
+          <div className="content-right">
+            <div className="section-populated">
+              <div className="float">
+                <div className="float-inner">
+                  <ul className="tick-2">
+                    <li>
+                    <IoIosCheckmarkCircleOutline />
+                    The best for every budget
+                    </li>
+                    <li>
+                    <IoIosCheckmarkCircleOutline />
+                    Quality work done quickly
+                    </li>
+                    <li>
+                    <IoIosCheckmarkCircleOutline />
+                    Protected payments, every time
+                    </li>
+                    <li>
+                    <IoIosCheckmarkCircleOutline />
+                    24/7 support
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="content-right">
-          <div className="section-populated">
-            <div className="float">
-              <div className="float-inner">
-                <ul className="tick-2">
-                  <li>
-                  <IoIosCheckmarkCircleOutline />
-                  The best for every budget
-                  </li>
-                  <li>
-                  <IoIosCheckmarkCircleOutline />
-                  Quality work done quickly
-                  </li>
-                  <li>
-                  <IoIosCheckmarkCircleOutline />
-                  Protected payments, every time
-                  </li>
-                  <li>
-                  <IoIosCheckmarkCircleOutline />
-                  24/7 support
-                  </li>
-                </ul>
+      </section>
+
+      <section className="bgTalent-dark">
+        <div className="content-container">
+          <div className="content-left">
+            <div className="section-populated">
+              <div className="title-section">
+                  <h2 className="td-section-title">A whole world of freelance talent at your fingertips</h2>
+              </div>
+              <div className="benefit">
+                <div className="icon">
+                <SlBadge style={{fontSize: '30px', color: '#fff'}}/>
+                </div>
+                <div className="box-content">
+                  <h3>Proof of qualityy</h3>
+                  <p className="description">Check any pro’s work samples, client reviews, and identity verification.</p>
+
+                </div>
+              </div>
+              <div className="benefit">
+                <div className="icon">
+                <AiOutlineDollar style={{fontSize: '30px', color: '#fff'}}/>
+                </div>
+                <div className="box-content">
+                  <h3>No cost until you hire</h3>
+                  <p className="description">Check any pro’s work samples, client reviews, and identity verification.</p>
+
+                </div>
+              </div>
+              <div className="benefit">
+                <div className="icon">
+                <SlBadge style={{fontSize: '30px', color: '#fff'}}/>
+                </div>
+                <div className="box-content">
+                  <h3>Safe and secure</h3>
+                  <p className="description">Check any pro’s work samples, client reviews, and identity verification.</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="content-right">
+            <div className="section-populated">
+              <div className="images-container d-flex ">
+                <div className="w-50">
+                  <img src={I1} alt="" className="w-100"/>
+                </div>
+                <div className="w-50">
+                <img src={I2} alt="" className="w-100"/>
+                </div>
+              </div>
+              <div className="images-container pt-40 d-flex ">
+                <div className="w-50">
+                  <img src={I3} alt="" className="w-100"/>
+                </div>
+                <div className="w-50">
+                  <img src={I4} alt="" className="w-100"/>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+  </>
   );
 };
 

@@ -7,7 +7,7 @@ import "./Step.css"; // Import the CSS file
 
 export const Step = () => {
   return (
-    <div className="container-fluid custom-container my-5"
+    <div className="container-fluid container my-5"
       style={{
         overflowX: "hidden",
         marginTop: "150px" // Prevent scrolling on the Y-axis
@@ -18,7 +18,7 @@ export const Step = () => {
       </div>
       <div className="row text-center">
         <div className="col-md-3">
-          <div className="card custom-card">
+          <div className="card custom-card my-2">
             <img src={img1} className="card-img-top mb-3" alt="Post a job" />
             <h5 className="card-title fw-bold">Post a job</h5>
             <p className="card-text text-muted">
@@ -28,7 +28,7 @@ export const Step = () => {
           </div>
         </div>
         <div className="col-md-3">
-          <div className="card custom-card">
+          <div className="card custom-card my-2">
             <img
               src={img2}
               className="card-img-top mb-3"
@@ -42,7 +42,7 @@ export const Step = () => {
           </div>
         </div>
         <div className="col-md-3">
-          <div className="card custom-card">
+          <div className="card custom-card my-2">
             <img src={img3} className="card-img-top mb-3" alt="Pay safely" />
             <h5 className="card-title fw-bold">Pay safely</h5>
             <p className="card-text text-muted">
@@ -52,7 +52,7 @@ export const Step = () => {
           </div>
         </div>
         <div className="col-md-3">
-          <div className="card custom-card">
+          <div className="card custom-card my-2">
             <img
               src={img4}
               className="card-img-top mb-3"

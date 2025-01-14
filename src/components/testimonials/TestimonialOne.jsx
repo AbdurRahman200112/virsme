@@ -98,7 +98,7 @@ export const TestimonialOne = () => {
     slidesToShow: 7,
     slidesToScroll: 1,
     asNavFor: nav1,
-    // asNavFor: ".testimonial__slider-active-9",
+    arrows: false,
     dots: false,
     centerMode: false,
     focusOnSelect: true,

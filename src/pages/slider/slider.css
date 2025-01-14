@@ -8,3 +8,31 @@
     font-size: 14px;
     color: black;
 }
+.service-categories .swiper-container .swiper-button-next, .service-categories .swiper-container .swiper-button-prev{
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 8px;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px;
+    right: 0px;
+}
+.service-categories .swiper-container .swiper-button-next:hover, .service-categories .swiper-container .swiper-button-prev:hover{
+    background-color: #0965cad1;
+    transition: .3s;
+    border-color: #0966ca13;
+}
+.service-categories .swiper-container .swiper-button-next:hover::after,
+.service-categories .swiper-container .swiper-button-prev:hover::after {
+  color: #fff;
+  font-weight: 600;
+}

@@ -9818,8 +9818,8 @@ input[type="color"] {
   color: var(--td-grey-2);
 }
 .td-brand-counter-title {
-  font-weight: 500;
-  font-size: 80px;
+  font-weight: 600;
+  font-size: 40px;
   line-height: 1.12;
   margin-bottom: 0;
 }
