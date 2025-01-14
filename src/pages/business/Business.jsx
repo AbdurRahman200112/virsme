@@ -10,7 +10,6 @@ export const Business = () => {
             <div className="row"
                 style={{
                     marginTop: "150px",
-                    marginBottom: "150px"
                 }}>
                 {/* Left Column */}
                 <div className="col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center align-items-start my-5">
