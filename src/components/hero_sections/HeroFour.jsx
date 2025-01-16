@@ -82,7 +82,7 @@ export const HeroFour = () => {
                             src={badgeImg}
                             alt="badge"
                           />
-                          <h2>A</h2>
+                          <h2>V</h2>
                         </div>
                       </div>
                       <div className="col-lg-7">
@@ -97,12 +97,12 @@ export const HeroFour = () => {
                             </span>
                             <a href="#">Adina</a>
                           </h3>
-                          <div className="td-hero-4-btn">
+                          {/* <div className="td-hero-4-btn">
                             <Link
                               className="td-btn td-btn-7 td-left-right"
                               to="/contact"
                             >
-                              Our Services
+                              Contact
                               <span className="td-arrow-angle ml-10">
                                 <svg
                                   className="td-arrow-svg-top-right"
@@ -116,7 +116,7 @@ export const HeroFour = () => {
                                 </svg>
                               </span>
                             </Link>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -141,7 +141,7 @@ export const HeroFour = () => {
                             src={badgeImg}
                             alt="badge"
                           />
-                          <h2>A</h2>
+                          <h2>V</h2>
                         </div>
                       </div>
                       <div className="col-lg-7">
@@ -156,7 +156,7 @@ export const HeroFour = () => {
                             </span>
                             <a href="#">Adina</a>
                           </h3>
-                          <div className="td-hero-4-btn">
+                          {/* <div className="td-hero-4-btn">
                             <Link
                               className="td-btn td-btn-7 td-left-right"
                               to="/contact"
@@ -175,7 +175,7 @@ export const HeroFour = () => {
                                 </svg>
                               </span>
                             </Link>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -200,7 +200,7 @@ export const HeroFour = () => {
                             src={badgeImg}
                             alt="badge"
                           />
-                          <h2>A</h2>
+                          <h2>V</h2>
                         </div>
                       </div>
                       <div className="col-lg-7">
@@ -215,7 +215,7 @@ export const HeroFour = () => {
                             </span>
                             <a href="#">Adina</a>
                           </h3>
-                          <div className="td-hero-4-btn">
+                          {/* <div className="td-hero-4-btn">
                             <Link
                               className="td-btn td-btn-7 td-left-right"
                               to="/contact"
@@ -234,7 +234,7 @@ export const HeroFour = () => {
                                 </svg>
                               </span>
                             </Link>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>

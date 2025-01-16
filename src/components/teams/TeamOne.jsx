@@ -34,7 +34,7 @@ export const TeamOne = () => {
   ];
 
   return (
-    <div className="td-team-area td-grey-bg pt-140 pb-100">
+    <div className="td-team-area td-grey-bg pb-100">
       <div className="container">
         <div className="row">
           {/* header */}

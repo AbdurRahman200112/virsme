@@ -53,7 +53,7 @@ export const AwardsOne = () => {
               data-wow-duration="1s"
             >
               <span className="td-section-title-pre mb-10">Awards</span>
-              <h2 className="td-section-title">Awards & recognition</h2>
+              <h2 className="td-section-title text-center">Awards & recognition</h2>
             </div>
           </div>
 

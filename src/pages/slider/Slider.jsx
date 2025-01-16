@@ -3,12 +3,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import SwiperCore, { Navigation } from "swiper";
 import bg1 from "./c1.jpg";
-import Finance from "./Finance.jpg";
+import Finance from "./finance.jpg";
 import HumanResource from "./Human-Resource.jpg";
 import ContentCreation from "./content-creation.jpg";
 import ItSupport from "./it-support.jpg";
 import './slider.css'
-// Install Swiper modules
 SwiperCore.use([Navigation]);
 
 const categories = [
@@ -23,7 +22,7 @@ const Slider = () => {
     return (
         <div
             className="container service-categories"
-            style={{ marginTop: "150px", marginBottom: "200px", position: "relative" }}
+            style={{ position: "relative" }}
         >
             <h2 className="td-section-title font-bold mb-4" style={{fontSize: '45px'}}>
                 Browse talent by category
@@ -32,6 +31,7 @@ const Slider = () => {
                 Get some inspirations from 1800+ skills
             </p>
             <Swiper
+            style={{marginTop: '30px'}}
                 navigation={{
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",

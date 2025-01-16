@@ -7,6 +7,7 @@ import thumb3Img from "../../assets/img/faq/details/thumb3.jpg";
 import thumb4Img from "../../assets/img/faq/details/thumb4.jpg";
 import thumb5Img from "../../assets/img/faq/details/thumb5.jpg";
 import thumb6Img from "../../assets/img/faq/details/thumb6.jpg";
+import { FaqOne } from "../../components/faq/FaqOne";
 
 export const Faq = () => {
   const faqItems = [
@@ -82,7 +83,8 @@ export const Faq = () => {
   ];
 
   return (
-    <Layout breadcrumbTitle={"FAQ Page"} breadcrumbSubtitle={"FAQ"}>
+    <Layout breadcrumbTitle={"FAQs"} breadcrumbSubtitle={"FAQs"}>
+      <FaqOne />
       <div className="td-faq-area pt-140 pb-80">
         <div className="container">
           <div className="row">
@@ -143,7 +145,9 @@ export const Faq = () => {
                   </div>
                 ))}
               </div>
+              
             </div>
+            
 
             <div className="col-lg-4 mb-20">
               <div className="td-service-details-right ml-50">
@@ -238,6 +242,8 @@ export const Faq = () => {
           </div>
         </div>
       </div>
+
+      
     </Layout>
   );
 };

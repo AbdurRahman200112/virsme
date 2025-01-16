@@ -30,7 +30,7 @@ export const FaqOne = () => {
               data-wow-duration="1s"
             >
               <span className="td-section-title-pre mb-5">Faq</span>
-              <h2 className="td-section-title">Get your all answer</h2>
+              <h2 className="td-section-title text-center">Get your all answer</h2>
             </div>
           </div>
         </div>

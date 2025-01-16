@@ -37,7 +37,7 @@ export const BrandOne = ({ className = "" }) => {
   };
 
   return (
-    <div className={`td-brands-area td-grey-bg pb-50 ${className}`}>
+    <div className={`td-brands-area td-grey-bg ${className}`}>
       <div className="container-fluid">
         <div className="row gx-0">
           <div className="col-12">
