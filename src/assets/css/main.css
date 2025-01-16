@@ -7631,6 +7631,10 @@ input[type="color"] {
     flex-direction: column !important;
     text-align: center;
   }
+  .td-service-4-item.left .td-service-4-icon{
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px),
   only screen and (min-width: 576px) and (max-width: 767px),
