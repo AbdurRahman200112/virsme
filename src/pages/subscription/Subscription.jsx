@@ -319,8 +319,8 @@ export const Subscriptions = () => {
   };
   
   const updateTotal = () => {
-    const totalHours = selectedServices.reduce((sum, service) => sum + service.hours, 0);
-    const totalCost = selectedServices.reduce((sum, service) => sum + service.price * service.hours, 0);
+    const totalHours = selectedServices.reduce((sum, service) => sum +  Number(service.hours || 0), 0);
+    const totalCost = selectedServices.reduce((sum, service) => sum + service.price * (Number(service.hours) || 0), 0);
     return { totalHours, totalCost };
   };
 
@@ -334,7 +334,6 @@ export const Subscriptions = () => {
     );
   };
   
-
   const submitForm = (e) => {
     e.preventDefault();
     if (!businessName || !email) {
