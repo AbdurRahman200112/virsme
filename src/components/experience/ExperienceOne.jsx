@@ -8,7 +8,7 @@ import thumbImage4 from "../../assets/img/expreance/04.jpg";
 export const ExperienceOne = () => {
   return (
     <div className="td-expreance-area">
-      <div className="td-expreance-top pb-200">
+      {/* <div className="td-expreance-top pb-200">
         <div className="container">
           <div className="row">
             <div className="col-12">
@@ -67,39 +67,13 @@ export const ExperienceOne = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div
-        className="td-expreance-main bg-position z-index-11 pt-135 pb-140"
+        className="td-expreance-main bg-position z-index-11 pt-135"
         data-background={bgImage}
       >
         <div className="container">
-          <div className="row mb-35">
-            <div className="col-lg-6 mb-30">
-              <div
-                className="td-expreance-tile-wrap wow fadeInUp"
-                data-wow-delay=".3s"
-                data-wow-duration="1s"
-              >
-                <h2 className="td-expreance-main-title">
-                  Recent works and success stories
-                </h2>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-30">
-              <div
-                className="td-expreance-main-title-pre wow fadeInUp"
-                data-wow-delay=".4s"
-                data-wow-duration="1s"
-              >
-                <p>
-                  We are constantly rethinking the future by creating the next
-                  generation of products, brands and services from a hybrid
-                  perspective. The <b>unthinkable</b> today becomes inevitable.
-                </p>
-              </div>
-            </div>
-          </div>
 
           <div className="row">
             <div
@@ -132,7 +106,7 @@ export const ExperienceOne = () => {
                           when an unknow.
                         </p>
                         <div className="td-expreance-btn">
-                          <a href="#">
+                          <button type="button">
                             <svg
                               width="50"
                               height="50"
@@ -153,7 +127,7 @@ export const ExperienceOne = () => {
                                 fill="currentColor"
                               />
                             </svg>
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -191,7 +165,7 @@ export const ExperienceOne = () => {
                           when an unknow.
                         </p>
                         <div className="td-expreance-btn">
-                          <a href="#">
+                          <button type="button">
                             <svg
                               width="50"
                               height="50"
@@ -212,7 +186,7 @@ export const ExperienceOne = () => {
                                 fill="currentColor"
                               />
                             </svg>
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -250,7 +224,7 @@ export const ExperienceOne = () => {
                           when an unknow.
                         </p>
                         <div className="td-expreance-btn">
-                          <a href="#">
+                          <button type="button">
                             <svg
                               width="50"
                               height="50"
@@ -271,7 +245,7 @@ export const ExperienceOne = () => {
                                 fill="currentColor"
                               />
                             </svg>
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -309,7 +283,7 @@ export const ExperienceOne = () => {
                           when an unknow.
                         </p>
                         <div className="td-expreance-btn">
-                          <a href="#">
+                          <button type="buttobutton">
                             <svg
                               width="50"
                               height="50"
@@ -330,7 +304,7 @@ export const ExperienceOne = () => {
                                 fill="currentColor"
                               />
                             </svg>
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -368,7 +342,7 @@ export const ExperienceOne = () => {
                           when an unknow.
                         </p>
                         <div className="td-expreance-btn">
-                          <a href="#">
+                          <button type="button">
                             <svg
                               width="50"
                               height="50"
@@ -389,7 +363,7 @@ export const ExperienceOne = () => {
                                 fill="currentColor"
                               />
                             </svg>
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>

@@ -8,7 +8,7 @@ import { ServiceAreaThree } from "../../components/service/ServiceAreaThree";
 import { ServiceAreaFour } from "../../components/service/ServiceAreaFour";
 import { ServiceAreaFive } from "../../components/service/ServiceAreaFive";
 // import { ServiceAreaSix } from "../../components/service/ServiceAreaSix";
-// import { ExperienceOne } from "../../components/experience/ExperienceOne";
+import { ExperienceOne } from "../../components/experience/ExperienceOne";
 import { PricingOne } from "../../components/pricing/PricingOne";
 import { TestimonialOne } from "../../components/testimonials/TestimonialOne";
 import { FaqOne } from "../../components/faq/FaqOne";
@@ -49,7 +49,8 @@ export const HomeThree = () => {
       <ServiceAreaFive />
       <ServiceAreaFour />
 
-      {/* <ExperienceOne /> */}
+
+      
 
       {/* <Business /> */}
 
@@ -61,7 +62,7 @@ export const HomeThree = () => {
 
       <TestimonialOne />
       <BrandOne />
-
+      <ExperienceOne />
       <FaqOne />
 
       {/* cta area */}
