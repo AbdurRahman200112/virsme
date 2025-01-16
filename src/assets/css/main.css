@@ -7319,7 +7319,7 @@ input[type="color"] {
   font-size: 14px;
   color: var(--td-common-white);
   backdrop-filter: blur(20px);
-  background: #81c78440;
+  background: #ffffff1c;
   display: inline-block;
   padding: 6px 11px;
   position: absolute;
@@ -7670,6 +7670,10 @@ input[type="color"] {
   box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.04);
   width: 278px;
   padding: 40px 40px 40px 40px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.td-service-5-wrap:hover{
+  transform: scale(1.1);
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px),
   only screen and (min-width: 576px) and (max-width: 767px) {
@@ -11245,7 +11249,7 @@ input[type="color"] {
   transition: all 0.4s ease;
 }
 .td-awards-meta span {
-  color: #17771b;
+  color: var(--bs-gray);
   display: flex;
 }
 .td-awards-meta i {
