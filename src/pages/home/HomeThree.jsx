@@ -33,21 +33,22 @@ export const HomeThree = () => {
   return (
     <Layout header={2} footer={2}  >
       <HeroFour />
+      <ServiceAreaFive />
+      {/* <AboutFour />
+      <ChooseOne /> */}
 
-      <AboutFour />
-      <ChooseOne />
-
-      <AboutTwo />
-      <AboutThree />
+      {/* <AboutTwo /> */}
+      {/* <AboutThree /> */}
 
       {/* <Talent /> */}
 
       <ServiceAreaThree />
-      <AwardsOne />
+      <ServiceAreaFour />
+      {/* <AwardsOne /> */}
       <ServiceAreaOne/>
       {/* <Step /> */}
-      <ServiceAreaFive />
-      <ServiceAreaFour />
+      
+   
 
 
       
@@ -58,16 +59,16 @@ export const HomeThree = () => {
 
       {/* <ImpressionOne /> */}
 
-      <PricingOne />
-
+      {/* <PricingOne /> */}
+      <CtaOne />
       <TestimonialOne />
       <BrandOne />
-      <ExperienceOne />
-      <FaqOne />
+      {/* <ExperienceOne /> */}
+      {/* <FaqOne /> */}
 
       {/* cta area */}
-      <CtaOne />
-      <TeamOne />
+      
+      {/* <TeamOne /> */}
 
     </Layout>
   );

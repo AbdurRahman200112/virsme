@@ -6649,6 +6649,7 @@ input[type="color"] {
 .td-cta-count-wrap {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .td-cta-para p {
   line-height: 1.5;
@@ -6660,6 +6661,7 @@ input[type="color"] {
   .td-cta-para p {
     margin-right: 0;
     margin-left: 20px;
+    text-align: center;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px),
@@ -6670,6 +6672,7 @@ input[type="color"] {
     margin-right: 0;
     margin-left: 0;
     margin-top: 20px;
+    text-align: center;
   }
 }
 .td-cta-para-2 p {
@@ -7615,7 +7618,7 @@ input[type="color"] {
 @media (max-width: 575px) {
   .td-service-4-item {
     flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
   }
 }
 .td-service-4-icon {

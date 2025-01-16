@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import logoImage from "../../assets/img/testimonial/logo.png";
+import logo from "../../assets/img/testimonial/logo.png";
 import quoteImage from "../../assets/img/testimonial/qoute.png";
 import authorImage01 from "../../assets/img/testimonial/01.png";
 import authorImage02 from "../../assets/img/testimonial/02.png";
@@ -8,6 +8,7 @@ import authorImage04 from "../../assets/img/testimonial/04.png";
 import authorImage05 from "../../assets/img/testimonial/05.png";
 import authorImage06 from "../../assets/img/testimonial/06.png";
 import authorImage07 from "../../assets/img/testimonial/07.png";
+import aboutA from "../../../favicon2.png";
 import { SlickSlider } from "../slick_slider/SlickSlider";
 
 export const TestimonialOne = () => {
@@ -155,14 +156,14 @@ export const TestimonialOne = () => {
   };
 
   return (
-    <div className="td-testimonial-area td-grey-bg pb-140 p-relative">
+    <div className="td-testimonial-area td-grey-bg pb-140 mt-140 p-relative">
       {/* rotating images */}
       <div className="td-testimonial-qoute-wrap">
         <div className="td-testimonial-qoute-thumb p-relative">
-          <img className="td-testimonial-qoute" src={logoImage} alt="logo" />
+          <img className="td-testimonial-qoute" src={logo} alt="logo" />
           <img
             className="td-testimonial-qoute-2"
-            src={quoteImage}
+            src={aboutA}
             alt="quote"
           />
         </div>

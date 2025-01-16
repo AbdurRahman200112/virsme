@@ -3,7 +3,7 @@ import mapImage from "../../assets/img/cta/map.png";
 
 export const CtaOne = () => {
   return (
-    <div className="td-cta-area p-relative pt-140 fix">
+    <div className="td-cta-area p-relative pt-140 mt-50 fix">
       <img className="td-cta-bg-shape" src={mapImage} alt="cta" />
       <div className="container">
         <div className="row">

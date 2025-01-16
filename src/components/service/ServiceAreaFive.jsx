@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const ServiceAreaFive = () => {
   return (
-    <div className="td-service-area pt-140 pb-140">
+    <div className="td-service-area pt-140 ">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">

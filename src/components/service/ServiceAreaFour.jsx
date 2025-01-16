@@ -8,7 +8,7 @@ export const ServiceAreaFour = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="td-service-4-border pt-140 pb-185">
+            <div className="td-service-4-border pt-140 pb-140">
               <div className="row">
                 <div className="col-lg-12">
                   <div className="td-service-title-wrap text-center mb-100">
