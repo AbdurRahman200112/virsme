@@ -11,7 +11,7 @@ import { ServiceAreaFive } from "../../components/service/ServiceAreaFive";
 // import { ExperienceOne } from "../../components/experience/ExperienceOne";
 import { PricingOne } from "../../components/pricing/PricingOne";
 import { TestimonialOne } from "../../components/testimonials/TestimonialOne";
-// import { FaqOne } from "../../components/faq/FaqOne";
+import { FaqOne } from "../../components/faq/FaqOne";
 import { BrandOne } from "../../components/brands/BrandOne";
 // import { ImpressionOne } from "../../components/impressions/ImpressionOne";
 // import {BusinessOne} from "../../components/business/BusinessOne";
@@ -38,11 +38,11 @@ export const HomeThree = () => {
 
       <AboutTwo />
       <AboutThree />
-      <AwardsOne />
 
       {/* <Talent /> */}
 
       <ServiceAreaThree />
+      <AwardsOne />
       <ServiceAreaOne/>
       {/* <Step /> */}
       <ServiceAreaFive />
@@ -61,7 +61,7 @@ export const HomeThree = () => {
       <TestimonialOne />
       <BrandOne />
 
-      {/* <FaqOne /> */}
+      <FaqOne />
 
       <TeamOne />
 

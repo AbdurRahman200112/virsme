@@ -66,7 +66,7 @@ export const ServiceAreaOne = () => {
   }, []);
 
   return (
-    <div className="td-service-area fix bg-position mb-130 mt-130 p-relative">
+    <div className="td-service-area fix bg-position  mt-130 p-relative">
       <div className="container-fluid g-0">
         {/* bg images */}
         <div className="service__slider-8">

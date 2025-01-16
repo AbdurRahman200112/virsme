@@ -43,7 +43,7 @@ const awardsList = [
 
 export const AwardsOne = () => {
   return (
-    <div className="td-awards-area">
+    <div className="td-awards-area pt-120">
       <div className="container">
         <div className="row">
           <div className="col-12">

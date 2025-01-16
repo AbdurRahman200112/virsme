@@ -95,14 +95,15 @@ export const HeroFour = () => {
                               boom <br />
                               with
                             </span>
-                            <a href="#">Adina</a>
+                            <a href="#">VirS<span style={{ color: '#288DFD' }}>M</span>E</a>
                           </h3>
                           <div className="td-hero-4-btn">
                             <Link
                               className="td-btn td-btn-7 td-left-right"
-                              to="/contact"
+                              to="/Subscription"
                             >
-                              Contact
+                              Get Subscription Now
+
                               <span className="td-arrow-angle ml-10">
                                 <svg
                                   className="td-arrow-svg-top-right"
@@ -154,14 +155,14 @@ export const HeroFour = () => {
                               boom <br />
                               with
                             </span>
-                            <a href="#">Adina</a>
+                            <a href="#">VirS<span style={{ color: '#288DFD' }}>M</span>E</a>
                           </h3>
                           <div className="td-hero-4-btn">
                             <Link
                               className="td-btn td-btn-7 td-left-right"
-                              to="/contact"
+                              to="/Subscription"
                             >
-                              Our Services
+                              Get Subscription Now
                               <span className="td-arrow-angle ml-10">
                                 <svg
                                   className="td-arrow-svg-top-right"
@@ -213,14 +214,14 @@ export const HeroFour = () => {
                               boom <br />
                               with
                             </span>
-                            <a href="#">Adina</a>
+                            <a href="#">VirS<span style={{ color: '#288DFD' }}>M</span>E</a>
                           </h3>
                           <div className="td-hero-4-btn">
                             <Link
                               className="td-btn td-btn-7 td-left-right"
-                              to="/contact"
+                              to="/Subscription"
                             >
-                              Our Services
+                              Get Subscription Now
                               <span className="td-arrow-angle ml-10">
                                 <svg
                                   className="td-arrow-svg-top-right"
@@ -305,19 +306,19 @@ export const HeroFour = () => {
           <div className="td-hero-4-navigation-wrapper d-flex justify-content-between">
             <button
               className="td-hero-4-navigation-next"
-              // onClick={() => {
-              //   toPrevSmall();
-              //   toPrevBig();
-              // }}
+            // onClick={() => {
+            //   toPrevSmall();
+            //   toPrevBig();
+            // }}
             >
               <i className="fa-light fa-arrow-left-long"></i>
             </button>
             <button
               className="td-hero-4-navigation-prev"
-              // onClick={() => {
-              //   toNextSmall();
-              //   toNextBig();
-              // }}
+            // onClick={() => {
+            //   toNextSmall();
+            //   toNextBig();
+            // }}
             >
               <i className="fa-light fa-arrow-right-long"></i>
             </button>
