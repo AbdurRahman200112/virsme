@@ -9,7 +9,7 @@ export const CtaOne = () => {
         <div className="row">
           <div className="col-12">
             <div className="td-cta-big-title-wrap pb-125">
-              <h2 className="td-cta-big-title">Adina.</h2>
+              <h2 className="td-cta-big-title">VirSME.</h2>
             </div>
           </div>
         </div>

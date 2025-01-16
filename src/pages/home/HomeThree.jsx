@@ -27,6 +27,7 @@ import Business from "../business/Business";
 
 // import BG2 from "../../assets/img/breadcrumb/h13-bg.jpg";
 import Slider from "../slider/Slider";
+import { CtaOne } from "../../components/cta/CtaOne";
 
 export const HomeThree = () => {
   return (
@@ -63,6 +64,8 @@ export const HomeThree = () => {
 
       <FaqOne />
 
+      {/* cta area */}
+      <CtaOne />
       <TeamOne />
 
     </Layout>
