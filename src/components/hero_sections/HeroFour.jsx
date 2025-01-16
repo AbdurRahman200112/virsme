@@ -97,7 +97,7 @@ export const HeroFour = () => {
                             </span>
                             <a href="#">Adina</a>
                           </h3>
-                          {/* <div className="td-hero-4-btn">
+                          <div className="td-hero-4-btn">
                             <Link
                               className="td-btn td-btn-7 td-left-right"
                               to="/contact"
@@ -116,7 +116,7 @@ export const HeroFour = () => {
                                 </svg>
                               </span>
                             </Link>
-                          </div> */}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -156,7 +156,7 @@ export const HeroFour = () => {
                             </span>
                             <a href="#">Adina</a>
                           </h3>
-                          {/* <div className="td-hero-4-btn">
+                          <div className="td-hero-4-btn">
                             <Link
                               className="td-btn td-btn-7 td-left-right"
                               to="/contact"
@@ -175,7 +175,7 @@ export const HeroFour = () => {
                                 </svg>
                               </span>
                             </Link>
-                          </div> */}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -215,7 +215,7 @@ export const HeroFour = () => {
                             </span>
                             <a href="#">Adina</a>
                           </h3>
-                          {/* <div className="td-hero-4-btn">
+                          <div className="td-hero-4-btn">
                             <Link
                               className="td-btn td-btn-7 td-left-right"
                               to="/contact"
@@ -234,7 +234,7 @@ export const HeroFour = () => {
                                 </svg>
                               </span>
                             </Link>
-                          </div> */}
+                          </div>
                         </div>
                       </div>
                     </div>
