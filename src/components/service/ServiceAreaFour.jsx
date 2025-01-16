@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logoImage from "../../assets/img/logo/logo.png";
+import logoImage from "../../../favicon2.png";
 
 export const ServiceAreaFour = () => {
   return (
@@ -27,7 +27,7 @@ export const ServiceAreaFour = () => {
                 >
                   <div className="row">
                     <div className="col-12">
-                      <div className="td-service-4-item pb-200">
+                      <div className="td-service-4-item pb-120">
                         <div className="td-service-4-icon">
                           <span>
                             <svg
@@ -140,7 +140,7 @@ export const ServiceAreaFour = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-2">
+                <div className="col-lg-2 d-none d-lg-block">
                   <div className="td-service-4-logo td-video-4-logo">
                     <Link className="td-pulse-border" to="/">
                       <img src={logoImage} alt="logo" />
@@ -154,7 +154,7 @@ export const ServiceAreaFour = () => {
                 >
                   <div className="row">
                     <div className="col-12">
-                      <div className="td-service-4-item pb-200">
+                      <div className="td-service-4-item pb-120">
                         <div className="td-service-4-icon">
                           <span>
                             <svg
