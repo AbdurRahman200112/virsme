@@ -27,7 +27,7 @@ export const ServiceAreaFour = () => {
                 >
                   <div className="row">
                     <div className="col-12">
-                      <div className="td-service-4-item pb-120">
+                      <div className="td-service-4-item pb-120 left">
                         <div className="td-service-4-icon">
                           <span>
                             <svg
@@ -80,7 +80,7 @@ export const ServiceAreaFour = () => {
                       </div>
                     </div>
                     <div className="col-12">
-                      <div className="td-service-4-item">
+                      <div className="td-service-4-item left">
                         <div className="td-service-4-icon">
                           <span>
                             <svg

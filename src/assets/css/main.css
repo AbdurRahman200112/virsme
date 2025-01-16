@@ -7608,6 +7608,24 @@ input[type="color"] {
   display: flex;
   align-items: center;
 }
+.td-service-4-item.left{
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.td-service-4-item.left .td-service-4-icon{
+  margin-right: 0;
+  margin-left: 43px;
+}
+@media screen and (max-width: 991.98px) {
+  .td-service-4-item.left{
+    flex-direction: unset !important;
+    text-align: left;
+  }
+  .td-service-4-item.left .td-service-4-icon{
+    margin-right: 43px;
+    margin-left: 0;
+  }
+}
 @media only screen and (min-width: 768px) and (max-width: 991px),
   only screen and (min-width: 576px) and (max-width: 767px),
   (max-width: 575px) {
