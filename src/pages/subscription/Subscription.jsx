@@ -52,6 +52,7 @@ export const Subscriptions = () => {
   const [email, setEmail] = useState("");
   const [disabledSize, setDisabledSize] = useState(null);
   const [animatingIndex, setAnimatingIndex] = useState(null);
+  const [serviceAnimations, setServiceAnimations] = useState({});
 
   
   useEffect(() => {
@@ -106,16 +107,24 @@ export const Subscriptions = () => {
     setStep(nextStep);
   };
 
-  const handleServiceClick = (service, index) => {
-    // If the service is already selected, show a warning and return
+  const [lastSelectedService, setLastSelectedService] = useState(null);
+
+  const handleServiceClick = (service) => {
     if (selectedServices.some((s) => s.name === service.name)) {
-      handleServiceRemove(service); 
+      handleServiceRemove(service);
       return;
     }
-      setAnimatingIndex(index);
-      setSelectedServices((prev) => [...prev, service]);
-      setTimeout(() => setAnimatingIndex(null)); // Adjust the delay to match your animation duration
+  
+    setSelectedServices((prev) => [...prev, service]);
+  
+    // Trigger animation for this specific service
+    setServiceAnimations((prev) => ({
+      ...prev,
+      [service.name]: Date.now(), // Use a timestamp as a unique trigger
+    }));
   };
+  
+  
   
   
   
@@ -265,62 +274,57 @@ export const Subscriptions = () => {
     });
   };
 
-  const AnimatedTick = () => {
-    const [uniqueKey, setUniqueKey] = useState(0);
+  // const AnimatedTick = ({ trigger }) => {
+  //   return (
+  //     <svg
+  //       key={trigger} // Unique key ensures animation re-renders only for this service
+  //       width="50"
+  //       height="50"
+  //       viewBox="0 0 50 50"
+  //       fill="none"
+  //       xmlns="http://www.w3.org/2000/svg"
+  //     >
+  //       <circle
+  //         cx="25"
+  //         cy="25"
+  //         r="20"
+  //         stroke="#4caf50"
+  //         strokeWidth="2"
+  //         fill="none"
+  //         strokeDasharray="125.6"
+  //         strokeDashoffset="125.6"
+  //       >
+  //         <animate
+  //           attributeName="stroke-dashoffset"
+  //           from="125.6"
+  //           to="0"
+  //           dur="0.5s"
+  //           fill="freeze"
+  //         />
+  //       </circle>
+  //       <path
+  //         d="M15 25L22 32L35 18"
+  //         stroke="#4caf50"
+  //         strokeWidth="3"
+  //         strokeLinecap="round"
+  //         strokeLinejoin="round"
+  //         fill="none"
+  //         opacity="0"
+  //       >
+  //         <animate
+  //           attributeName="opacity"
+  //           from="0"
+  //           to="1"
+  //           begin="0.5s"
+  //           dur="0.2s"
+  //           fill="freeze"
+  //         />
+  //       </path>
+  //     </svg>
+  //   );
+  // };
   
-    // Increment the key to re-trigger animation
-    useEffect(() => {
-      setUniqueKey((prevKey) => prevKey + 1);
-    }, []);
   
-    return (
-      <svg
-        key={uniqueKey} // Unique key forces re-render of the SVG
-        width="50"
-        height="50"
-        viewBox="0 0 50 50"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle
-          cx="25"
-          cy="25"
-          r="20"
-          stroke="#4caf50"
-          strokeWidth="2"
-          fill="none"
-          strokeDasharray="125.6"
-          strokeDashoffset="125.6"
-        >
-          <animate
-            attributeName="stroke-dashoffset"
-            from="125.6"
-            to="0"
-            dur="0.5s"
-            fill="freeze"
-          />
-        </circle>
-        <path
-          d="M15 25L22 32L35 18"
-          stroke="#4caf50"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-          opacity="0"
-        >
-          <animate
-            attributeName="opacity"
-            from="0"
-            to="1"
-            begin="1s"
-            dur="0.2s"
-            fill="freeze"
-          />
-        </path>
-      </svg>
-    );
-  };
 
   return (
     <div className="stepsForm td-testimonial-area td-grey-bg pb-20 p-relative">
@@ -344,14 +348,14 @@ export const Subscriptions = () => {
           <div className="pt-50 pb-60 min-height">
             <div className="row align-items-end">
               <div className="col-12">
-              {services.map((service, index) => (
-                    <div
-                    className={`td-expreance-content-wrap p-relative ${
-                      selectedServices.some((s) => s.name === service.name) ? "selected" : "Select"
-                    }`}
-                    key={service.name}
-                    onClick={() => handleServiceClick(service)}
-                  >
+              {services.map((service) => (
+                <div
+                  className={`td-expreance-content-wrap p-relative ${
+                    selectedServices.some((s) => s.name === service.name) ? "selected" : ""
+                  }`}
+                  key={service.name}
+                  onClick={() => handleServiceClick(service)}
+                >
                   <div
                     className="td-expreance-thumb"
                     style={{
@@ -363,15 +367,11 @@ export const Subscriptions = () => {
                       <div className="col-lg-6 mb-30">
                         <div className="td-expreance-content">
                           <p className="td-expreance-title-pre">
-                          {selectedServices.some((s) => s.name === service.name) ? "Selected" : "Select"}
+                            {selectedServices.some((s) => s.name === service.name) ? "Selected" : "Select"}
                           </p>
                           <h3 className="td-expreance-title">
                             <span>{service.no}</span>
-                            <button
-                              type="button"
-                              onClick={() => handleServiceClick(service)}
-                              className="text-start"
-                            >
+                            <button type="button" className="text-start">
                               {service.name}
                             </button>
                           </h3>
@@ -379,38 +379,54 @@ export const Subscriptions = () => {
                       </div>
                       <div className="col-lg-6 mb-30">
                         <div className="td-expreance-btn-wrap">
-                          <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry.
-                          </p>
+                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                           <div className="td-expreance-btn">
-                            <button
-                              type="button"
-                              onClick={() => handleServiceClick(service)}
-                            >
-                              {/* Conditional rendering of SVG */}
+                            <button type="button">
                               {selectedServices.some((s) => s.name === service.name) ? (
-                                <AnimatedTick />
+                                <svg
+                                width="50"
+                                height="50"
+                                viewBox="0 0 50 50"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="25"
+                                  cy="25"
+                                  r="20"
+                                  stroke="#4caf50"
+                                  strokeWidth="2"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M15 25L22 32L35 18"
+                                  stroke="#4caf50"
+                                  strokeWidth="3"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  fill="none"
+                                />
+                              </svg>
                               ) : (
                                 <svg
-                                  width="50"
-                                  height="50"
-                                  viewBox="0 0 50 50"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M25 50C38.8235 50 50 38.8235 50 25C50 11.1765 38.8235 0 25 0C11.1765 0 0 11.1765 0 25C0 38.8235 11.1765 50 25 50ZM25 2.94118C37.2059 2.94118 47.0588 12.7941 47.0588 25C47.0588 37.2059 37.2059 47.0588 25 47.0588C12.7941 47.0588 2.94118 37.2059 2.94118 25C2.94118 12.7941 12.7941 2.94118 25 2.94118Z"
-                                    fill="#4caf50"
-                                  />
-                                  <path
-                                    d="M24.5585 39.2638L38.8232 24.9991L24.5585 10.7344L22.4997 12.7932L34.7056 24.9991L22.4997 37.205L24.5585 39.2638Z"
-                                    fill="#4caf50"
-                                  />
-                                  <path
-                                    d="M36.7646 23.5293H11.7646V26.4705H36.7646V23.5293Z"
-                                    fill="#4caf50"
-                                  />
+                                width="50"
+                                height="50"
+                                viewBox="0 0 50 50"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M25 50C38.8235 50 50 38.8235 50 25C50 11.1765 38.8235 0 25 0C11.1765 0 0 11.1765 0 25C0 38.8235 11.1765 50 25 50ZM25 2.94118C37.2059 2.94118 47.0588 12.7941 47.0588 25C47.0588 37.2059 37.2059 47.0588 25 47.0588C12.7941 47.0588 2.94118 37.2059 2.94118 25C2.94118 12.7941 12.7941 2.94118 25 2.94118Z"
+                                  fill="#4caf50"
+                                />
+                                <path
+                                  d="M24.5585 39.2638L38.8232 24.9991L24.5585 10.7344L22.4997 12.7932L34.7056 24.9991L22.4997 37.205L24.5585 39.2638Z"
+                                  fill="#4caf50"
+                                />
+                                <path
+                                  d="M36.7646 23.5293H11.7646V26.4705H36.7646V23.5293Z"
+                                  fill="#4caf50"
+                                />
                                 </svg>
                               )}
                             </button>
@@ -421,7 +437,6 @@ export const Subscriptions = () => {
                   </div>
                 </div>
               ))}
-
               </div>
             </div>
           </div>
