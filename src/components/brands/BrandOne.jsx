@@ -1,9 +1,14 @@
 import React from "react";
-import brand1 from "../../assets/img/brands/01.png";
-import brand2 from "../../assets/img/brands/02.png";
-import brand3 from "../../assets/img/brands/03.png";
-import brand4 from "../../assets/img/brands/04.png";
-import brand5 from "../../assets/img/brands/05.png";
+import brand1 from "../../assets/img/brands/1.png";
+import brand2 from "../../assets/img/brands/2.png";
+import brand3 from "../../assets/img/brands/3.png";
+import brand4 from "../../assets/img/brands/4.png";
+import brand5 from "../../assets/img/brands/5.png";
+import brand6 from "../../assets/img/brands/6.png";
+import brand7 from "../../assets/img/brands/7.png";
+import brand8 from "../../assets/img/brands/8.png";
+import brand9 from "../../assets/img/brands/9.png";
+
 import { Swiper, SwiperSlide } from "../swiper/SwiperRoot";
 
 const brandList = [
@@ -12,8 +17,10 @@ const brandList = [
   { id: 3, link: "#", imageSrc: brand3, alt: "Brand 3" },
   { id: 4, link: "#", imageSrc: brand4, alt: "Brand 4" },
   { id: 5, link: "#", imageSrc: brand5, alt: "Brand 5" },
-  { id: 6, link: "#", imageSrc: brand2, alt: "Brand 6" },
-  { id: 7, link: "#", imageSrc: brand3, alt: "Brand 7" },
+  { id: 6, link: "#", imageSrc: brand6, alt: "Brand 6" },
+  { id: 7, link: "#", imageSrc: brand7, alt: "Brand 7" },
+  { id: 8, link: "#", imageSrc: brand8, alt: "Brand 8" },
+  { id: 9, link: "#", imageSrc: brand9, alt: "Brand 9" },
 ];
 
 export const BrandOne = ({ className = "" }) => {
@@ -49,7 +56,7 @@ export const BrandOne = ({ className = "" }) => {
                       <SwiperSlide key={brand.id}>
                         <div className="td-brand-single-logo text-center">
                           <a href={brand.link}>
-                            <img src={brand.imageSrc} alt={brand.alt} />
+                            <img src={brand.imageSrc} alt={brand.alt} style={{width: '100%'}} />
                           </a>
                         </div>
                       </SwiperSlide>
