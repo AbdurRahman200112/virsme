@@ -9821,6 +9821,8 @@ input[type="color"] {
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.06);
   width: 100%;
   height: 150px;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px),
   (max-width: 575px) {
@@ -11660,10 +11662,10 @@ input[type="color"] {
   margin-bottom: 2px;
 }
 .td-expreance-title-pre {
-  font-weight: 400;
+  font-weight: 700;
   font-size: 16px;
   line-height: 1.62;
-  color: var(--td-common-white);
+  color: #76b6fe;
   margin-bottom: 0;
   margin-left: 37px;
   -webkit-transition: all 0.3s 0s ease-out;
@@ -11726,7 +11728,7 @@ input[type="color"] {
   content: "";
   width: 100%;
   height: 100%;
-  background: #222f35;
+  background: #042d5b;
   top: 0;
   left: 0;
   transition: all 0.5s ease;
@@ -11779,29 +11781,54 @@ input[type="color"] {
 }
 .td-expreance-content-wrap {
   z-index: 1;
+  cursor: pointer;
 }
 .td-expreance-content-wrap:hover .td-expreance-item {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.td-expreance-content-wrap.selected .td-expreance-item {
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
 }
 .td-expreance-content-wrap:hover .td-expreance-thumb {
   opacity: 1;
   visibility: visible;
-  
+}
+.td-expreance-content-wrap.selected .td-expreance-thumb{
+  opacity: 1;
+  visibility: visible;
+}
+.td-expreance-content-wrap.selected .td-expreance-item::before{
+  opacity: 0;
+  visibility: visible;
 }
 .td-expreance-content-wrap:hover .td-expreance-title-pre {
   opacity: 1;
   visibility: visible;
-  
+}
+.td-expreance-content-wrap.selected .td-expreance-title-pre {
+  opacity: 1;
+  visibility: visible;
 }
 .td-expreance-content-wrap:hover .td-expreance-btn button {
+  opacity: 1;
+}
+.td-expreance-content-wrap.selected .td-expreance-btn button {
   opacity: 1;
 }
 .td-expreance-content-wrap:hover .td-expreance-btn-wrap p {
   opacity: 1;
   visibility: visible;
 }
+.td-expreance-content-wrap.selected .td-expreance-btn-wrap p {
+  opacity: 1;
+  visibility: visible;
+}
 .td-expreance-content-wrap:hover .td-expreance-title span {
+  color: var(--td-common-white);
+}
+.td-expreance-content-wrap.selected .td-expreance-title span {
   color: var(--td-common-white);
 }
 

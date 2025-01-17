@@ -54,9 +54,9 @@ export const BrandOne = ({ className = "" }) => {
                   <Swiper {...swiper_settings}>
                     {brandList.map((brand) => (
                       <SwiperSlide key={brand.id}>
-                        <div className="td-brand-single-logo text-center">
-                          <a href={brand.link}>
-                            <img src={brand.imageSrc} alt={brand.alt} style={{width: '100%'}} />
+                        <div className="td-brand-single-logo text-center" >
+                          <a href={brand.link} style={{backgroundImage:`url(${brand.imageSrc})`, backgroundSize: 'contain'}}>
+                            {/* <img src={brand.imageSrc} alt={brand.alt} style={{width: '100%'}} /> */}
                           </a>
                         </div>
                       </SwiperSlide>
