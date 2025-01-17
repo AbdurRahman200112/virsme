@@ -48,7 +48,7 @@ export const FooterTwo = () => {
                     className="td-footer-2-big-title text-center"
                     data-parallax='{"x": -100, "smoothness": 10}'
                   >
-                    Let’s talk
+                    Let’s <span>talk</span>
                   </h2>
                 </div>
               </div>

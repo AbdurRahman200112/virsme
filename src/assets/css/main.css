@@ -4108,6 +4108,9 @@ input[type="color"] {
   -webkit-text-stroke-color: var(--td-theme-primary);
   -webkit-text-stroke-width: 1px;
 }
+.td-footer-2-big-title span{
+  -webkit-text-stroke-color:#0b7ffead;
+}
 @media only screen and (min-width: 768px) and (max-width: 991px),
   only screen and (min-width: 576px) and (max-width: 767px),
   (max-width: 575px) {
