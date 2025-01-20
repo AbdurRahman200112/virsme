@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef  } from "react";
 import { styled } from "@mui/material/styles";
-import { Layout } from "../../layouts/Layout";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton,} from "@mui/material";
 import { tableCellClasses } from "@mui/material/TableCell";
 import TextField from '@mui/material/TextField';
@@ -25,6 +24,7 @@ import smallBusinessW from "../../assets/img/service/service2/sbusiness-w.png";
 import mediumBusinessW from "../../assets/img/service/service2/mbusiness-w.png";
 import largeBusinessW from "../../assets/img/service/service2/lbusiness-w.png";
 import $ from "jquery";
+import { ExperienceOne } from "../../components/experience/ExperienceOne";
 
 
 
@@ -51,8 +51,6 @@ export const Subscriptions = () => {
   const [businessName, setBusinessName] = useState("");
   const [email, setEmail] = useState("");
   const [disabledSize, setDisabledSize] = useState(null);
-  const [animatingIndex, setAnimatingIndex] = useState(null);
-  const [serviceAnimations, setServiceAnimations] = useState({});
 
   
   useEffect(() => {
@@ -124,12 +122,6 @@ export const Subscriptions = () => {
     }));
   };
   
-  
-  
-  
-  
-  
-  
   const handleServiceRemove = (service) => {
     setSelectedServices((prev) => prev.filter((s) => s.name !== service.name));
   
@@ -146,7 +138,6 @@ export const Subscriptions = () => {
       });
     }
   };
-  
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -276,58 +267,6 @@ export const Subscriptions = () => {
     });
   };
 
-  // const AnimatedTick = ({ trigger }) => {
-  //   return (
-  //     <svg
-  //       key={trigger} // Unique key ensures animation re-renders only for this service
-  //       width="50"
-  //       height="50"
-  //       viewBox="0 0 50 50"
-  //       fill="none"
-  //       xmlns="http://www.w3.org/2000/svg"
-  //     >
-  //       <circle
-  //         cx="25"
-  //         cy="25"
-  //         r="20"
-  //         stroke="#4caf50"
-  //         strokeWidth="2"
-  //         fill="none"
-  //         strokeDasharray="125.6"
-  //         strokeDashoffset="125.6"
-  //       >
-  //         <animate
-  //           attributeName="stroke-dashoffset"
-  //           from="125.6"
-  //           to="0"
-  //           dur="0.5s"
-  //           fill="freeze"
-  //         />
-  //       </circle>
-  //       <path
-  //         d="M15 25L22 32L35 18"
-  //         stroke="#4caf50"
-  //         strokeWidth="3"
-  //         strokeLinecap="round"
-  //         strokeLinejoin="round"
-  //         fill="none"
-  //         opacity="0"
-  //       >
-  //         <animate
-  //           attributeName="opacity"
-  //           from="0"
-  //           to="1"
-  //           begin="0.5s"
-  //           dur="0.2s"
-  //           fill="freeze"
-  //         />
-  //       </path>
-  //     </svg>
-  //   );
-  // };
-  
-  
-
   return (
     <div className="stepsForm td-testimonial-area td-grey-bg pb-20 p-relative">
       <div className="progress">
@@ -339,7 +278,7 @@ export const Subscriptions = () => {
       <form onSubmit={submitForm}>
       {step === 1 && (
         <div id="step-1" className="step-container container">
-          <div className="container-fluid d-none d-md-block d-lg-block d-xl-block d-sm-block">
+          <div className=" d-none d-md-block d-lg-block d-xl-block d-sm-block">
             <div className="col-12">
               <div className="td-testimonial-bg-text text-center td-services-bg-text">
                 <h2 className="text-center">Services</h2>
