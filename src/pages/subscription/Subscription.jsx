@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef  } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton,} from "@mui/material";
 import { tableCellClasses } from "@mui/material/TableCell";
@@ -32,6 +33,7 @@ import $ from "jquery";
   {no:'04', name: "Content Creation & Branding", price: 600, img: thumbImage4 },
   {no:'05', name: "IT Support", price: 400, img: thumbImage3 },
 ];
+
 const businessSizes = [
   { label: "Startup", hours: 5, icon_w: startupW, icon: startup  },
   { label: "Small Business", hours: 10, icon_w: smallBusinessW, icon: smallBusiness },
@@ -47,12 +49,6 @@ export const Subscriptions = () => {
   const [email, setEmail] = useState("");
   const [disabledSize, setDisabledSize] = useState(null);
 
-  useEffect(() => {
-    $(".service__item-8").on("mouseenter", function () {
-      $(this).addClass("active").siblings().removeClass("active");
-      $("#service-bg-img").removeClass().addClass($(this).attr("rel"));
-    });
-  }, []);
   const handleBusinessSizeClick = (size) => {
     setDisabledSize(size.title);
     setTimeout(() => {
@@ -102,10 +98,7 @@ export const Subscriptions = () => {
   
     setSelectedServices((prev) => [...prev, service]);
     // Trigger animation for this specific service
-    setServiceAnimations((prev) => ({
-      ...prev,
-      [service.name]: Date.now(), // Use a timestamp as a unique trigger
-    }));
+
   };
   
   const handleServiceRemove = (service) => {
@@ -658,5 +651,3 @@ export const Subscriptions = () => {
     </div>
   );
 };
-
-// export default Subscription;
