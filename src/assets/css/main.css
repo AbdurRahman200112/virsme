@@ -515,12 +515,6 @@ input[type="color"] {
     --bs-gutter-x: 10px;
   }
 }
-@media (max-width: 768px) {
-  .td-header-logo a img {
-    width: 100%;
-    height: 50px !important;
-}
-}
 .td-gx-10 [class*="col-"] {
   padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
@@ -12245,7 +12239,7 @@ input[type="color"] {
 
 /* Additional CSS  */
 .td-header-logo a img{
-  width: 100%;
+  width: 185px;
 }
 .td-footer-2-logo a img{
   width: 260px;

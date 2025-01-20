@@ -1,6 +1,5 @@
 import React from "react";
 import LOGO from "../../assets/img/logo/logo-2.png";
-import LOGO2 from "../../assets/img/logo/logo-2-edits.png";
 import { useHeaderLang, useHeaderSticky } from "./useHeader";
 import { Navbar } from "./Navbar";
 import { Link } from "react-router-dom";
