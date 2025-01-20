@@ -97,9 +97,9 @@ export const HeaderTwo = () => {
                         <div className="td-header-right-2-btn ml-50 d-none d-lg-block">
                           <Link
                             className="td-btn td-btn-3 td-btn-5 td-left-right"
-                            to="/contact"
+                            to="/subscription"
                           >
-                            Let’s Talk
+                            Subscribe Now
                             <span className="td-arrow-angle ml-10">
                               <svg
                                 className="td-arrow-svg-top-right"

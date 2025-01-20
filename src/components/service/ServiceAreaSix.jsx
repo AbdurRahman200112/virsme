@@ -43,7 +43,7 @@ export const ServiceAreaSix = () => {
         </svg>
       ),
       alt: "Market analysis icon",
-      title: "Market analysis",
+      title: "Software Development",
       description:
         "From strategy to delivery, we are here to make sure your business succeeds.",
       className: "mr-30",
@@ -73,7 +73,7 @@ export const ServiceAreaSix = () => {
         </svg>
       ),
       alt: "HR research icon",
-      title: "HR researches",
+      title: "Human Resource",
       description:
         "From strategy to delivery, we are here to make sure your business succeeds.",
       className: "ml-30",
@@ -124,7 +124,7 @@ export const ServiceAreaSix = () => {
         </svg>
       ),
       alt: "Online business icon",
-      title: "Online business",
+      title: "Content Creation & Branding",
       description:
         "From strategy to delivery, we are here to make sure your business succeeds.",
       className: "mr-30",
@@ -177,7 +177,7 @@ export const ServiceAreaSix = () => {
         </svg>
       ),
       alt: "Business strategy icon",
-      title: "Business strategy",
+      title: "Accounting & Finance",
       description:
         "From strategy to delivery, we are here to make sure your business succeeds.",
       className: "ml-30",

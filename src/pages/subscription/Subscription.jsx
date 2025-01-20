@@ -170,25 +170,24 @@ export const Subscriptions = () => {
   const renderSummary = () => {
     return selectedServices.map((service) => (
       <StyledTableRow key={service.name}>
-        <StyledTableCell>{service.name}</StyledTableCell>
-        <StyledTableCell>${service.price}</StyledTableCell>
-        <StyledTableCell>
-          <TextField
-            id="standard-number"
-            type="number"
-            variant="standard"
-            value={service.hours}
-            min="1"
-            onChange={(e) => handleHoursChange(service.name, e.target.value)}
-          />
-        </StyledTableCell>
-        <StyledTableCell>${(service.price * service.hours).toFixed(2)}</StyledTableCell>
-        <StyledTableCell>
-          <IconButton onClick={() => deleteServiceRow(service.name)}>
-            <CancelIcon  />
-          </IconButton>
-        </StyledTableCell>
-      </StyledTableRow>
+      <StyledTableCell>{service.name}</StyledTableCell>
+      <StyledTableCell>${service.price}</StyledTableCell>
+      <StyledTableCell>
+        <TextField
+          id="standard-number"
+          type="number"
+          variant="standard"
+          value={service.hours}
+          onChange={(e) => handleHoursChange(service.name, e.target.value)}
+        />
+      </StyledTableCell>
+      <StyledTableCell>${(service.price * service.hours).toFixed(2)}</StyledTableCell>
+      <StyledTableCell>
+        <IconButton onClick={() => deleteServiceRow(service.name)}>
+          <CancelIcon />
+        </IconButton>
+      </StyledTableCell>
+    </StyledTableRow>
     ));
   };
 
@@ -240,15 +239,18 @@ export const Subscriptions = () => {
     return { totalHours, totalCost };
   };
 
-  const handleHoursChange = (serviceName, newHours) => {
-    setSelectedServices((prev) =>
-      prev.map((service) =>
-        service.name === serviceName
-          ? { ...service, hours: Math.max(1, parseInt(newHours) || 1) }
-          : service
-      )
-    );
+  const handleHoursChange = (serviceName, newValue) => {
+    const value = Math.max(1, parseInt(newValue, 10) || 1);
+    console.log("Updating hours for:", serviceName, "to:", value);
+    setSelectedServices((prevServices) => {
+      const updatedServices = prevServices.map((service) =>
+        service.name === serviceName ? { ...service, hours: value } : service
+      );
+      console.log("Updated Services:", updatedServices);
+      return updatedServices;
+    });
   };
+  
   
   const submitForm = (e) => {
     e.preventDefault();
