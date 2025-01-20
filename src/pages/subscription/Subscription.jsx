@@ -335,13 +335,13 @@ export const Subscriptions = () => {
                                   cx="25"
                                   cy="25"
                                   r="20"
-                                  stroke="#4caf50"
+                                  stroke="#0b7ffe"
                                   strokeWidth="2"
                                   fill="none"
                                 />
                                 <path
                                   d="M15 25L22 32L35 18"
-                                  stroke="#4caf50"
+                                  stroke="#0b7ffe"
                                   strokeWidth="3"
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
@@ -358,15 +358,15 @@ export const Subscriptions = () => {
                               >
                                 <path
                                   d="M25 50C38.8235 50 50 38.8235 50 25C50 11.1765 38.8235 0 25 0C11.1765 0 0 11.1765 0 25C0 38.8235 11.1765 50 25 50ZM25 2.94118C37.2059 2.94118 47.0588 12.7941 47.0588 25C47.0588 37.2059 37.2059 47.0588 25 47.0588C12.7941 47.0588 2.94118 37.2059 2.94118 25C2.94118 12.7941 12.7941 2.94118 25 2.94118Z"
-                                  fill="#4caf50"
+                                  fill="#0b7ffe"
                                 />
                                 <path
                                   d="M24.5585 39.2638L38.8232 24.9991L24.5585 10.7344L22.4997 12.7932L34.7056 24.9991L22.4997 37.205L24.5585 39.2638Z"
-                                  fill="#4caf50"
+                                  fill="#0b7ffe"
                                 />
                                 <path
                                   d="M36.7646 23.5293H11.7646V26.4705H36.7646V23.5293Z"
-                                  fill="#4caf50"
+                                  fill="#0b7ffe"
                                 />
                                 </svg>
                               )}
