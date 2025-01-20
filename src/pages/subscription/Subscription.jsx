@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef  } from "react";
 import { styled } from "@mui/material/styles";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton,} from "@mui/material";
 import { tableCellClasses } from "@mui/material/TableCell";
-import TextField from '@mui/material/TextField';
+import { TextField, Button, Container, Grid, Typography, Box } from '@mui/material';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import AddIcon from '@mui/icons-material/Add';
@@ -24,9 +24,6 @@ import smallBusinessW from "../../assets/img/service/service2/sbusiness-w.png";
 import mediumBusinessW from "../../assets/img/service/service2/mbusiness-w.png";
 import largeBusinessW from "../../assets/img/service/service2/lbusiness-w.png";
 import $ from "jquery";
-import { ExperienceOne } from "../../components/experience/ExperienceOne";
-
-
 
  const services = [
   {no:'01', name: "Accounting & Finance", price: 500, img: thumbImage1 },
@@ -35,14 +32,12 @@ import { ExperienceOne } from "../../components/experience/ExperienceOne";
   {no:'04', name: "Content Creation & Branding", price: 600, img: thumbImage4 },
   {no:'05', name: "IT Support", price: 400, img: thumbImage3 },
 ];
-
 const businessSizes = [
   { label: "Startup", hours: 5, icon_w: startupW, icon: startup  },
   { label: "Small Business", hours: 10, icon_w: smallBusinessW, icon: smallBusiness },
   { label: "Medium Business", hours: 15, icon_w: mediumBusinessW, icon: mediumBusiness },
   { label: "Enterprise", hours: 20, icon_w: largeBusinessW, icon: largeBusiness },
 ];
-
 
 export const Subscriptions = () => {
   const [step, setStep] = useState(1);
@@ -52,19 +47,13 @@ export const Subscriptions = () => {
   const [email, setEmail] = useState("");
   const [disabledSize, setDisabledSize] = useState(null);
 
-  
   useEffect(() => {
     $(".service__item-8").on("mouseenter", function () {
       $(this).addClass("active").siblings().removeClass("active");
       $("#service-bg-img").removeClass().addClass($(this).attr("rel"));
     });
   }, []);
-
-
-  
   const handleBusinessSizeClick = (size) => {
-
-  
     setDisabledSize(size.title);
     setTimeout(() => {
       setSelectedBusinessSize(size);
@@ -105,8 +94,6 @@ export const Subscriptions = () => {
     setStep(nextStep);
   };
 
-  const [lastSelectedService, setLastSelectedService] = useState(null);
-
   const handleServiceClick = (service) => {
     if (selectedServices.some((s) => s.name === service.name)) {
       handleServiceRemove(service);
@@ -114,7 +101,6 @@ export const Subscriptions = () => {
     }
   
     setSelectedServices((prev) => [...prev, service]);
-  
     // Trigger animation for this specific service
     setServiceAnimations((prev) => ({
       ...prev,
@@ -199,7 +185,6 @@ export const Subscriptions = () => {
     ));
   };
   
-  
   const deleteServiceRow = (serviceName) => {
     Swal.fire({
       title: "Are you sure?",
@@ -222,8 +207,7 @@ export const Subscriptions = () => {
         });
       }
     });
-  };
-  
+  }; 
   const updateTotal = () => {
     const totalHours = selectedServices.reduce((sum, service) => sum +  Number(service.hours || 0), 0);
     const totalCost = selectedServices.reduce((sum, service) => sum + service.price * (Number(service.hours) || 0), 0);
@@ -241,7 +225,6 @@ export const Subscriptions = () => {
       return updatedServices;
     });
   };
-  
   
   const submitForm = (e) => {
     e.preventDefault();
@@ -266,7 +249,7 @@ export const Subscriptions = () => {
       }
     });
   };
-
+  
   return (
     <div className="stepsForm td-testimonial-area td-grey-bg pb-20 p-relative">
       <div className="progress">
@@ -493,7 +476,7 @@ export const Subscriptions = () => {
           </div>
         )}
         {step === 3 && (
-          <div id="step-3" className="step-container container" style={{ height: '100vh' }}>
+          <div id="step-3" className="step-container container" style={{ height: '110vh' }}>
             <div className="container-fluid d-none d-md-block d-lg-block d-xl-block d-sm-block">
               <div className="col-12">
                 <div className="td-testimonial-bg-text text-center td-services-bg-text">
@@ -562,67 +545,114 @@ export const Subscriptions = () => {
           </div>
         )}
 
-        {step === 4 && (
-          <div id="step-4" className="step-container container" style={{height: '100vh'}}>
-            <div className="container-fluid d-none d-md-block d-lg-block d-xl-block d-sm-block">
-              <div className="col-12">
-                <div className="td-testimonial-bg-text text-center td-services-bg-text">
-                  <h2 className="text-center">Confirmation</h2>
-                </div>
-              </div>
+{step === 4 && (
+  <div id="step-4" className="step-container container" style={{ height: '100vh', }}>
+    <div className="container-fluid d-none d-md-block d-lg-block d-xl-block d-sm-block">
+      <div className="col-12">
+        <div className="td-testimonial-bg-text text-center td-services-bg-text">
+          <h2 className="text-center">Confirmation</h2>
+        </div>
+      </div>
+    </div>
+    <h1 className="text-center">Confirmation</h1>
+    <div className="row pt-70 pb-60">
+      <div className="col-lg-12">
+        <Box
+          sx={{
+            backgroundColor: '#fff',
+            borderRadius: '10px',
+            padding: '30px',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+            maxWidth: '500px',
+            width: '100%',
+            margin: 'auto',
+          }}
+        >
+          <Typography variant="h4" align="center" sx={{ color: '#0b7ffe', fontWeight: 'bold', marginBottom: '20px' }}>
+            Confirmation
+          </Typography>
+          <Box component="form" noValidate autoComplete="off">
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Business Name"
+                  variant="outlined"
+                  value={businessName}
+                  onChange={(e) => setBusinessName(e.target.value)}
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '&.Mui-focused fieldset': {
+                        borderColor: '#0b7ffe',
+                      },
+                    },
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Contact Email"
+                  type="email"
+                  variant="outlined"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '&.Mui-focused fieldset': {
+                        borderColor: '#0b7ffe',
+                      },
+                    },
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  onClick={(e) => { e.preventDefault(); submitForm(e); }}
+                  sx={{
+                    backgroundColor: '#0b7ffe',
+                    color: '#fff',
+                    fontWeight: 'bold',
+                    '&:hover': {
+                      backgroundColor: '#4caf50',
+                    },
+                  }}
+                >
+                  Submit
+                </Button>
+              </Grid>
+            </Grid>
+          </Box>
+          <Box sx={{ marginTop: '30px' }}>
+            <div className="td-portfolio-navigation">
+              <Grid container justifyContent="space-between">
+                <Grid item>
+                  <Button
+                    variant="text"
+                    onClick={() => goToStep(3, 4)}
+                    sx={{
+                      color: '#0b7ffe',
+                      textTransform: 'none',
+                      '&:hover': {
+                        color: '#4caf50',
+                      },
+                    }}
+                  >
+                    <i className="fa-solid fa-arrow-left-long" style={{ marginRight: '10px' }}></i>
+                    Prev Step
+                  </Button>
+                </Grid>
+              </Grid>
             </div>
-            <h1 className="text-center">Confirmation & Additional Info</h1>
-            <div className="form-group">
-              <label>Business Name</label>
-              <input
-                type="text"
-                className="form-control"
-                value={businessName}
-                onChange={(e) => setBusinessName(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label>Contact Email</label>
-              <input
-                type="email"
-                className="form-control"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
+          </Box>
+        </Box>
+      </div>
+    </div>
+  </div>
+)}
 
-            {/* Navigation */}
-            <div className="td-portfolio-navigation pb-110">
-              <div className="row align-items-center">
-                <div className="col-sm-5 mb-30">
-                  <div className="td-portfolio-more-left">
-                    <Link to="#" onClick={() => goToStep(3, 4)}>
-                      <div className="td-portfolio-more-icon">
-                        <i className="fa-solid fa-arrow-left-long"></i>
-                      </div>
-                      <span className="td-portfolio-more-content ml-20">
-                        Prev Post
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-                <div className="col-sm-2 mb-30"></div>
-                <div className="col-sm-5 mb-30">
-                  <div className="td-portfolio-more-left text-right">
-                    <Link to="#" onClick={(e) => { e.preventDefault(); submitForm(e); }}>
-                      <span className="td-portfolio-more-content mr-20">
-                        Next
-                      </span>
-                      <div className="td-portfolio-more-icon">
-                        <i className="fa-regular fa-arrow-right-long"></i>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
 
       </form>
     </div>
