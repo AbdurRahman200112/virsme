@@ -2,7 +2,7 @@ import React from "react";
 import brand1 from "../../assets/img/brands/1.png";
 import brand2 from "../../assets/img/brands/2.png";
 import brand3 from "../../assets/img/brands/3.png";
-import brand4 from "../../assets/img/brands/4.png";
+import brand4 from "../../assets/img/brands/4-edit.png";
 import brand5 from "../../assets/img/brands/5.png";
 import brand6 from "../../assets/img/brands/6.png";
 import brand7 from "../../assets/img/brands/7.png";
@@ -45,7 +45,7 @@ export const BrandOne = ({ className = "" }) => {
 
   return (
     <div className={`td-brands-area td-grey-bg ${className}`}>
-      <div className="container-fluid">
+      <div className="container">
         <div className="row gx-0">
           <div className="col-12">
             <div className="td-brands-wrap company-logo-slider-full">

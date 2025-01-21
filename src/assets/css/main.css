@@ -1153,8 +1153,11 @@ input[type="color"] {
   color: #0b7ffe;
 }
 .td-btn-3:hover {
-  /* color: var(--td-theme-primary); */
-  /* color: #4caf50; */
+  color: #4caf50;
+  border-color: #4caf50;
+}
+.td-btn-3:hover .td-arrow-svg-top-right{
+  fill: #4caf50;
 }
 .td-btn-4 {
   font-size: 12px;
