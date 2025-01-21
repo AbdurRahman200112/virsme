@@ -2,12 +2,13 @@ import React from "react";
 import brand1 from "../../assets/img/brands/1.png";
 import brand2 from "../../assets/img/brands/2.png";
 import brand3 from "../../assets/img/brands/3.png";
-import brand4 from "../../assets/img/brands/4-edit.png";
+import brand4 from "../../assets/img/brands/4-edits.png";
 import brand5 from "../../assets/img/brands/5.png";
 import brand6 from "../../assets/img/brands/6.png";
 import brand7 from "../../assets/img/brands/7.png";
-import brand8 from "../../assets/img/brands/8.png";
+import brand8 from "../../assets/img/brands/8-edit.png";
 import brand9 from "../../assets/img/brands/9.png";
+import brand10 from "../../assets/img/brands/10.png";
 
 import { Swiper, SwiperSlide } from "../swiper/SwiperRoot";
 
@@ -21,6 +22,8 @@ const brandList = [
   { id: 7, link: "#", imageSrc: brand7, alt: "Brand 7" },
   { id: 8, link: "#", imageSrc: brand8, alt: "Brand 8" },
   { id: 9, link: "#", imageSrc: brand9, alt: "Brand 9" },
+  { id: 10, link: "#", imageSrc: brand10, alt: "Brand 10" },
+
 ];
 
 export const BrandOne = ({ className = "" }) => {
