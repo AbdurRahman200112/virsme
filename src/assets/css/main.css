@@ -9816,11 +9816,11 @@ input[type="color"] {
 }
 .td-brand-single-logo a {
   padding: 45px 10px;
-  background: var(--td-common-white);
+  /* background: var(--td-common-white); */
   display: inline-block;
-  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.06);
+  /* box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.06); */
   width: 100%;
-  height: 150px;
+  /* height: 60px; */
   background-position: center center;
   background-repeat: no-repeat;
 }
