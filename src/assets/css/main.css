@@ -1154,7 +1154,7 @@ input[type="color"] {
 }
 .td-btn-3:hover {
   /* color: var(--td-theme-primary); */
-  color: #4caf50;
+  /* color: #4caf50; */
 }
 .td-btn-4 {
   font-size: 12px;
