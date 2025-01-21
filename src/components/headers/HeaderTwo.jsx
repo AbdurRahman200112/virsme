@@ -83,7 +83,7 @@ export const HeaderTwo = () => {
                     <div className="col-xxl-3 col-xl-3 col-lg-3 col-7">
                       <div className="td-header-logo d-flex align-items-center">
                         <Link className="mr-30" to="/">
-                          <img src={LOGO2} alt="logo" />
+                          <img src={LOGO} alt="logo" />
                         </Link>
                       </div>
                     </div>
