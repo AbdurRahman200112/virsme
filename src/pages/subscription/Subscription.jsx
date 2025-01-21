@@ -24,7 +24,7 @@ import startupW from "../../assets/img/service/service2/startup-w.png";
 import smallBusinessW from "../../assets/img/service/service2/sbusiness-w.png";
 import mediumBusinessW from "../../assets/img/service/service2/mbusiness-w.png";
 import largeBusinessW from "../../assets/img/service/service2/lbusiness-w.png";
-import LARAVEL_API_URL from "../../utils/baseUrl";
+// import LARAVEL_API_URL from "../../utils/baseUrl";
 
 import $ from "jquery";
 import axios from "axios";
@@ -241,46 +241,30 @@ export const Subscriptions = () => {
   
   
 
-  const submitForm = async (e) => {
+  const submitForm = (e) => {
     e.preventDefault();
+    if (!businessName || !email) {
+      Swal.fire("Required!", "Please fill out the required fields", "error");
+      return;
+    }
 
-    const payload = {
-      business_name: businessName,
-      email,
-      selected_services: selectedServices.map((service) => ({
-        name: service.name || "Unknown Service", // Default fallback if `name` is missing
-        price_per_hour: service.price || 0, // Default fallback if `price_per_hour` is missing
-        hours: service.hours || 1, // Default fallback if `hours` is missing
-      })),
-      business_size: selectedBusinessSize?.label, // Assuming `label` is correct
-    };
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      Swal.fire("Invalid Email!", "Please enter a valid email address", "error");
+      return;
+    }
 
     Swal.fire({
       title: "Confirmation",
       text: "Are you sure all the information is correct?",
       icon: "question",
       showCancelButton: true,
-    }).then(async (result) => {
+    }).then((result) => {
       if (result.isConfirmed) {
-        try {
-          const response = await submitSelection(payload);
-          Swal.fire("Success!", "Your details have been submitted.", "success");
-          console.log("Response:", response.data);
-
-          // Clear the form after successful submission
-          setBusinessName("");
-          setEmail("");
-          setSelectedServices([]);
-          setSelectedBusinessSize(null);
-          setStep(1);
-        } catch (error) {
-          console.error("Error inserting data:", error.response?.data?.message || error.message);
-          Swal.fire("Error!", "Failed to insert data. Please try again.", "error");
-        }
+        Swal.fire("Success!", "Your details have been submitted.", "success");
       }
     });
   };
-
+  
 
 
   return (
